@@ -34,7 +34,7 @@ import com.interface21.jdbc.datasource.DataSourceUtils;
  * Note that JDBC 3.0 introduces named parameters, although the other features provided
  * by this class are still necessary in JDBC 3.0.
  * @author Rod Johnson
- * @version $Id: StoredProcedure.java,v 1.6 2003/05/27 18:04:26 jhoeller Exp $
+ * @version $Id: StoredProcedure.java,v 1.7 2003/07/17 08:39:08 jhoeller Exp $
  */
 public abstract class StoredProcedure extends RdbmsOperation {
 
@@ -191,20 +191,16 @@ public abstract class StoredProcedure extends RdbmsOperation {
 		if (!isCompiled())
 			throw new InvalidDataAccessApiUsageException("Stored procedure must be compiled before execution");
 		
-		Connection con = null;
 		DataSource ds = getDataSource();
+		Connection con = DataSourceUtils.getConnection(ds);
 		try {
-			con = ds.getConnection();
-			
 			Map inParams = mapper.createMap(con);
-			
 			CallableStatement call = con.prepareCall(this.callString);
 			processInputParameters(inParams, call);
 
 			// Execute the stored procedure
-			call.execute();
-
 			logger.info("Executing stored procedure [" + callString + "]");
+			call.execute();
 
 			// Now get output parameters. There need not be any.
 			Map outParams = extractOutputParameters(call);
