@@ -12,8 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * View that redirects to an internal or external URL,
  * exposing all model attributes as HTTP query parameters.
- * @author Rod Johnson, Juergen Hoeller
- * @version $Revision: 1.3 $
+ * @author Rod Johnson
+ * @author Juergen Hoeller
+ * @version $Revision: 1.4 $
  */
 public class RedirectView extends AbstractView {
 	
