@@ -36,7 +36,7 @@ import com.interface21.beans.factory.ListableBeanFactory;
  * own child context that is independent of that of any other servlet.
  * </ul>
  * @author Rod Johnson
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public interface ApplicationContext extends MessageSource, ListableBeanFactory {
 	
@@ -110,11 +110,11 @@ public interface ApplicationContext extends MessageSource, ListableBeanFactory {
 	 * Must support absolute file paths, e.g. "C:/test.dat".
 	 * May allow for relative file paths, e.g. "/WEB-INF/test.dat".
 	 * <p>Note: Callers are responsible for closing the input stream.
-	 * @param path  the path to the specified resource
+	 * @param location  the location to the specified resource
 	 * @return the InputStream for the specified resource
 	 * @throws IOException exception when opening the specified resource
 	 */
-	InputStream getResourceAsStream(String path) throws IOException;
+	InputStream getResourceAsStream(String location) throws IOException;
 
 	/**
 	 * Put an object available for sharing. Note that this

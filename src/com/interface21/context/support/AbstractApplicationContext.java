@@ -48,7 +48,7 @@ import com.interface21.util.StringUtils;
  * call refresh, i think
  * @author  Rod Johnson
  * @since January 21, 2001
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public abstract class AbstractApplicationContext implements ApplicationContext {
 
@@ -302,14 +302,14 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 	 * be overridden for implementations targetted at a container.
 	 * @see com.interface21.context.ApplicationContext#getResourceAsStream
 	 */
-	public InputStream getResourceAsStream(String path) throws IOException {
+	public InputStream getResourceAsStream(String location) throws IOException {
 		try {
 			// try URL
-			URL url = new URL(path);
+			URL url = new URL(location);
 			return url.openStream();
 		} catch (MalformedURLException ex) {
-			// no URL -> file path
-			return new FileInputStream(path);
+			// no URL -> file location
+			return new FileInputStream(location);
 		}
 	}
 
