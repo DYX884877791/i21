@@ -36,13 +36,14 @@ import java.io.IOException;
  * init parameter at the ServletContext resp. web.xml root level, if not overridden
  * by the servlet init parameter.
  *
- * Note: Due to container incompatibilities concerning the order of servlet and listener
- * initialization, Spring initialization only works in all cases if you regard the following:
- * - ContextLoaderServlet needs a lower load-on-startup number than the controller servlets;
- * - ContextLoaderListener needs controller servlets WITHOUT load-on-startup.
+ * Spring initialization should work if you regard the following:
+ * - ContextLoaderServlet needs a lower load-on-startup number than any FrameworkServlets;
+ * - ContextLoaderListener normally does not mind FrameworkServlet load-on-startup values;
+ * - or you can stick to the implicit context initialization provided by FrameworkServlet.
+ * (Obviously, the latter is not applicable if you do not use any FrameworkServlets.)
  *
  * @author Rod Johnson
- * @version $Id: ContextLoaderServlet.java,v 1.2 2003/02/28 11:32:20 jhoeller Exp $
+ * @version $Id: ContextLoaderServlet.java,v 1.3 2003/03/07 16:08:04 jhoeller Exp $
  */
 public class ContextLoaderServlet extends HttpServlet {
 

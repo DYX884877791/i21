@@ -25,7 +25,7 @@ import com.interface21.web.context.WebApplicationContext;
 /**
  * Utilities common to all WebApplicationContext implementations
  * @author Rod Johnson
- * @version $Id: WebApplicationContextUtils.java,v 1.2 2003/03/06 09:42:56 jhoeller Exp $
+ * @version $Id: WebApplicationContextUtils.java,v 1.3 2003/03/07 16:08:10 jhoeller Exp $
  */
 public abstract class WebApplicationContextUtils {
 
@@ -55,7 +55,7 @@ public abstract class WebApplicationContextUtils {
 		WebApplicationContext waca =
 			(WebApplicationContext) sc.getAttribute(WebApplicationContext.WEB_APPLICATION_CONTEXT_ATTRIBUTE_NAME);
 		if (waca == null) {
-			String msg = "No WebApplicationContext found: has ContextLoaderServlet been set to run on startup with index=1?";
+			String msg = "No WebApplicationContext found: has ContextLoaderServlet/Listener been set to run on startup?";
 			logger.error(msg);
 			throw new ServletException(msg);
 		}
