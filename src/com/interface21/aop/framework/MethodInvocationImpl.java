@@ -23,7 +23,7 @@ import org.aopalliance.intercept.MethodInvocation;
 /**
  * Spring implementation of AOP Alliance MethodInvocation interface 
  * @author Rod Johnson
- * @version $Id: MethodInvocationImpl.java,v 1.8 2003/07/24 15:20:30 jhoeller Exp $
+ * @version $Id: MethodInvocationImpl.java,v 1.9 2003/08/08 17:43:14 johnsonr Exp $
  */
 public class MethodInvocationImpl implements MethodInvocation {
 	
@@ -84,7 +84,7 @@ public class MethodInvocationImpl implements MethodInvocation {
 			Object pc = iter.next();
 			if (pc instanceof DynamicMethodPointcut) {
 				DynamicMethodPointcut dpc = (DynamicMethodPointcut) pc;
-				if (dpc.applies(this)) {
+				if (dpc.applies(m, attributeRegistry) && dpc.applies(m, arguments, attributeRegistry)) {
 					this.interceptors.add(dpc.getInterceptor());
 				}
 			}
@@ -238,7 +238,7 @@ public class MethodInvocationImpl implements MethodInvocation {
 	 * @see org.aopalliance.intercept.MethodInvocation#setArgument(int, java.lang.Object)
 	 */
 	public void setArgument(int index, Object argument) {
-		throw new UnsupportedOperationException("setArgument");
+		this.arguments[index] = argument;
 	}
 
 

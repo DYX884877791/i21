@@ -32,7 +32,7 @@ import com.interface21.core.TimeStamped;
  * implementation.
  * @author Rod Johnson
  * @since 13-Mar-2003
- * @version $Id: ProxyFactoryBeanTests.java,v 1.10 2003/07/23 18:54:24 johnsonr Exp $
+ * @version $Id: ProxyFactoryBeanTests.java,v 1.11 2003/08/08 17:43:04 johnsonr Exp $
  */
 public class ProxyFactoryBeanTests extends TestCase {
 	
@@ -273,9 +273,16 @@ public class ProxyFactoryBeanTests extends TestCase {
 		}
 		
 		/** Should fire only if it returns null */
-		public boolean applies(MethodInvocation mi) {
+		public boolean applies(Method m, Object[] args, AttributeRegistry attributeRegistry) {
 			//System.out.println(mi.getMethod().getReturnType());
-			return mi.getMethod().getReturnType() == Void.TYPE;
+			return m.getReturnType() == Void.TYPE;
+		}
+
+		/**
+		 * @see com.interface21.aop.framework.DynamicMethodPointcut#couldApply(java.lang.reflect.Method, org.aopalliance.intercept.AttributeRegistry)
+		 */
+		public boolean applies(Method m, AttributeRegistry attributeRegistry) {
+			return true;
 		}
 
 	}

@@ -5,7 +5,9 @@
  
 package com.interface21.aop.framework;
 
-import org.aopalliance.intercept.MethodInvocation;
+import java.lang.reflect.Method;
+
+import org.aopalliance.intercept.AttributeRegistry;
 
 /**
  * Interface to be implemented by objects that can cause
@@ -19,9 +21,9 @@ import org.aopalliance.intercept.MethodInvocation;
  * a regular expression or the like may need to be evaluated only once.
  * @author Rod Johnson
  * @since 03-Apr-2003
- * @version $Id: DynamicMethodPointcut.java,v 1.3 2003/07/23 18:44:23 johnsonr Exp $
+ * @version $Id: DynamicMethodPointcut.java,v 1.4 2003/08/08 17:43:14 johnsonr Exp $
  */
-public interface DynamicMethodPointcut extends MethodPointcut {
+public interface DynamicMethodPointcut extends StaticMethodPointcut {
 
 	/**
 	 * Should the interceptor be invoked?
@@ -33,6 +35,6 @@ public interface DynamicMethodPointcut extends MethodPointcut {
 	 * @return boolean whether the interceptor referenced
 	 * by this object should be invoked
 	 */
-	boolean applies(MethodInvocation invocation);
+	boolean applies(Method m, Object[] arguments, AttributeRegistry attributeRegistry);
 	
 }
