@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.interface21.context.ApplicationContext;
-import com.interface21.web.context.RequestHandledEvent;
+import com.interface21.web.context.support.RequestHandledEvent;
 import com.interface21.web.context.WebApplicationContext;
 import com.interface21.web.context.support.WebApplicationContextUtils;
 import com.interface21.web.context.support.XmlWebApplicationContext;
@@ -45,7 +45,7 @@ import com.interface21.web.util.WebUtils;
  * onto it. Subclasses can override initFrameworkServlet() for custom initialization.
   *
  * @author Rod Johnson
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  * @see #doService
  * @see #initFrameworkServlet
  */
