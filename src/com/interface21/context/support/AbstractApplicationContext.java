@@ -49,7 +49,7 @@ import com.interface21.util.StringUtils;
  * call refresh, i think
  * @author  Rod Johnson
  * @since January 21, 2001
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 public abstract class AbstractApplicationContext implements ApplicationContext {
 
@@ -393,7 +393,7 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 	 * @throws NoSuchMessageException not found in any locale
 	 */
 	public String getMessage(MessageSourceResolvable resolvable, Locale locale) throws NoSuchMessageException {
-		return messageSource.getMessage(resolvable.getCode(), resolvable.getArgs(), resolvable.getDefaultMessage(), locale);
+		return messageSource.getMessage(resolvable, locale);
 	}
 
 	//---------------------------------------------------------------------
