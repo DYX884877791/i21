@@ -53,7 +53,7 @@ import com.interface21.jdbc.datasource.DataSourceUtils;
  * @author Thomas Risberg
  * @author Isabelle Muszynski
  * @see com.interface21.dao
- * @version $Id: JdbcTemplate.java,v 1.12 2003/05/06 12:24:01 jhoeller Exp $
+ * @version $Id: JdbcTemplate.java,v 1.13 2003/05/07 07:21:13 jhoeller Exp $
  * @since May 3, 2001
  */
 public class JdbcTemplate {
@@ -74,21 +74,16 @@ public class JdbcTemplate {
 	//-------------------------------------------------------------------------
 	// Instance data
 	//-------------------------------------------------------------------------
-	/**
-	 * Create a Log4j logging category.
-	 */
+
 	protected final Logger logger = Logger.getLogger(getClass());
 
 	/**
-	 * Used to obtain connections throughout
-	 * the lifecycle of this object. This enables this class to
-	 * close connections if necessary.
+	 * Used to obtain connections throughout the lifecycle of this object.
+	 * This enables this class to close connections if necessary.
 	 **/
 	private DataSource dataSource;
 
-	/**
-	 * If this variable is false, we will throw exceptions on SQL warnings
-	 */
+	/** If this variable is false, we will throw exceptions on SQL warnings */
 	private boolean ignoreWarnings = true;
 
 	/** Factory to get instance of Helper to translate SQL exceptions */
@@ -114,8 +109,18 @@ public class JdbcTemplate {
 	}
 
 	/**
-	 * Construct a new JdbcTemplate, given a DataSource to use to obtain connections
-	 * @param dataSource J2EE DataSource to use to obtain connections from
+	 * Construct a new JdbcTemplate, given a the name of a DataSource to obtain
+	 * connections from.
+	 * @param dataSourceName name of J2EE DataSource to obtain connections from
+	 * @throws InvalidParameterException when dataSource is null
+	 */
+	public JdbcTemplate(String dataSourceName) throws InvalidParameterException {
+		setDataSourceName(dataSourceName);
+	}
+
+	/**
+	 * Construct a new JdbcTemplate, given a DataSource to obtain connections from.
+	 * @param dataSource J2EE DataSource to obtain connections from
 	 * @throws InvalidParameterException when dataSource is null
 	 */
 	public JdbcTemplate(DataSource dataSource) throws InvalidParameterException {
@@ -127,10 +132,18 @@ public class JdbcTemplate {
 	// Configuration properties
 	//-------------------------------------------------------------------------
 
+	/**
+	 * Set the name of the J2EE DataSource to obtain connections from.
+	 * @param dataSourceName name of J2EE DataSource to obtain connections from
+	 */
 	public void setDataSourceName(String dataSourceName) throws InvalidParameterException {
 		setDataSource(DataSourceUtils.getDataSourceFromJndi(dataSourceName));
 	}
 
+	/**
+	 * Set the J2EE DataSource to obtain connections from.
+	 * @param dataSource J2EE DataSource to obtain connections from
+	 */
 	public void setDataSource(DataSource dataSource) throws InvalidParameterException {
 		if (dataSource == null) {
 			throw new InvalidParameterException("dataSource", "null");
