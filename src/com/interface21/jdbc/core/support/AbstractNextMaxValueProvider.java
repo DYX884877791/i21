@@ -9,6 +9,7 @@ import java.sql.Types;
  * Subclasses should provide implementations of protected abstract method getNextKey(int).
  * @author <a href="mailto:jp.pawlak@tiscali.fr">Jean-Pierre Pawlak</a>
  * @author <a href="mailto:isabelle@meta-logix.com">Isabelle Muszynski</a>
+ * @version $Id: AbstractNextMaxValueProvider.java,v 1.2 2003/05/10 10:28:30 pawlakjp Exp $
  */
 public abstract class AbstractNextMaxValueProvider {
 
