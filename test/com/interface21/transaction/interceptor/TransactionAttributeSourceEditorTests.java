@@ -13,14 +13,14 @@ import org.easymock.EasyMock;
 import org.easymock.MockControl;
 
 import com.interface21.transaction.TransactionDefinition;
-import com.interface21.transaction.TransactionUsageException;
+import com.interface21.util.ConstantException;
 
 /**
  * Format is 
  * FQN.Method=tx attribute representation
  * @author Rod Johnson
  * @since 26-Apr-2003
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class TransactionAttributeSourceEditorTests extends TestCase {
 
@@ -49,7 +49,7 @@ public class TransactionAttributeSourceEditorTests extends TestCase {
 			pe.setAsText("foo=bar");
 			fail();
 		}
-		catch (TransactionUsageException ex) {
+		catch (IllegalArgumentException ex) {
 			// Ok
 		}
 	}

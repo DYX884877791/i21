@@ -15,7 +15,7 @@ import org.aopalliance.intercept.MethodInvocation;
  * attributes from the AttributeRegistry.
  * @author Rod Johnson
  * @since 15-Apr-2003
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class AttributeRegistryTransactionAttributeSource implements TransactionAttributeSource {
 
@@ -66,7 +66,8 @@ public class AttributeRegistryTransactionAttributeSource implements TransactionA
 		for (int i = 0; i < atts.length; i++) {
 			l.add(atts[i]);
 		}
-		TransactionAttribute txatt = new RuleBasedTransactionAttribute(l);
+		RuleBasedTransactionAttribute txatt = new RuleBasedTransactionAttribute();
+		txatt.setRollbackRules(l);
 		System.err.println("txatt=" + txatt);
 		return txatt;
 		//return null;

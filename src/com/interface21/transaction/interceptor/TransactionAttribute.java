@@ -14,7 +14,7 @@ import com.interface21.transaction.TransactionDefinition;
  *
  * @author Rod Johnson
  * @since 16-Mar-2003
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  * @see com.interface21.transaction.interceptor.DefaultTransactionAttribute
  */
 public interface TransactionAttribute extends TransactionDefinition {
@@ -24,6 +24,6 @@ public interface TransactionAttribute extends TransactionDefinition {
 	 * @param ex the exception to evaluate
 	 * @return boolean rollback or not
 	 */
-	boolean rollBackOn(Throwable ex);
+	boolean rollbackOn(Throwable ex);
 	
 }
