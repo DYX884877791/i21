@@ -3,18 +3,18 @@
  *
  * Copyright (C) 2002 by Interprise Software.  All rights reserved.
  */
-package com.interface21.jdbc.mock;
+package com.interface21.jdbc.datasource;
 
 import java.sql.Connection;
 
-import com.interface21.jdbc.core.SmartDataSource;
+import com.interface21.jdbc.datasource.SmartDataSource;
 import com.mockobjects.sql.MockDataSource;
 
 /**
  * @task enter type comments
  * 
  * @author <a href="mailto:tcook@interprisesoftware.com">Trevor D. Cook</a>
- * @version $Id: SpringMockDataSource.java,v 1.1 2003/04/14 04:34:37 beanie42 Exp $
+ * @version $Id: SpringMockDataSource.java,v 1.2 2003/05/06 12:30:11 jhoeller Exp $
  */
 public class SpringMockDataSource
 	extends MockDataSource
@@ -28,7 +28,7 @@ public class SpringMockDataSource
 	}
 
 	/**
-	 * @see com.interface21.jdbc.core.SmartDataSource#shouldClose(java.sql.Connection)
+	 * @see com.interface21.jdbc.datasource.SmartDataSource#shouldClose(java.sql.Connection)
 	 */
 	public boolean shouldClose(Connection conn) {
 		return false;

@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2002 by Interprise Software.  All rights reserved.
  */
-package com.interface21.jdbc.mock;
+package com.interface21.jdbc.datasource;
 
 import java.sql.CallableStatement;
 import java.sql.SQLException;
@@ -17,7 +17,7 @@ import com.mockobjects.sql.MockConnection;
  * Spring subclass to assist future refactorings.
  * 
  * @author <a href="mailto:tcook@interprisesoftware.com">Trevor D. Cook</a>
- * @version $Id: SpringMockConnection.java,v 1.1 2003/04/14 04:34:37 beanie42 Exp $
+ * @version $Id: SpringMockConnection.java,v 1.2 2003/05/06 12:30:11 jhoeller Exp $
  */
 public class SpringMockConnection extends MockConnection {
 
