@@ -33,7 +33,7 @@ import com.interface21.util.StringUtils;
  *
  * @author Rod Johnson
  * @since 16 April 2001
- * @version $Id: ListableBeanFactoryImpl.java,v 1.12 2003/07/28 17:19:37 jhoeller Exp $
+ * @version $Id: ListableBeanFactoryImpl.java,v 1.13 2003/08/12 18:08:09 jhoeller Exp $
  */
 public class ListableBeanFactoryImpl extends AbstractBeanFactory implements ListableBeanFactory {
 	
@@ -196,8 +196,8 @@ public class ListableBeanFactoryImpl extends AbstractBeanFactory implements List
 			}
 		}
 	}
-
-	/** 
+	
+	/**
 	 * Register valid bean definitions in a properties file.
 	 * Ignore ineligible properties
 	 * @param m Map name -> property (String or Object). Property values
@@ -397,7 +397,7 @@ public class ListableBeanFactoryImpl extends AbstractBeanFactory implements List
 
 
 	public String toString() {
-		return getClass() + ": defined beans [" + StringUtils.arrayToDelimitedString(getBeanDefinitionNames(), ",") + "]";
+		return getClass().getName() + " with defined beans [" + StringUtils.arrayToDelimitedString(getBeanDefinitionNames(), ",") + "]";
 	}
 	
 }
