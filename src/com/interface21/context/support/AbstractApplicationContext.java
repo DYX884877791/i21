@@ -40,7 +40,7 @@ import com.interface21.util.StringUtils;
  * call refresh, i think
  * @author  Rod Johnson
  * @since January 21, 2001
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public abstract class AbstractApplicationContext implements ApplicationContext {
 	
@@ -178,8 +178,11 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 		if ((this.messageSource instanceof NestingMessageSource) && this.parent != null) {
 			( (NestingMessageSource) messageSource).setParent(this.parent);
 		}
-		refreshListeners();				
+
+		refreshListeners();
 		configureAllManagedObjects();
+
+		publishEvent(new ContextRefreshedEvent(this));
 	}	// refresh
 	
 	
