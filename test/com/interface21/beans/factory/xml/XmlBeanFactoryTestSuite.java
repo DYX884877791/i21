@@ -29,20 +29,24 @@ import com.interface21.beans.factory.support.RootBeanDefinition;
 /**
  *
  * @author Rod Johnson
-* @version $Id: XmlBeanFactoryTestSuite.java,v 1.17 2003/07/21 14:58:33 jhoeller Exp $
+* @version $Id: XmlBeanFactoryTestSuite.java,v 1.18 2003/07/31 18:53:33 jhoeller Exp $
  */
 public class XmlBeanFactoryTestSuite extends AbstractListableBeanFactoryTests {
 
+	private ListableBeanFactoryImpl parent;
+
 	private XmlBeanFactory factory;
 
-	public XmlBeanFactoryTestSuite(String name) {
-		super(name);
-
-		ListableBeanFactoryImpl parent = new ListableBeanFactoryImpl();
+	public XmlBeanFactoryTestSuite() {
+		parent = new ListableBeanFactoryImpl();
 		Map m = new HashMap();
 		m.put("name", "Albert");
 		parent.registerBeanDefinition("father",
-			new RootBeanDefinition(com.interface21.beans.TestBean.class, new MutablePropertyValues(m), false));
+			new RootBeanDefinition(TestBean.class, new MutablePropertyValues(m), true));
+		m = new HashMap();
+		m.put("name", "Roderick");
+		parent.registerBeanDefinition("rod",
+			new RootBeanDefinition(TestBean.class, new MutablePropertyValues(m), true));
 
 		// Load from classpath, NOT a file path
 		InputStream is = getClass().getResourceAsStream("test.xml");
@@ -52,6 +56,18 @@ public class XmlBeanFactoryTestSuite extends AbstractListableBeanFactoryTests {
 
 	protected BeanFactory getBeanFactory() {
 		return factory;
+	}
+
+	public void testFactoryNesting() {
+		ITestBean father = (ITestBean) getBeanFactory().getBean("father");
+		assertTrue("Bean from root context", father != null);
+
+		ITestBean rod = (ITestBean) getBeanFactory().getBean("rod");
+		assertTrue("Bean from child context", "Rod".equals(rod.getName()));
+		assertTrue("Bean has external reference", rod.getSpouse() == father);
+
+		rod = (ITestBean) parent.getBean("rod");
+		assertTrue("Bean from root context", "Roderick".equals(rod.getName()));
 	}
 
 	/** Uses a separate factory */
