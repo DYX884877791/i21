@@ -16,6 +16,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -57,7 +59,7 @@ import com.interface21.beans.factory.support.RuntimeBeanReference;
  *
  * @author Rod Johnson
  * @since 15 April 2001
- * @version $Id: XmlBeanFactory.java,v 1.5 2003/07/26 14:04:35 johnsonr Exp $
+ * @version $Id: XmlBeanFactory.java,v 1.6 2003/07/28 21:14:24 johnsonr Exp $
  */
 public class XmlBeanFactory extends ListableBeanFactoryImpl {
 
@@ -437,10 +439,15 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 	/**
 	 * Private implementation of SAX ErrorHandler used when validating XML.
 	 */
-	private class BeansErrorHandler implements ErrorHandler {
+	private static class BeansErrorHandler implements ErrorHandler {
+		
+		/**
+		 * We can't use the enclosing class's logger as it's
+		 * protected and inherited.
+		 */
+		private static Log logger = LogFactory.getLog(XmlBeanFactory.class);
 
 		public void error(SAXParseException e) throws SAXException {
-			logger.error(e);
 			throw e;
 		}
 
