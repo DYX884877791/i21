@@ -56,7 +56,7 @@ import com.interface21.beans.propertyeditors.StringArrayPropertyEditor;
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @since 15 April 2001
- * @version $Id: BeanWrapperImpl.java,v 1.12 2003/07/26 21:25:50 johnsonr Exp $
+ * @version $Id: BeanWrapperImpl.java,v 1.13 2003/07/31 18:44:56 jhoeller Exp $
  * @see #registerCustomEditor
  * @see java.beans.PropertyEditorManager
  */
@@ -508,7 +508,7 @@ public class BeanWrapperImpl implements BeanWrapper {
 			if (ex.getTargetException() instanceof PropertyVetoException)
 				throw (PropertyVetoException) ex.getTargetException();
 			if (ex.getTargetException() instanceof ClassCastException)
-				throw new TypeMismatchException(propertyChangeEvent, pd.getPropertyType(), ex);
+				throw new TypeMismatchException(propertyChangeEvent, pd.getPropertyType(), ex.getTargetException());
 			throw new MethodInvocationException(ex.getTargetException(), propertyChangeEvent);
 		}
 		catch (IllegalAccessException ex) {
