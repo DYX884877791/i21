@@ -7,7 +7,7 @@
 
     Rod Johnson, 2002-3.
 
-    $Revision: 1.14 $
+    $Revision: 1.15 $
 
     See page 594 of "Expert One-on-One J2EE" for a description of
     the JAR files produced by this build script, and how
@@ -273,6 +273,28 @@
 			<src path="${test.dir}"/>
 
 			<exclude name="**/jta/**"/>
+
+			<!-- Will pull in dependencies as required  -->
+			<classpath refid="master-classpath"/>
+			<classpath location="${build.dir}"/>
+
+		</javac>
+		
+		<copy file="${src.dir}/sql-error-codes.xml" todir="${testbuild.dir}"/>
+		
+	</target>
+
+
+	<target name="buildlivetests" depends="build" description="Compile live test source tree java files into class files.">
+
+		<mkdir dir="${livetestbuild.dir}"/>
+
+		<javac destdir="${livetestbuild.dir}"
+			debug="${debug}"
+			deprecation="false" optimize="false"
+			failonerror="false"
+			>
+			<src path="${livetest.dir}"/>
 
 			<!-- Will pull in dependencies as required  -->
 			<classpath refid="master-classpath"/>
