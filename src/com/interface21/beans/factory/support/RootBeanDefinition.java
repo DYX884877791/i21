@@ -5,13 +5,13 @@
  
 package com.interface21.beans.factory.support;
 
+import com.interface21.beans.MutablePropertyValues;
 import com.interface21.beans.PropertyValues;
 
 /** 
 * Root bean definitions have a class and properties.
-* 
-* 
 * @author Rod Johnson
+* @version $Id: RootBeanDefinition.java,v 1.5 2003/07/15 22:49:11 johnsonr Exp $
 */
 public class RootBeanDefinition extends AbstractBeanDefinition {
 
@@ -31,7 +31,7 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 	 * @param other
 	 */
 	public RootBeanDefinition(RootBeanDefinition other) {
-		super(other.getPropertyValues(), other.isSingleton());
+		super(new MutablePropertyValues(other.getPropertyValues()), other.isSingleton());
 		this.clazz = other.clazz;
 	}
 
