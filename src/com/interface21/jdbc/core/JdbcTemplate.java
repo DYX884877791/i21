@@ -63,7 +63,7 @@ import com.interface21.jdbc.datasource.DataSourceUtils;
  * @author Yann Caroff
  * @author Thomas Risberg
  * @author Isabelle Muszynski
- * @version $Id: JdbcTemplate.java,v 1.21 2003/07/06 22:51:49 jhoeller Exp $
+ * @version $Id: JdbcTemplate.java,v 1.22 2003/07/17 11:40:41 jhoeller Exp $
  * @since May 3, 2001
  * @see com.interface21.dao
  * @see com.interface21.jndi.JndiObjectFactoryBean
@@ -176,7 +176,7 @@ public class JdbcTemplate implements InitializingBean {
 
 	/**
 	 * Return the exception translater for this instance.
-	 * Create a default one for the specified DataSource if none set.
+	 * Creates a default one for the specified DataSource if none set.
 	 */
 	protected synchronized SQLExceptionTranslater getExceptionTranslater() {
 		if (this.exceptionTranslater == null) {
@@ -185,10 +185,15 @@ public class JdbcTemplate implements InitializingBean {
 		return this.exceptionTranslater;
 	}
 
+	/**
+	 * Eagerly initialize the exception translater,
+	 * creating a default one for the specified DataSource if none set.
+	 */
 	public void afterPropertiesSet() {
 		if (this.dataSource == null) {
 			throw new IllegalArgumentException("dataSource is required");
 		}
+		getExceptionTranslater();
 	}
 
 
