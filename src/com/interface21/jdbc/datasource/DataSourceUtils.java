@@ -9,7 +9,7 @@
 
 package com.interface21.jdbc.datasource;
 
-import java.lang.reflect.Method;
+import java.beans.PropertyEditorManager;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -28,7 +28,7 @@ import com.interface21.util.ThreadObjectManager;
  * connections if necessary. Has support for thread-bound connections,
  * for example for using DataSourceTransactionManager.
  * 
- * @version $Id: DataSourceUtils.java,v 1.7 2003/05/16 17:55:12 johnsonr Exp $
+ * @version $Id: DataSourceUtils.java,v 1.8 2003/05/20 16:23:29 jhoeller Exp $
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @see com.interface21.transaction.datasource.DataSourceTransactionManager
@@ -38,7 +38,12 @@ public abstract class DataSourceUtils {
 	/**
 	 * Per-thread mappings: DataSource -> ConnectionHolder
 	 */
-	private static ThreadObjectManager threadObjectManager = new ThreadObjectManager();
+	private static final ThreadObjectManager threadObjectManager = new ThreadObjectManager();
+
+	static {
+		// register editor to be able to set a JNDI name to a DataSource property
+		PropertyEditorManager.registerEditor(DataSource.class, JndiDataSourceEditor.class);
+	}
 
 	/**
 	 * Return the thread object manager for data sources, keeping a
