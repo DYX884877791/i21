@@ -15,7 +15,7 @@ import com.interface21.jndi.AbstractJndiLocator;
 /**
  * Superclass for all AOP interceptors invoking EJBs.
  * @author Rod Johnson
- * @version $Id: AbstractSlsbInvokerInterceptor.java,v 1.1 2003/06/13 13:40:37 jhoeller Exp $
+ * @version $Id: AbstractSlsbInvokerInterceptor.java,v 1.2 2003/07/11 15:04:05 jhoeller Exp $
  */
 public abstract class AbstractSlsbInvokerInterceptor extends AbstractJndiLocator implements MethodInterceptor, InitializingBean {
 
@@ -39,11 +39,20 @@ public abstract class AbstractSlsbInvokerInterceptor extends AbstractJndiLocator
 
 	
  	/**
- 	 * Implementation of protected abstract method to cache the home wrapper.
-	 * @see com.interface21.jndi.AbstractJndiLocator#located(java.lang.Object)
+ 	 * Implementation of AbstractJndiLocator's callback, to cache the home wrapper.
+	 * Triggers afterLocated after execution.
+	 * @see #afterLocated
 	 */
 	protected void located(Object o) {
 		this.homeBeanWrapper = new BeanWrapperImpl(o);
+		afterLocated();
+	}
+
+	/**
+	 * Initialization hook after the AbstractJndiLocator's located callback.
+	 * @see #located
+	 */
+	protected void afterLocated() {
 	}
 
 }

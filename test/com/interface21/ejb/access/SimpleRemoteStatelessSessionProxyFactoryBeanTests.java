@@ -25,7 +25,7 @@ import com.interface21.jndi.JndiTemplate;
  * Tests Business Methods pattern
  * @author Rod Johnson
  * @since 21-May-2003
- * @version $Id: SimpleRemoteStatelessSessionProxyFactoryBeanTests.java,v 1.1 2003/05/21 21:11:37 johnsonr Exp $
+ * @version $Id: SimpleRemoteStatelessSessionProxyFactoryBeanTests.java,v 1.2 2003/07/11 15:04:05 jhoeller Exp $
  */
 public class SimpleRemoteStatelessSessionProxyFactoryBeanTests extends TestCase {
 
@@ -68,8 +68,6 @@ public class SimpleRemoteStatelessSessionProxyFactoryBeanTests extends TestCase 
 		
 		// Need lifecycle methods
 		fb.afterPropertiesSet();
-		fb.setBeanFactory(null);
-		
 
 		MyBusinessMethods mbm = (MyBusinessMethods) fb.getObject();
 		assertTrue(Proxy.isProxyClass(mbm.getClass()));
@@ -110,8 +108,6 @@ public class SimpleRemoteStatelessSessionProxyFactoryBeanTests extends TestCase 
 	
 		// Need lifecycle methods
 		fb.afterPropertiesSet();
-		fb.setBeanFactory(null);
-	
 
 		MyBusinessMethods mbm = (MyBusinessMethods) fb.getObject();
 		assertTrue(Proxy.isProxyClass(mbm.getClass()));
@@ -153,8 +149,6 @@ public class SimpleRemoteStatelessSessionProxyFactoryBeanTests extends TestCase 
 	
 		// Need lifecycle methods
 		fb.afterPropertiesSet();
-		fb.setBeanFactory(null);
-	
 
 		MyBusinessMethods mbm = (MyBusinessMethods) fb.getObject();
 		assertTrue(Proxy.isProxyClass(mbm.getClass()));

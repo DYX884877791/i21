@@ -24,7 +24,7 @@ import junit.framework.TestCase;
  * Tests Business Methods pattern
  * @author Rod Johnson
  * @since 21-May-2003
- * @version $Id: LocalStatelessSessionProxyFactoryBeanTests.java,v 1.1 2003/05/21 21:11:37 johnsonr Exp $
+ * @version $Id: LocalStatelessSessionProxyFactoryBeanTests.java,v 1.2 2003/07/11 15:04:05 jhoeller Exp $
  */
 public class LocalStatelessSessionProxyFactoryBeanTests extends TestCase {
 
@@ -67,8 +67,6 @@ public class LocalStatelessSessionProxyFactoryBeanTests extends TestCase {
 		
 		// Need lifecycle methods
 		fb.afterPropertiesSet();
-		fb.setBeanFactory(null);
-		
 
 		MyBusinessMethods mbm = (MyBusinessMethods) fb.getObject();
 		assertTrue(Proxy.isProxyClass(mbm.getClass()));
@@ -104,8 +102,6 @@ public class LocalStatelessSessionProxyFactoryBeanTests extends TestCase {
 	
 		// Need lifecycle methods
 		fb.afterPropertiesSet();
-		fb.setBeanFactory(null);
-	
 
 		MyBusinessMethods mbm = (MyBusinessMethods) fb.getObject();
 		assertTrue(Proxy.isProxyClass(mbm.getClass()));

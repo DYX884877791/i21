@@ -27,7 +27,7 @@ import com.interface21.beans.factory.support.AbstractBeanFactory;
  * @version $RevisionId$
  * REQUIRES THE FOLLOWING BEAN DEFINITIONS:
  * see lbiinit
- * @version $Id: AbstractBeanFactoryTests.java,v 1.8 2003/07/05 16:28:17 johnsonr Exp $
+ * @version $Id: AbstractBeanFactoryTests.java,v 1.9 2003/07/11 15:04:05 jhoeller Exp $
  */
 public abstract class AbstractBeanFactoryTests extends TestCase {
 
@@ -74,8 +74,8 @@ public abstract class AbstractBeanFactoryTests extends TestCase {
 	}
 	
 	/**
-	 * Test that InitializingBean/Lifecycle objects receive the
-	 * afterPropertiesSet() callback before Lifecycle callbacks
+	 * Test that InitializingBean/BeanFactoryAware objects receive the
+	 * afterPropertiesSet() callback before BeanFactoryAware callbacks
 	 */
 	public void testLifecycleCallbacks() {
 		LifecycleBean lb = (LifecycleBean) getBeanFactory().getBean("lifecycle");
