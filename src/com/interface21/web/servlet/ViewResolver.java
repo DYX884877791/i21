@@ -23,17 +23,17 @@ import com.interface21.context.ApplicationContextAware;
  * so implementations are free to cache views.
  * <br>Implementations are encouraged to support internationalization.
  * @author  Rod Johnson
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1.2.1 $
  */
 public interface ViewResolver extends ApplicationContextAware {
 		
 	/** 
-	 * Resolve the given view by name
+	 * Resolve the given view by name.
 	 * @param viewName name of the view to resolve
 	 * @param locale Locale in which to resolve the view. ViewResolvers
 	 * that support internationalization should respect this.
 	 * @throws ServletException if the view cannot be resolved.
 	 */
-	View resolveViewname(String viewName, Locale locale) throws ServletException;
+	View resolveViewName(String viewName, Locale locale) throws ServletException;
 
 }
