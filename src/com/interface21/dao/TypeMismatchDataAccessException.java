@@ -14,17 +14,17 @@ package com.interface21.dao;
  * for example on an attempt to set an object of the wrong type
  * in an RDBMS column.
  * @author Rod Johnson
- * @version $Id: TypeMismatchDataAccessException.java,v 1.1 2003/02/11 08:10:19 johnsonr Exp $
+ * @version $Id: TypeMismatchDataAccessException.java,v 1.2 2003/08/08 15:47:18 jhoeller Exp $
  */
 public class TypeMismatchDataAccessException extends DataAccessException {
 
 	/**
 	 * Constructor for TypeMismatchDataAccessException.
-	 * @param s mesg
+	 * @param msg mesg
 	 * @param ex root cause
 	 */
-	public TypeMismatchDataAccessException(String s, Throwable ex) {
-		super(s, ex);
+	public TypeMismatchDataAccessException(String msg, Throwable ex) {
+		super(msg, ex);
 	}
 
 }

@@ -23,7 +23,7 @@ import java.sql.SQLException;
  * Can only be used once
  * @author  Rod Johnson
  * @since May 3, 2001
- * @version $Id: RowCountCallbackHandler.java,v 1.3 2003/07/24 08:07:47 jhoeller Exp $
+ * @version $Id: RowCountCallbackHandler.java,v 1.4 2003/08/08 15:47:18 jhoeller Exp $
  */
 public class RowCountCallbackHandler implements RowCallbackHandler {
 
@@ -44,7 +44,7 @@ public class RowCountCallbackHandler implements RowCallbackHandler {
 	 * Implementation of ResultSetCallbackHandler.
 	 * Work out column size if this is the first row,
 	 * otherwise just count rows.
-	 * <br/>Subclasses can perform custom extraction or processing
+	 * <p>Subclasses can perform custom extraction or processing
 	 * by overriding the processRow(ResultSet, int) method.
 	 */
 	public final void processRow(ResultSet rs) throws SQLException {

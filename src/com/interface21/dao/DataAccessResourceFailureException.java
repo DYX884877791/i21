@@ -14,17 +14,17 @@ package com.interface21.dao;
  * completely: for example, if we can't connect to a database
  * using JDBC.
  * @author Rod Johnson
- * @version $Id: DataAccessResourceFailureException.java,v 1.1 2003/02/11 08:10:18 johnsonr Exp $
+ * @version $Id: DataAccessResourceFailureException.java,v 1.2 2003/08/08 15:47:18 jhoeller Exp $
  */
 public class DataAccessResourceFailureException extends DataAccessException {
 
 	/**
 	 * Constructor for ResourceFailureDataAccessException.
-	 * @param s message
+	 * @param msg message
 	 * @param ex root cause from data access API in use
 	 */
-	public DataAccessResourceFailureException(String s, Throwable ex) {
-		super(s, ex);
+	public DataAccessResourceFailureException(String msg, Throwable ex) {
+		super(msg, ex);
 	}
 
 }

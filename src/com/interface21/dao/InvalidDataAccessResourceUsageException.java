@@ -17,24 +17,24 @@ package com.interface21.dao;
  * Resource-specific subclasses will probably be supplied by
  * data access packages.
  * @author Rod Johnson
- * @version $Id: InvalidDataAccessResourceUsageException.java,v 1.1 2003/02/11 08:10:19 johnsonr Exp $
+ * @version $Id: InvalidDataAccessResourceUsageException.java,v 1.2 2003/08/08 15:47:18 jhoeller Exp $
  */
 public class InvalidDataAccessResourceUsageException extends DataAccessException {
 	
 	/**
 	 * Constructor for InvalidDataAccessResourceUsageException.
-	 * @param s message
+	 * @param msg message
 	 */
-	public InvalidDataAccessResourceUsageException(String s) {
-		super(s);
+	public InvalidDataAccessResourceUsageException(String msg) {
+		super(msg);
 	}
 	/**
 	 * Constructor for InvalidDataAccessResourceUsageException.
-	 * @param s message
+	 * @param msg message
 	 * @param ex root cause
 	 */
-	public InvalidDataAccessResourceUsageException(String s, Throwable ex) {
-		super(s, ex);
+	public InvalidDataAccessResourceUsageException(String msg, Throwable ex) {
+		super(msg, ex);
 	}
 
 }

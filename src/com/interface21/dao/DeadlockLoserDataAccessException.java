@@ -13,17 +13,17 @@ package com.interface21.dao;
  * Generic exception thrown when the current process was
  * a deadlock loser, and its transaction rolled back.
  * @author Rod Johnson
- * @version $Id: DeadlockLoserDataAccessException.java,v 1.1 2003/02/11 08:10:18 johnsonr Exp $
+ * @version $Id: DeadlockLoserDataAccessException.java,v 1.2 2003/08/08 15:47:18 jhoeller Exp $
  */
 public class DeadlockLoserDataAccessException extends DataAccessException {
 
 	/**
 	 * Constructor for DeadlockLoserDataAccessException.
-	 * @param s mesg
+	 * @param msg mesg
 	 * @param ex root cause
 	 */
-	public DeadlockLoserDataAccessException(String s, Throwable ex) {
-		super(s, ex);
+	public DeadlockLoserDataAccessException(String msg, Throwable ex) {
+		super(msg, ex);
 	}
 
 }

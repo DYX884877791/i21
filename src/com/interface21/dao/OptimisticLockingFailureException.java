@@ -14,25 +14,25 @@ package com.interface21.dao;
  * will generally be thrown by DAOs, rather than a resource
  * abstraction layer such as the com.interface21.jdbc.object JDBC abstraction layer.
  * @author Rod Johnson
- * @version $Id: OptimisticLockingFailureException.java,v 1.1 2003/02/11 08:10:19 johnsonr Exp $
+ * @version $Id: OptimisticLockingFailureException.java,v 1.2 2003/08/08 15:47:18 jhoeller Exp $
  */ 
 public class OptimisticLockingFailureException extends DataAccessException {
 
 	/**
 	 * Constructor for OptimisticLockingFailureDataAccessException.
-	 * @param s mesg
+	 * @param msg mesg
 	 */
-	public OptimisticLockingFailureException(String s) {
-		super(s);
+	public OptimisticLockingFailureException(String msg) {
+		super(msg);
 	}
 
 	/**
 	 * Constructor for OptimisticLockingFailureDataAccessException.
-	 * @param s mesg
+	 * @param msg mesg
 	 * @param ex root cause
 	 */
-	public OptimisticLockingFailureException(String s, Throwable ex) {
-		super(s, ex);
+	public OptimisticLockingFailureException(String msg, Throwable ex) {
+		super(msg, ex);
 	}
 
 }
