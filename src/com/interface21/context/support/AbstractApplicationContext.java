@@ -58,7 +58,7 @@ import com.interface21.util.StringUtils;
  *
  * @author Rod Johnson
  * @since January 21, 2001
- * @version $Revision: 1.21.2.2 $
+ * @version $Revision: 1.21.2.3 $
  * @see #refreshBeanFactory
  * @see #getBeanFactory
  * @see #OPTIONS_BEAN_NAME
@@ -238,6 +238,10 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 		afterRefresh();
 	}
 
+	/**
+	 * Method which can be subclassed to add works on the refresh call.
+	 * @throws ApplicationContextException
+	 */
 	protected void afterRefresh() throws ApplicationContextException {
 		// For subclasses
 		// Do nothing by default
