@@ -35,7 +35,7 @@ import com.interface21.jdbc.core.SqlParameter;
  * Note that JDBC 3.0 introduces named parameters, although the other features provided
  * by this class are still necessary in JDBC 3.0.
  * @author Rod Johnson
- * @version $Id: StoredProcedure.java,v 1.2 2003/03/08 20:44:38 trisberg Exp $
+ * @version $Id: StoredProcedure.java,v 1.3 2003/03/08 22:03:06 trisberg Exp $
  */
 public abstract class StoredProcedure extends RdbmsOperation {
 
@@ -208,8 +208,6 @@ public abstract class StoredProcedure extends RdbmsOperation {
 		}
 		catch (SQLException ex) {
 			//throw new UncategorizedSQLException("Call to stored procedure '" + getSql() + "' failed", ex);
-			System.out.println(this.callString);
-			System.out.println(this.exceptionTranslater);
 			throw this.exceptionTranslater.translate("Call to stored procedure '" + getSql() + "'", this.callString, ex);
 		}
 		finally {
