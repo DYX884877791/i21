@@ -1,5 +1,5 @@
 /*
- *	$Id: TestBean.java,v 1.6 2003/05/28 07:14:42 johnsonr Exp $
+ *	$Id: TestBean.java,v 1.7 2003/06/11 18:48:34 jhoeller Exp $
  */
 
 package com.interface21.beans;
@@ -30,6 +30,8 @@ public class TestBean implements ITestBean, IOther {
 	private Collection friends = new LinkedList();
 	
 	private Date date = new Date();
+
+	private Float myFloat = new Float(0.0);
 
 	public String getTouchy() {
 		return touchy;
@@ -99,6 +101,14 @@ public class TestBean implements ITestBean, IOther {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public Float getMyFloat() {
+		return myFloat;
+	}
+
+	public void setMyFloat(Float myFloat) {
+		this.myFloat = myFloat;
 	}
 
 	public boolean equals(Object other) {
