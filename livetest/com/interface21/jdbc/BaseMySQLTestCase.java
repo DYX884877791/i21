@@ -3,7 +3,6 @@ package com.interface21.jdbc;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.sql.DataSource;
-
 import com.interface21.jdbc.datasource.SingleConnectionDataSource;
 
 import junit.framework.TestCase;
@@ -13,7 +12,7 @@ import junit.framework.TestCase;
  * Creates connections, statements, etc. and closes them.
  * 
  * @author  Isabelle Muszynski
- * @version $Id: BaseMySQLTestCase.java,v 1.1 2003/05/21 12:23:21 isabellem Exp $
+ * @version $Id: BaseMySQLTestCase.java,v 1.2 2003/05/25 16:16:25 isabellem Exp $
  */
 
 public abstract class BaseMySQLTestCase extends TestCase {
@@ -51,7 +50,7 @@ public abstract class BaseMySQLTestCase extends TestCase {
      * Creates resources used by all tests.
      * @throws Exception if an error occurs.
      */
-    public void setUp() throws Exception {
+	public void setUp() throws Exception {
 	ds = new SingleConnectionDataSource("com.mysql.jdbc.Driver", dbUrl, "test", "test", false);
 	if (null != ds)
 	    conn = ds.getConnection();   
