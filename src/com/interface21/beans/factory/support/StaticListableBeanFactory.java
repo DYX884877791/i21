@@ -18,7 +18,7 @@ import com.interface21.beans.factory.NoSuchBeanDefinitionException;
  * Mainly useful for testing.
  * @author Rod Johnson
  * @since 06-Jan-03
- * @version $Id: StaticListableBeanFactory.java,v 1.3 2003/07/05 21:24:12 johnsonr Exp $
+ * @version $Id: StaticListableBeanFactory.java,v 1.4 2003/07/07 22:33:34 johnsonr Exp $
  */
 public class StaticListableBeanFactory implements ListableBeanFactory {
 
@@ -37,7 +37,7 @@ public class StaticListableBeanFactory implements ListableBeanFactory {
 	 * @see com.interface21.beans.factory.ListableBeanFactory#getBeanDefinitionNames()
 	 */
 	public String[] getBeanDefinitionNames() {
-		return (String[]) beans.keySet().toArray();
+		return (String[]) beans.keySet().toArray(new String[beans.keySet().size()]);
 	}
 
 	/**
