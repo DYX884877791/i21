@@ -69,7 +69,7 @@ import com.interface21.web.util.WebUtils;
  * @see com.interface21.web.context.ContextLoaderListener
  * @author Rod Johnson
  * @author Juergen Hoeller
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class DispatcherServlet extends FrameworkServlet {
 	
@@ -259,7 +259,7 @@ public class DispatcherServlet extends FrameworkServlet {
 	 */
 	private void initDefaultHandlerAdapter() throws ServletException {
 		try {
-			logger.info("Controller servlet '" + getServletName() + "': Initializing default HandlerAdapter");
+			logger.info("Dispatcher servlet '" + getServletName() + "': Initializing default HandlerAdapter");
 			HandlerAdapter ha = new SimpleControllerHandlerAdapter();
 			ha.setApplicationContext(getWebApplicationContext());
 			this.handlerAdapters.add(ha);
