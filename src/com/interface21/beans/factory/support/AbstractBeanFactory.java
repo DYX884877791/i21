@@ -39,7 +39,7 @@ import com.interface21.beans.factory.NoSuchBeanDefinitionException;
  * method.
  * @author  Rod Johnson
  * @since 15 April 2001
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public abstract class AbstractBeanFactory implements BeanFactory {
 	
@@ -173,7 +173,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	  		if (!isFactoryDerefence(pname)) {
 	  			// Configure and return new bean instance from factory
 				FactoryBean factory = (FactoryBean) beanInstance;
-				logger.info("Bean with name '" + name + "' is a factory bean");
+				logger.debug("Bean with name '" + name + "' is a factory bean");
 				beanInstance = factory.getObject();
     	
 				// Set pass-through properties
@@ -186,7 +186,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	  		}
 	  		else {
 	  			// The user wants the factory itself
-	  			logger.info("Calling code asked for BeanFactory instance for name '" + name + "'");
+	  			logger.debug("Calling code asked for BeanFactory instance for name '" + name + "'");
 	  		}
 		}	// if we're dealing with a factory bean
 			
