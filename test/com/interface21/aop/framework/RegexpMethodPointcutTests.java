@@ -13,7 +13,7 @@ import junit.framework.TestCase;
  * 
  * @author Rod Johnson
  * @since 23-Jul-2003
- * @version $Id: RegexpMethodPointcutTests.java,v 1.2 2003/07/23 21:40:35 johnsonr Exp $
+ * @version $Id: RegexpMethodPointcutTests.java,v 1.3 2003/07/24 20:49:14 johnsonr Exp $
  */
 public class RegexpMethodPointcutTests extends TestCase {
 
@@ -52,6 +52,17 @@ public class RegexpMethodPointcutTests extends TestCase {
 		rpc.setPattern("java.lang.Object.*");
 		assertTrue(rpc.applies(Object.class.getMethod("hashCode", null), null));
 		assertTrue(rpc.applies(Object.class.getMethod("wait", null), null));
+	}
+	
+	public void testMatchesObjectClass() throws Exception {
+		RegexpMethodPointcut rpc = new RegexpMethodPointcut();
+		DebugInterceptor di = new DebugInterceptor();
+		rpc.setInterceptor(di);
+		assertEquals(rpc.getInterceptor(), di);
+		rpc.setPattern("java.lang.Object.*");
+		assertTrue(rpc.applies(Exception.class.getMethod("hashCode", null), null));
+		// Doesn't match a method from Throwable
+		assertFalse(rpc.applies(Exception.class.getMethod("getMessage", null), null));
 	}
 
 }
