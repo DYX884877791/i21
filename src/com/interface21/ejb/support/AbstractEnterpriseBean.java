@@ -29,7 +29,7 @@ import com.interface21.beans.factory.support.BootstrapException;
  * EJB's ejbCreate() method is invoked--for example,
  * in setSessionContext().
  * @author Rod Johnson
- * @version $Id: AbstractEnterpriseBean.java,v 1.5 2003/07/26 13:41:41 johnsonr Exp $
+ * @version $Id: AbstractEnterpriseBean.java,v 1.6 2003/07/28 23:03:18 pawlakjp Exp $
  */
 abstract class AbstractEnterpriseBean implements EnterpriseBean {
 
@@ -78,7 +78,7 @@ abstract class AbstractEnterpriseBean implements EnterpriseBean {
 
 	/**
 	 * May be called after ejbCreate()
-	 * @return
+	 * @return the bean Factory
 	 */
 	protected BeanFactory getBeanFactory() {
 		return this.beanFactory;
