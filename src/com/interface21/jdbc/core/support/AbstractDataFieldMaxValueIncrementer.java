@@ -16,11 +16,12 @@ import com.interface21.jdbc.datasource.DataSourceUtils;
  * <li>19/04/2003 : modified by Isabelle Muszynski, added nextDoubleValue
  * <li>09/05/2003 : modified by JPP, added nextLongValue
  * <li>17/06/2003 : modified by Ken Krebs, added common functionality form subclasses
+ * <li>20/06/2003 : modified by Dmitriy Kopylenko, added dsName property
  * @author Dmitriy Kopylenko
  * @author Isabelle Muszynski
  * @author Jean-Pierre Pawlak
  * @author Ken Krebs
- * @version $Id: AbstractDataFieldMaxValueIncrementer.java,v 1.12 2003/06/20 13:56:29 dkopylenko Exp $
+ * @version $Id: AbstractDataFieldMaxValueIncrementer.java,v 1.13 2003/06/20 14:04:46 dkopylenko Exp $
  *
  */
 public abstract class AbstractDataFieldMaxValueIncrementer implements DataFieldMaxValueIncrementer, InitializingBean {
