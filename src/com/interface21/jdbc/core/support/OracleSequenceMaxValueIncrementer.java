@@ -5,7 +5,9 @@ import java.sql.Types;
 import javax.sql.DataSource;
 
 import com.interface21.beans.factory.InitializingBean;
+import com.interface21.core.InternalErrorException;
 import com.interface21.jdbc.object.SqlFunction;
+import com.interface21.jdbc.util.JdbcUtils;
 
 /**
  * Class to increment maximum value of a given Oracle SEQUENCE 
@@ -15,7 +17,7 @@ import com.interface21.jdbc.object.SqlFunction;
  * @author <a href="mailto:dkopylenko@acs.rutgers.edu>Dmitriy Kopylenko</a>
  * @author <a href="mailto:isabelle@meta-logix.com">Isabelle Muszynski</a>
  * @author <a href="mailto:jp.pawlak@tiscali.fr">Jean-Pierre Pawlak</a>
- * @version $Id: OracleSequenceMaxValueIncrementer.java,v 1.6 2003/05/10 10:34:14 pawlakjp Exp $
+ * @version $Id: OracleSequenceMaxValueIncrementer.java,v 1.7 2003/05/10 16:09:11 pawlakjp Exp $
  */
 public class OracleSequenceMaxValueIncrementer
 	extends AbstractDataFieldMaxValueIncrementer
@@ -118,7 +120,26 @@ public class OracleSequenceMaxValueIncrementer
 				SqlFunction sqlf = new SqlFunction(ds, "SELECT " + sequenceName + ".NEXTVAL FROM DUAL", type);
 				sqlf.compile();
 				// Even if it's an int, it can be casted to a long
-				maxId = ((Long)sqlf.runGeneric()).longValue();
+				// old code: maxId =((Long)sqlf.runGeneric()).longValue();
+				// Convert to long
+				switch(JdbcUtils.translateType(type)) {
+				case Types.BIGINT:
+					maxId = ((Long)sqlf.runGeneric()).longValue();
+					break;
+				case Types.INTEGER:
+					maxId = ((Integer)sqlf.runGeneric()).intValue();
+					break;
+				case Types.NUMERIC:
+					maxId = (long)((Double)sqlf.runGeneric()).doubleValue();
+					break;
+				case Types.VARCHAR:
+					try {
+					maxId = Long.parseLong((String)sqlf.runGeneric());
+					} catch (NumberFormatException ex) {
+					throw new InternalErrorException("Key value could not be converted to long");
+					}
+					break;
+				}
 				nextId = maxId - incrementBy;
 			}
 			nextId++;
