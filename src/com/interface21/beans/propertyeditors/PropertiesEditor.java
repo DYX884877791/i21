@@ -20,7 +20,7 @@ import java.util.StringTokenizer;
  * <br>The required format is defined in java.util.Properties documentation.
  * Each property must be on a new line.
  * @author Rod Johnson
- * @version $Id: PropertiesEditor.java,v 1.4 2003/05/21 17:02:37 johnsonr Exp $
+ * @version $Id: PropertiesEditor.java,v 1.5 2003/05/21 21:15:20 johnsonr Exp $
  */
 public class PropertiesEditor extends PropertyEditorSupport {
 	
@@ -117,7 +117,7 @@ public class PropertiesEditor extends PropertyEditorSupport {
 		}
 		for (int i = 0; i < commentKeys.size(); i++) {
 			String key = (String) commentKeys.get(i);
-			System.out.println("Removed comment " + commentKeys.get(i));
+			//System.out.println("Removed comment " + commentKeys.get(i));
 			props.remove(key);
 		}
 	}
