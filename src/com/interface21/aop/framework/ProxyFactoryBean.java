@@ -17,6 +17,7 @@ import org.aopalliance.AttributeRegistry;
 import org.aopalliance.Interceptor;
 import org.apache.log4j.Logger;
 
+import com.interface21.aop.attributes.Attrib4jAttributeRegistry;
 import com.interface21.beans.BeansException;
 import com.interface21.beans.PropertyValues;
 import com.interface21.beans.factory.BeanFactory;
@@ -43,7 +44,7 @@ import com.interface21.util.StringUtils;
 * TODO there is presently no support for ordering global interceptors,
 * although an ordering mechanism, as for UrlMappings, will probably be added in future.
 * @author Rod Johnson
-* @version $Id: ProxyFactoryBean.java,v 1.3 2003/04/08 20:52:27 johnsonr Exp $
+* @version $Id: ProxyFactoryBean.java,v 1.4 2003/05/19 13:06:20 johnsonr Exp $
 */
 public class ProxyFactoryBean extends DefaultProxyConfig implements FactoryBean, Lifecycle {
 

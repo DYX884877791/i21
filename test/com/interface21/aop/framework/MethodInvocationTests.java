@@ -16,13 +16,14 @@ import org.aopalliance.AttributeRegistry;
 import org.aopalliance.MethodInterceptor;
 import org.aopalliance.MethodInvocation;
 
+import com.interface21.aop.attributes.Attrib4jAttributeRegistry;
 import com.interface21.beans.TestBean;
 
 /**
  * TODO COULD REFACTOR TO BE GENERIC
  * @author Rod Johnson
  * @since 14-Mar-2003
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class MethodInvocationTests extends TestCase {
 	
