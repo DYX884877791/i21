@@ -3,7 +3,7 @@
 <!--
     Build file for the Spring Framework core.
 
-    $Id: build.xml,v 1.32 2003/06/26 09:28:58 jhoeller Exp $
+    $Id: build.xml,v 1.33 2003/07/02 18:35:00 jhoeller Exp $
 
     See page 594 of "Expert One-on-One J2EE" for a description
     of the JAR files produced by this build script, and how
@@ -242,6 +242,7 @@
 				<include name="docs/**"/>
 				<include name="src/**"/>
 				<include name="lib/ant/**"/>
+				<include name="lib/aop-alliance/**"/>
 				<include name="lib/j2ee/servlet.jar"/>
 				<include name="lib/j2ee/jdbc2_0-stdext.jar"/>
 				<include name="lib/jstl/**"/>
