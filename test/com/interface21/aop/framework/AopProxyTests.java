@@ -23,7 +23,6 @@ import com.interface21.aop.interceptor.misc.DebugInterceptor;
 import com.interface21.beans.IOther;
 import com.interface21.beans.ITestBean;
 import com.interface21.beans.TestBean;
-import com.interface21.jta.ITest;
 
 import junit.framework.TestCase;
 
@@ -31,7 +30,7 @@ import junit.framework.TestCase;
  * 
  * @author Rod Johnson
  * @since 13-Mar-2003
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class AopProxyTests extends TestCase {
 
@@ -197,7 +196,7 @@ public class AopProxyTests extends TestCase {
 			!tb
 			.equals(
 				Proxy
-				.newProxyInstance(getClass().getClassLoader(), new Class[] { ITest.class }, new InvocationHandler() {
+				.newProxyInstance(getClass().getClassLoader(), new Class[] { ITestBean.class }, new InvocationHandler() {
 			/**
 			 * @see java.lang.reflect.InvocationHandler#invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[])
 			 */
