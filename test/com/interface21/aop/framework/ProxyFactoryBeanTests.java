@@ -16,7 +16,7 @@ import org.aopalliance.AttributeRegistry;
 import org.aopalliance.MethodInterceptor;
 import org.aopalliance.MethodInvocation;
 
-import com.interface21.aop.interceptor.misc.DebugInterceptor;
+import com.interface21.aop.interceptor.DebugInterceptor;
 import com.interface21.beans.FatalBeanException;
 import com.interface21.beans.ITestBean;
 import com.interface21.beans.TestBean;
@@ -32,7 +32,7 @@ import com.interface21.core.TimeStamped;
  * implementation.
  * @author Rod Johnson
  * @since 13-Mar-2003
- * @version $Id: ProxyFactoryBeanTests.java,v 1.7 2003/06/06 16:22:02 jhoeller Exp $
+ * @version $Id: ProxyFactoryBeanTests.java,v 1.8 2003/06/13 13:41:01 jhoeller Exp $
  */
 public class ProxyFactoryBeanTests extends TestCase {
 	

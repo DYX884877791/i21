@@ -6,7 +6,6 @@
 package com.interface21.ejb.access;
 
 import com.interface21.aop.framework.ProxyFactory;
-import com.interface21.aop.interceptor.client.ejb.LocalSlsbInvokerInterceptor;
 import com.interface21.beans.BeansException;
 import com.interface21.beans.PropertyValues;
 import com.interface21.beans.factory.BeanFactory;
@@ -19,7 +18,7 @@ import com.interface21.beans.factory.Lifecycle;
  * rather than rely on this class.
  * @author Rod Johnson
  * @since 09-May-2003
- * @version $Id: LocalStatelessSessionProxyFactoryBean.java,v 1.2 2003/05/21 21:11:37 johnsonr Exp $
+ * @version $Id: LocalStatelessSessionProxyFactoryBean.java,v 1.3 2003/06/13 13:40:37 jhoeller Exp $
  */
 public class LocalStatelessSessionProxyFactoryBean extends LocalSlsbInvokerInterceptor implements FactoryBean, Lifecycle {
 	

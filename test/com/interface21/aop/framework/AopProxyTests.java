@@ -21,7 +21,7 @@ import org.easymock.EasyMock;
 import org.easymock.MockControl;
 
 import com.interface21.aop.attributes.Attrib4jAttributeRegistry;
-import com.interface21.aop.interceptor.misc.DebugInterceptor;
+import com.interface21.aop.interceptor.DebugInterceptor;
 import com.interface21.beans.IOther;
 import com.interface21.beans.ITestBean;
 import com.interface21.beans.TestBean;
@@ -30,7 +30,7 @@ import com.interface21.beans.TestBean;
  * 
  * @author Rod Johnson
  * @since 13-Mar-2003
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class AopProxyTests extends TestCase {
 
