@@ -47,7 +47,7 @@ import com.interface21.dao.DataAccessException;
  * SQLExceptionTranslater interface, it isn't necessary to subclass it.
  * @author  Rod Johnson
  * @see com.interface21.dao
- * @version $Id: JdbcTemplate.java,v 1.2 2003/02/26 22:47:05 caroffy Exp $
+ * @version $Id: JdbcTemplate.java,v 1.3 2003/02/26 22:58:41 caroffy Exp $
  * @since May 3, 2001
  */
 public class JdbcTemplate {
@@ -82,8 +82,15 @@ public class JdbcTemplate {
 	 * Construct a new JdbcTemplate, given a DataSource to use to obtain
 	 * connections
 	 * @param dataSource J2EE DataSource to use to obtain connections from
+	 * @throws InvalidParameterException when a null DataSource is used as
+	 *          a parameter
 	 */
-	public JdbcTemplate(DataSource dataSource) {
+	public JdbcTemplate(DataSource dataSource) 
+			throws InvalidParameterException {
+		if (dataSource == null) {
+	      throw new InvalidParameterException("dataSource", "null");
+    	}
+		
 		this.dataSource = dataSource;
 		this.exceptionTranslater = new SQLStateSQLExceptionTranslater();
 	}
