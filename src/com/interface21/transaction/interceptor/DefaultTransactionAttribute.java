@@ -12,11 +12,23 @@ import com.interface21.transaction.support.DefaultTransactionDefinition;
  * back on runtime, but not checked, exceptions.
  * @author Rod Johnson
  * @since 16-Mar-2003
- * @version $Revision: 1.1 $
+ * @version $Id: DefaultTransactionAttribute.java,v 1.2 2003/07/05 09:46:51 johnsonr Exp $
  */
 public class DefaultTransactionAttribute extends DefaultTransactionDefinition
     implements TransactionAttribute {
 
+	/**
+	 * Create a new transaction attribute with REQUIRED propagation
+	 * and default transaction isolation.
+	 */
+	public DefaultTransactionAttribute() {
+		super();
+	}
+	
+	public DefaultTransactionAttribute(int propagationBehavior) {
+		super(propagationBehavior);
+	}
+			
 	public DefaultTransactionAttribute(int propagationBehavior, int isolationLevel) {
 		super(propagationBehavior, isolationLevel);
 	}
