@@ -27,13 +27,16 @@ import com.interface21.util.ThreadObjectManager;
  * connections if necessary. Has support for thread-bound connections,
  * for example when using DataSourceTransactionManager.
  * 
- * @version $Id: DataSourceUtils.java,v 1.1 2003/05/06 12:24:03 jhoeller Exp $
+ * @version $Id: DataSourceUtils.java,v 1.2 2003/05/06 16:53:35 jhoeller Exp $
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @see com.interface21.transaction.support.DataSourceTransactionManager
  */
 public abstract class DataSourceUtils {
 
+	/**
+	 * Per-thread mappings: DataSource -> ConnectionHolder
+	 */
 	private static ThreadObjectManager threadObjectManager = new ThreadObjectManager();
 
 	/**
@@ -87,8 +90,9 @@ public abstract class DataSourceUtils {
 	 * @see com.interface21.transaction.support.DataSourceTransactionManager
 	 */
 	public static Connection getConnection(DataSource ds) throws CannotGetJdbcConnectionException {
-		if (getThreadObjectManager().hasThreadObject(ds)) {
-			return (Connection) getThreadObjectManager().getThreadObject(ds);
+		ConnectionHolder holder = (ConnectionHolder) getThreadObjectManager().getThreadObject(ds);
+		if (holder != null) {
+			return holder.getConnection();
 		} else {
 			try {
 				return ds.getConnection();
@@ -110,8 +114,8 @@ public abstract class DataSourceUtils {
 		if (con == null)
 			return;
 		// only close if it isn't thread-bound
-		Connection boundCon = (Connection) getThreadObjectManager().getThreadObject(ds);
-		if (con != boundCon) {
+		ConnectionHolder holder = (ConnectionHolder) getThreadObjectManager().getThreadObject(ds);
+		if (holder == null || con != holder.getConnection()) {
 			boolean shouldClose = true;
 			// leave the connection open only if the DataSource is our
 			// special data source, and it wants the connection left open
