@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2002 by Interprise Software.  All rights reserved.
  */
-package com.interface21.jdbc.datasource;
+package com.interface21.jdbc.mock;
 
 import java.io.InputStream;
 import java.io.Reader;
@@ -18,7 +18,7 @@ import java.util.Map;
  * @task enter type comments
  * 
  * @author <a href="mailto:tcook@interprisesoftware.com">Trevor D. Cook</a>
- * @version $Id: SpringMockCallableStatement.java,v 1.2 2003/05/06 12:30:11 jhoeller Exp $
+ * @version $Id: SpringMockCallableStatement.java,v 1.3 2003/05/07 07:17:10 jhoeller Exp $
  */
 public class SpringMockCallableStatement
 	extends SpringMockPreparedStatement

@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2002 by Interprise Software.  All rights reserved.
  */
-package com.interface21.jdbc.datasource;
+package com.interface21.jdbc.mock;
 
 import java.sql.SQLException;
 import java.sql.SQLWarning;
@@ -15,7 +15,7 @@ import com.mockobjects.sql.MockResultSetMetaData;
  * @task enter type comments
  * 
  * @author <a href="mailto:tcook@interprisesoftware.com">Trevor D. Cook</a>
- * @version $Id: SpringMockJdbcFactory.java,v 1.2 2003/05/06 12:30:11 jhoeller Exp $
+ * @version $Id: SpringMockJdbcFactory.java,v 1.3 2003/05/07 07:17:10 jhoeller Exp $
  */
 public class SpringMockJdbcFactory {
 
