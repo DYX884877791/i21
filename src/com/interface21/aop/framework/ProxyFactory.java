@@ -11,10 +11,13 @@ import java.util.Set;
 
 
 /**
- * 
+ * Factory for AOP proxies for programmatic use, rather
+ * than via a bean factory.
+ * This class provides a simple way of obtaining and configuring
+ * AOP proxies in code.
  * @author Rod Johnson
  * @since 14-Mar-2003
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class ProxyFactory extends DefaultProxyConfig {
 	

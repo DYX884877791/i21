@@ -21,7 +21,7 @@ import junit.framework.TestCase;
  * 
  * @author Rod Johnson
  * @since 14-Mar-2003
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class InvokerInterceptorTests extends TestCase {
 
@@ -42,10 +42,12 @@ public class InvokerInterceptorTests extends TestCase {
 		}
 		Test t = new Test();
 		InvokerInterceptor ii = new InvokerInterceptor(t);
+		LinkedList l = new LinkedList();
+		l.add(new AlwaysInvoked(ii));
 
 		Method m = IOther.class.getMethod("absquatulate", null);
 			MethodInvocationImpl invocation = new MethodInvocationImpl(null, t, m.getDeclaringClass(), //?
-	m, null, new MethodInterceptor[] { ii }, // list
+	m, null, l, // list
 		null);
 		Object ret = ii.invoke(invocation);
 		assertTrue(ret == null);
@@ -68,10 +70,12 @@ public class InvokerInterceptorTests extends TestCase {
 		}
 		Test test = new Test();
 		InvokerInterceptor ii = new InvokerInterceptor(test);
+		LinkedList l = new LinkedList();
+		l.add(new AlwaysInvoked(ii));
 
 		Method m = Demo.class.getMethod("doSomething", null);
 			MethodInvocationImpl invocation = new MethodInvocationImpl(null, t, m.getDeclaringClass(), //?
-	m, null, new MethodInterceptor[] { ii }, // list
+	m, null, l, // list
 		null);
 		try {
 			ii.invoke(invocation);

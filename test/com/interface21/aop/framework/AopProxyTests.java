@@ -30,7 +30,7 @@ import junit.framework.TestCase;
  * 
  * @author Rod Johnson
  * @since 13-Mar-2003
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class AopProxyTests extends TestCase {
 
@@ -279,7 +279,7 @@ public class AopProxyTests extends TestCase {
 		TrapInvocationInterceptor tii = new TrapInvocationInterceptor() {
 			public Object invoke(Invocation invocation) throws Throwable {
 					// Assert that target matches BEFORE invocation returns
-	assertTrue(((MethodInvocation) invocation).getTarget() == target);
+				assertTrue(((MethodInvocation) invocation).getTarget() == target);
 				return super.invoke(invocation);
 			}
 		};
