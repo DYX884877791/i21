@@ -7,7 +7,7 @@
 
     Rod Johnson, 2002-3.
 
-    $Revision: 1.6 $
+    $Revision: 1.7 $
 
     See page 594 of "Expert One-on-One J2EE" for a description of
     the JAR files produced by this build script, and how
@@ -278,6 +278,9 @@
 			<classpath location="${build.dir}"/>
 
 		</javac>
+		
+		<copy file="${src.dir}/sql-error-codes.xml" todir="${testbuild.dir}"/>
+		
 	</target>
 
 
