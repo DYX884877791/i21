@@ -18,16 +18,13 @@ import com.interface21.context.BeanThatListens;
  * Classname doesn't match XXXXTestSuite pattern, so as to avoid
  * being invoked by Ant JUnit run, as it's abstract
  * @author Rod Johnson
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class StaticApplicationContextTestSuite extends AbstractApplicationContextTests {
 
-
 	protected StaticApplicationContext sac;
 
-	/** Creates new SeatingPlanTest */
-	public StaticApplicationContextTestSuite(String name) {
-		super(name);
+	public StaticApplicationContextTestSuite() throws Exception {
 	}
 
 	/** Run for each test */

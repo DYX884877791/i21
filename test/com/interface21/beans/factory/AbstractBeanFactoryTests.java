@@ -27,13 +27,9 @@ import com.interface21.beans.factory.support.AbstractBeanFactory;
  * @version $RevisionId$
  * REQUIRES THE FOLLOWING BEAN DEFINITIONS:
  * see lbiinit
- * @version $Id: AbstractBeanFactoryTests.java,v 1.9 2003/07/11 15:04:05 jhoeller Exp $
+ * @version $Id: AbstractBeanFactoryTests.java,v 1.10 2003/07/31 19:16:49 jhoeller Exp $
  */
 public abstract class AbstractBeanFactoryTests extends TestCase {
-
-	public AbstractBeanFactoryTests(String name) {
-		super(name);
-	}
 
 	protected abstract BeanFactory getBeanFactory();
 
