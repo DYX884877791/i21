@@ -15,13 +15,10 @@ import org.aopalliance.intercept.MethodInvocation;
  * attributes from the AttributeRegistry.
  * @author Rod Johnson
  * @since 15-Apr-2003
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class AttributeRegistryTransactionAttributeSource implements TransactionAttributeSource {
 
-	/**
-	 * @see com.interface21.transaction.interceptor.TransactionAttributeSource#getTransactionAttribute(java.lang.Class, java.lang.reflect.Method)
-	 */
 	public TransactionAttribute getTransactionAttribute(MethodInvocation mi) {
 		Class targetClass = mi.getMethod().getDeclaringClass();
 		if (mi.getThis() != null) {

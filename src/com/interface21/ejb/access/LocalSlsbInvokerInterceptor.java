@@ -13,7 +13,7 @@ import com.interface21.ejb.access.AbstractSlsbInvokerInterceptor;
  * Interceptor that invokes a local SLSB, after caching
  * the home object. A local EJB home can never go stale.
  * @author Rod Johnson
- * @version $Id: LocalSlsbInvokerInterceptor.java,v 1.2 2003/07/23 18:53:53 johnsonr Exp $
+ * @version $Id: LocalSlsbInvokerInterceptor.java,v 1.3 2003/07/24 15:20:53 jhoeller Exp $
  */
 public class LocalSlsbInvokerInterceptor extends AbstractSlsbInvokerInterceptor {
 
@@ -30,7 +30,7 @@ public class LocalSlsbInvokerInterceptor extends AbstractSlsbInvokerInterceptor 
 
 	/**
 	 * This is the last invoker in the chain
-	 * @see org.aopalliance.MethodInterceptor#invoke(org.aopalliance.Invocation)
+	 * @see org.aopalliance.intercept.MethodInterceptor#invoke(org.aopalliance.intercept.MethodInvocation)
 	 */
 	public Object invoke(MethodInvocation invocation) throws Throwable {
 		EJBLocalObject ejb = newSessionBeanInstance();

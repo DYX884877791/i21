@@ -26,7 +26,7 @@ import org.apache.commons.logging.LogFactory;
  * by the delegate but which should not be introduced to the owning
  * AOP proxy.
  * @author Rod Johnson
- * @version $Id: DelegatingIntroductionInterceptor.java,v 1.5 2003/07/23 18:44:23 johnsonr Exp $
+ * @version $Id: DelegatingIntroductionInterceptor.java,v 1.6 2003/07/24 15:20:29 jhoeller Exp $
  */
 public class DelegatingIntroductionInterceptor implements IntroductionInterceptor {
 
@@ -85,19 +85,14 @@ public class DelegatingIntroductionInterceptor implements IntroductionIntercepto
 		this.publishedInterfaces.remove(intf);
 	}
 
-	/**
-	 * @see com.interface21.aop.framework.AspectInterfaceInterceptor#getAspectInterfaces()
-	 */
 	public Class[] getIntroducedInterfaces() {
 		return (Class[]) this.publishedInterfaces.toArray(new Class[this.publishedInterfaces.size()]);
 	}
 
 	/**
-	 * Subclasses may need to override this if they want to 
-	 * perform custom behaviour in around advice. However, subclasses should invoke
-	 * this method, which handles introduced interfaces and forwarding
-	 * to the target.
-	 * @see com.interface21.aop.Interceptor#invoke(Invocation)
+	 * Subclasses may need to override this if they want to  perform custom
+	 * behaviour in around advice. However, subclasses should invoke this
+	 * method, which handles introduced interfaces and forwarding to the target.
 	 */
 	public Object invoke(MethodInvocation invocation) throws Throwable {
 		

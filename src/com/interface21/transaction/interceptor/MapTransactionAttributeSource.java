@@ -18,7 +18,7 @@ import org.apache.commons.logging.LogFactory;
  * Simple implementation of TransactionAttributeSource that
  * allows attributes to be stored in a map.
  * @since 24-Apr-2003
- * @version $Id: MapTransactionAttributeSource.java,v 1.2 2003/07/23 18:45:29 johnsonr Exp $
+ * @version $Id: MapTransactionAttributeSource.java,v 1.3 2003/07/24 15:20:55 jhoeller Exp $
  * @author Rod Johnson
  */
 public class MapTransactionAttributeSource implements TransactionAttributeSource {
@@ -39,7 +39,7 @@ public class MapTransactionAttributeSource implements TransactionAttributeSource
 	}
 	
 	/**
-	 * @see com.interface21.transaction.interceptor.TransactionAttributeSource#getTransactionAttribute(org.aopalliance.MethodInvocation)
+	 * @see com.interface21.transaction.interceptor.TransactionAttributeSource#getTransactionAttribute(org.aopalliance.intercept.MethodInvocation)
 	 */
 	public TransactionAttribute getTransactionAttribute(MethodInvocation invocation) {
 		TransactionAttribute ta = (TransactionAttribute) this.methodMap.get(invocation.getMethod());

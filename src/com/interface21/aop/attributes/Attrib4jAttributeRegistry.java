@@ -14,12 +14,12 @@ import org.aopalliance.intercept.AttributeRegistry;
 /**
  * @author Rod Johnson
  * @since 13-Mar-2003
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class Attrib4jAttributeRegistry implements AttributeRegistry {
 
 	/**
-	 * @see org.aopalliance.AttributeRegistry#getAttributes(java.lang.reflect.AccessibleObject)
+	 * @see org.aopalliance.intercept.AttributeRegistry#getAttributes(java.lang.reflect.AccessibleObject)
 	 */
 	public Object[] getAttributes(AccessibleObject ao) {
 		// TODO: could cache, or want independent instances?
@@ -32,7 +32,7 @@ public class Attrib4jAttributeRegistry implements AttributeRegistry {
 		
 
 	/**
-	 * @see org.aopalliance.AttributeRegistry#getAttributes(java.lang.Class)
+	 * @see org.aopalliance.intercept.AttributeRegistry#getAttributes(java.lang.Class)
 	 */
 	public Object[] getAttributes(Class clazz) {
 		throw new UnsupportedOperationException("Attrib4j integration not yet implemented");
