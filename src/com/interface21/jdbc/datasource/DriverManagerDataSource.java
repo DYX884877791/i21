@@ -4,41 +4,49 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import com.interface21.beans.factory.InitializingBean;
-
 /**
  * Implementation of SmartDataSource that configures a plain old JDBC Driver
  * and returns a new connection every time.
  * 
- * Useful for testing in conjunction with a mock JNDI InitialContext,
+ * <p>Useful for testing in conjunction with a mock JNDI InitialContext,
  * especially when pool-assuming Connection.close() calls cannot be avoided,
  * e.g. when using persistence toolkits.
  *
  * @author Juergen Hoeller
  * @since 14.03.2003
- * @version $Id: DriverManagerDataSource.java,v 1.2 2003/05/07 10:52:44 jhoeller Exp $
+ * @version $Id: DriverManagerDataSource.java,v 1.3 2003/05/27 18:03:53 jhoeller Exp $
  * @see com.interface21.jndi.mock.MockInitialContextFactoryBuilder
  */
-public class DriverManagerDataSource extends AbstractDataSource implements SmartDataSource, InitializingBean {
+public class DriverManagerDataSource extends AbstractDataSource implements SmartDataSource {
 
 	private String driverName = "";
+
 	private String url = "";
+
 	private String user = "";
+
 	private String password = "";
 
 	public DriverManagerDataSource() {
 	}
 
-	public DriverManagerDataSource(String driverName, String url, String user, String password) throws CannotGetJdbcConnectionException {
-		this.driverName = driverName;
-		this.url = url;
-		this.user = user;
-		this.password = password;
-		afterPropertiesSet();
+	public DriverManagerDataSource(String driverName, String url, String user, String password)
+	    throws CannotGetJdbcConnectionException {
+		setDriverName(driverName);
+		setUrl(url);
+		setUser(user);
+		setPassword(password);
 	}
 
 	public void setDriverName(String driverName) {
 		this.driverName = driverName;
+		try {
+			Class.forName(this.driverName);
+			logger.info("Loaded JDBC driver: " + this.driverName);
+		}
+		catch (ClassNotFoundException ex) {
+			throw new CannotGetJdbcConnectionException("Cannot load JDBC driver class '" + this.driverName + "'", ex);
+		}
 	}
 
 	public String getDriverName() {
@@ -67,16 +75,6 @@ public class DriverManagerDataSource extends AbstractDataSource implements Smart
 
 	public String getPassword() {
 		return password;
-	}
-
-	public void afterPropertiesSet() {
-		try {
-			Class.forName(this.driverName);
-			logger.info("Loaded JDBC driver: " + this.driverName);
-		}
-		catch (ClassNotFoundException ex) {
-			throw new CannotGetJdbcConnectionException("Cannot load JDBC driver class '" + this.driverName + "'", ex);
-		}
 	}
 
 	/**
