@@ -29,6 +29,7 @@ import com.interface21.core.OrderComparator;
 import com.interface21.web.servlet.handler.BeanNameUrlHandlerMapping;
 import com.interface21.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import com.interface21.web.servlet.mvc.SimpleControllerHandlerAdapter;
+import com.interface21.web.servlet.theme.*;
 import com.interface21.web.servlet.theme.FixedThemeResolver;
 import com.interface21.web.servlet.view.InternalResourceViewResolver;
 import com.interface21.web.util.WebUtils;
@@ -70,7 +71,7 @@ import com.interface21.web.util.WebUtils;
  * @see com.interface21.web.context.ContextLoaderListener
  * @author Rod Johnson
  * @author Juergen Hoeller
- * @version $Revision: 1.1.2.1 $
+ * @version $Revision: 1.1.2.2 $
  */
 public class DispatcherServlet extends FrameworkServlet {
 	

@@ -15,6 +15,7 @@ import javax.servlet.ServletContext;
 
 import com.interface21.context.ApplicationContext;
 import com.interface21.context.ApplicationContextException;
+import com.interface21.ui.context.*;
 
 /** 
  * Interface to provide configuration for a web application. This is read-only while
@@ -30,7 +31,7 @@ import com.interface21.context.ApplicationContextException;
  *
  * @author Rod Johnson
  * @since January 19, 2001
- * @version $Revision: 1.2.2.1 $
+ * @version $Revision: 1.2.2.2 $
  */
 public interface WebApplicationContext extends ApplicationContext, ThemeSource {
 
