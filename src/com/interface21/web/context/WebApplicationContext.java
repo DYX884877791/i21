@@ -30,9 +30,9 @@ import com.interface21.context.ApplicationContextException;
  *
  * @author Rod Johnson
  * @since January 19, 2001
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.2.2.1 $
  */
-public interface WebApplicationContext extends ApplicationContext {
+public interface WebApplicationContext extends ApplicationContext, ThemeSource {
 
 	/** 
 	 * Context attribute to bind root WebApplicationContext to on successful startup.

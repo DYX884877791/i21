@@ -36,9 +36,9 @@ import com.interface21.beans.factory.ListableBeanFactory;
  * own child context that is independent of that of any other servlet.
  * </ul>
  * @author Rod Johnson
- * @version $Revision: 1.7.2.1 $
+ * @version $Revision: 1.7.2.2 $
  */
-public interface ApplicationContext extends MessageSource, ListableBeanFactory, ThemeSource {
+public interface ApplicationContext extends MessageSource, ListableBeanFactory {
 	
 	/**
 	 * Return the parent context, or null if there is no parent,
