@@ -14,7 +14,7 @@ import java.util.Set;
  * 
  * @author Rod Johnson
  * @since 14-Mar-2003
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class ProxyFactory extends DefaultProxyConfig {
 	
@@ -38,6 +38,19 @@ public class ProxyFactory extends DefaultProxyConfig {
 		// Add the interceptor we'll always require
 		InvokerInterceptor ii = new InvokerInterceptor(target);
 		addInterceptor(ii);
+	}
+	
+	
+	/**
+	 * No target, only interfaces
+	 *
+	 */
+	public ProxyFactory(Class[] interfaces) {
+		// TODO if null or empty
+		for (int i = 0; i < interfaces.length; i++) {
+			addInterface(interfaces[i]);
+		}
+		// Must add interceptors
 	}
 	
 	/**
