@@ -28,7 +28,7 @@ import com.interface21.beans.factory.InitializingBean;
 * <br>
 * This class frees subclasses of the housekeeping of interceptors and pointcuts.
 * @author Rod Johnson
-* @version $Id: DefaultProxyConfig.java,v 1.3 2003/04/08 20:39:25 johnsonr Exp $
+* @version $Id: DefaultProxyConfig.java,v 1.4 2003/04/09 04:33:31 isabellem Exp $
 */
 public class DefaultProxyConfig implements ProxyConfig, InitializingBean {
 
@@ -89,7 +89,7 @@ public class DefaultProxyConfig implements ProxyConfig, InitializingBean {
 
 
 	/** 
-	 * @see com.interface21.aop.ProxyConfig#addInterceptor(org.aopalliance.Interceptor)
+	 * @see com.interface21.aop.framework.ProxyConfig#addInterceptor(org.aopalliance.Interceptor)
 	 */
 	public final void addInterceptor(Interceptor interceptor) {
 		int pos = (this.pointcuts != null) ? this.pointcuts.size() : 0;
@@ -113,7 +113,7 @@ public class DefaultProxyConfig implements ProxyConfig, InitializingBean {
 	 * New interfaces will only be available when a new proxy is obtained
 	 * through getObject().
 	 * The same goes for removing interfaces.
-	 * @see com.interface21.aop.ProxyConfig#addInterceptor(int, org.aopalliance.Interceptor)
+	 * @see com.interface21.aop.framework.ProxyConfig#addInterceptor(int, org.aopalliance.Interceptor)
 	 */
 	public final void addInterceptor(int pos, Interceptor interceptor) {
 		if (!(interceptor instanceof MethodInterceptor))
@@ -217,7 +217,7 @@ public class DefaultProxyConfig implements ProxyConfig, InitializingBean {
 
 
 	/**
-	 * @see com.interface21.aop.ProxyConfig#getProxiedInterfaces()
+	 * @see com.interface21.aop.framework.ProxyConfig#getProxiedInterfaces()
 	 */
 	public final Class[] getProxiedInterfaces() {
 		return this.interfaces;
@@ -225,7 +225,7 @@ public class DefaultProxyConfig implements ProxyConfig, InitializingBean {
 	
 
 	/**
-	 * @see com.interface21.aop.ProxyConfig#getAttributeRegistry()
+	 * @see com.interface21.aop.framework.ProxyConfig#getAttributeRegistry()
 	 */
 	public AttributeRegistry getAttributeRegistry() {
 		return this.attributeRegistry;
@@ -292,7 +292,7 @@ public class DefaultProxyConfig implements ProxyConfig, InitializingBean {
 	}
 
 	/**
-	 * @see com.interface21.aop.framework.ProxyConfig#getInterceptors()
+	 * @see com.interface21.aop.framework.ProxyConfig#getMethodPointcuts()
 	 */
 	public List getMethodPointcuts() {
 		// TODO make this list unmodifiable?
