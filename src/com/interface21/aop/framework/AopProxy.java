@@ -34,7 +34,7 @@ import org.apache.commons.logging.LogFactory;
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
- * @version $Id: AopProxy.java,v 1.8 2003/07/06 22:49:20 jhoeller Exp $
+ * @version $Id: AopProxy.java,v 1.9 2003/07/23 12:21:16 jhoeller Exp $
  * @see java.lang.reflect.Proxy
  * @see net.sf.cglib.Enhancer
  */
@@ -80,8 +80,8 @@ public class AopProxy implements InvocationHandler {
 	
 		// Create a new invocation object
 		// TODO refactor into InvocationFactory?
-		MethodInvocationImpl invocation = new MethodInvocationImpl(proxy, config.getTarget(), 
-									method.getDeclaringClass(), //?
+		MethodInvocationImpl invocation = new MethodInvocationImpl(proxy,
+		              this.config.getTarget(), method.getDeclaringClass(),
 									method, args,
 									this.config.getMethodPointcuts(), // could customize here
 									this.config.getAttributeRegistry());
@@ -112,24 +112,20 @@ public class AopProxy implements InvocationHandler {
 			if (this.config.getExposeInvocation()) {
 				AopContext.setCurrentInvocation(null);
 			}
-		
-			//if (logger.isDebugEnabled()) {
-			//	logger.debug("Processed invocation [" + invocation + "]");
-			//}
 		}
 	}
 
 	/**
-	 * @return a new Proxy object for the given object proxying
-	 * the given interface
+	 * Creates a new Proxy object for the given object, proxying
+	 * the given interface. Uses the thread context class loader.
 	 */
 	public Object getProxy() {
 		return getProxy(Thread.currentThread().getContextClassLoader());
 	}
 
 	/**
-	 * @return a new Proxy object for the given object proxying
-	 * the given interface
+	 * Creates a new Proxy object for the given object, proxying
+	 * the given interface. Uses the given class loader.
 	 */
 	public Object getProxy(ClassLoader cl) {
 		if (this.config.getProxiedInterfaces() != null && this.config.getProxiedInterfaces().length > 0) {
@@ -138,6 +134,9 @@ public class AopProxy implements InvocationHandler {
 			return Proxy.newProxyInstance(cl, this.config.getProxiedInterfaces(), this);
 		}
 		else {
+			if (this.config.getTarget() == null) {
+				throw new IllegalArgumentException("Either an interface or a target is required for proxy creation");
+			}
 			// proxy the given class itself: CGLIB necessary
 			logger.info("Creating CGLIB proxy for [" + this.config.getTarget() + "]");
 			// delegate to inner class to avoid AopProxy runtime dependency on CGLIB
