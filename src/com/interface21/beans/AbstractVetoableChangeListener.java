@@ -35,7 +35,7 @@ import java.util.HashMap;
  * throw another PropertyVetoException, which will be ignored by the caller.<br/>
  * Subclasses should be threadsafe: nothing in this superclass will cause a problem.
  * @author  Rod Johnson
- * @version $Id: AbstractVetoableChangeListener.java,v 1.2 2003/02/27 10:09:31 jhoeller Exp $
+ * @version $Id: AbstractVetoableChangeListener.java,v 1.3 2003/07/05 17:29:43 johnsonr Exp $
  */
 public abstract class AbstractVetoableChangeListener implements VetoableChangeListener {
 	
@@ -127,11 +127,5 @@ public abstract class AbstractVetoableChangeListener implements VetoableChangeLi
 			//System.out.println("no validation method for " + e.getPropertyName());
 		}
 	}	// vetoableChange
-	
-	
-	/** Private convenience method used in this class */
-	private static String capitalize(String propertyName) {
-		return propertyName.substring(0, 1).toUpperCase() + propertyName.substring(1);
-	}
 	
 }	// class AbstractVetoableChangeListener
