@@ -12,13 +12,17 @@ import java.util.Properties;
  * Bean exposing a map. Used for bean factory tests.
  * @author Rod Johnson
  * @since 05-Jun-2003
- * @version $Id: HasMap.java,v 1.2 2003/06/06 13:02:05 johnsonr Exp $
+ * @version $Id: HasMap.java,v 1.3 2003/06/07 12:25:30 johnsonr Exp $
  */
 public class HasMap {
 	
 	private Map map;
 	
 	private Properties props;
+	
+	private Object[] objectArray;
+	
+	private Class[] classArray;
 
 	/**
 	 * @return Map
@@ -48,6 +52,36 @@ public class HasMap {
 	 */
 	public void setProps(Properties props) {
 		this.props = props;
+	}
+
+	/**
+	 * @return Object[]
+	 */
+	public Object[] getObjectArray() {
+		return objectArray;
+	}
+
+	/**
+	 * Sets the objectArray.
+	 * @param objectArray The objectArray to set
+	 */
+	public void setObjectArray(Object[] objectArray) {
+		this.objectArray = objectArray;
+	}
+
+	/**
+	 * @return Class[]
+	 */
+	public Class[] getClassArray() {
+		return classArray;
+	}
+
+	/**
+	 * Sets the classArray.
+	 * @param classArray The classArray to set
+	 */
+	public void setClassArray(Class[] classArray) {
+		this.classArray = classArray;
 	}
 
 }
