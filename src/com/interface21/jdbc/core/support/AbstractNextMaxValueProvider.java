@@ -2,6 +2,10 @@ package com.interface21.jdbc.core.support;
 
 import java.sql.Types;
 
+import com.interface21.core.InternalErrorException;
+import com.interface21.jdbc.object.SqlFunction;
+import com.interface21.jdbc.util.JdbcUtils;
+
 /**
  * Abstract implementation of Classes NextMaxValueProvider used as 
  * inner Class by several NextMaxValueProvider classes.
@@ -9,7 +13,7 @@ import java.sql.Types;
  * Subclasses should provide implementations of protected abstract method getNextKey(int).
  * @author <a href="mailto:jp.pawlak@tiscali.fr">Jean-Pierre Pawlak</a>
  * @author <a href="mailto:isabelle@meta-logix.com">Isabelle Muszynski</a>
- * @version $Id: AbstractNextMaxValueProvider.java,v 1.2 2003/05/10 10:28:30 pawlakjp Exp $
+ * @version $Id: AbstractNextMaxValueProvider.java,v 1.3 2003/05/21 18:09:48 pawlakjp Exp $
  */
 public abstract class AbstractNextMaxValueProvider {
 
@@ -62,5 +66,35 @@ public abstract class AbstractNextMaxValueProvider {
 	 * in another format by the public concrete methods of this class.
 	 */
 	abstract protected long getNextKey(int type);
+
+	/**
+	 * @param sqlf	The compiled SqlFunction
+	 * @param type	SqlType returned by the SqlFunction
+	 * @return The result of the SqlFunction as a long
+	 */
+	protected long getLongValue(SqlFunction sqlf, int type) {
+		long fLong = 0;
+		switch(JdbcUtils.translateType(type)) {
+			case Types.BIGINT:
+				fLong = ((Long)sqlf.runGeneric()).longValue();
+				break;
+			case Types.INTEGER:
+				fLong = ((Integer)sqlf.runGeneric()).intValue();
+				break;
+			case Types.NUMERIC:
+				fLong = (long)((Double)sqlf.runGeneric()).doubleValue();
+				break;
+			case Types.VARCHAR:
+				try {
+					fLong = Long.parseLong((String)sqlf.runGeneric());
+				} catch (NumberFormatException ex) {
+					throw new InternalErrorException("Key value could not be converted to long");
+				}
+				break;
+			default:
+				throw new InternalErrorException("Unhandled SQL type: " + type);
+		}
+		return fLong;	
+	}
 
 }
