@@ -5,7 +5,7 @@
  
 package com.interface21.aop.framework;
 
-import org.aopalliance.MethodInvocation;
+import org.aopalliance.intercept.MethodInvocation;
 
 
 /**
@@ -15,7 +15,7 @@ import org.aopalliance.MethodInvocation;
  * 
  * @author Rod Johnson
  * @since 10-Jul-2003
- * @version $Id: LockMixin.java,v 1.1 2003/07/10 16:59:35 johnsonr Exp $
+ * @version $Id: LockMixin.java,v 1.2 2003/07/23 18:54:24 johnsonr Exp $
  */
 public class LockMixin extends DelegatingIntroductionInterceptor implements Lockable {
 	

@@ -4,17 +4,16 @@ import java.lang.reflect.InvocationTargetException;
 
 import javax.ejb.EJBLocalObject;
 
-import org.aopalliance.AspectException;
-import org.aopalliance.MethodInvocation;
+import org.aopalliance.intercept.AspectException;
+import org.aopalliance.intercept.MethodInvocation;
 
-import com.interface21.aop.framework.AopUtils;
 import com.interface21.ejb.access.AbstractSlsbInvokerInterceptor;
 
 /**
  * Interceptor that invokes a local SLSB, after caching
  * the home object. A local EJB home can never go stale.
  * @author Rod Johnson
- * @version $Id: LocalSlsbInvokerInterceptor.java,v 1.1 2003/06/13 13:40:37 jhoeller Exp $
+ * @version $Id: LocalSlsbInvokerInterceptor.java,v 1.2 2003/07/23 18:53:53 johnsonr Exp $
  */
 public class LocalSlsbInvokerInterceptor extends AbstractSlsbInvokerInterceptor {
 
@@ -36,7 +35,7 @@ public class LocalSlsbInvokerInterceptor extends AbstractSlsbInvokerInterceptor 
 	public Object invoke(MethodInvocation invocation) throws Throwable {
 		EJBLocalObject ejb = newSessionBeanInstance();
 		try {
-			return invocation.getMethod().invoke(ejb, AopUtils.getArguments(invocation));
+			return invocation.getMethod().invoke(ejb, invocation.getArguments());
 		}
 		catch (InvocationTargetException ex) {
 			logger.warn(ex + " thrown invoking remote EJB method " + invocation.getMethod());

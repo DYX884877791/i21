@@ -8,7 +8,7 @@ package com.interface21.transaction.interceptor;
 import java.lang.reflect.Method;
 
 import junit.framework.TestCase;
-import org.aopalliance.MethodInvocation;
+import org.aopalliance.intercept.MethodInvocation;
 import org.easymock.EasyMock;
 import org.easymock.MockControl;
 
@@ -20,7 +20,7 @@ import com.interface21.transaction.TransactionUsageException;
  * FQN.Method=tx attribute representation
  * @author Rod Johnson
  * @since 26-Apr-2003
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class TransactionAttributeSourceEditorTests extends TestCase {
 

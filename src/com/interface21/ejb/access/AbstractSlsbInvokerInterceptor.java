@@ -5,7 +5,7 @@
  
 package com.interface21.ejb.access;
 
-import org.aopalliance.MethodInterceptor;
+import org.aopalliance.intercept.MethodInterceptor;
 
 import com.interface21.beans.BeanWrapper;
 import com.interface21.beans.BeanWrapperImpl;
@@ -15,7 +15,7 @@ import com.interface21.jndi.AbstractJndiLocator;
 /**
  * Superclass for all AOP interceptors invoking EJBs.
  * @author Rod Johnson
- * @version $Id: AbstractSlsbInvokerInterceptor.java,v 1.2 2003/07/11 15:04:05 jhoeller Exp $
+ * @version $Id: AbstractSlsbInvokerInterceptor.java,v 1.3 2003/07/23 18:53:53 johnsonr Exp $
  */
 public abstract class AbstractSlsbInvokerInterceptor extends AbstractJndiLocator implements MethodInterceptor, InitializingBean {
 

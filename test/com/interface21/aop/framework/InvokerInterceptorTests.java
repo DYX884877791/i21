@@ -10,7 +10,7 @@ import java.util.LinkedList;
 
 import javax.servlet.ServletException;
 
-import org.aopalliance.MethodInterceptor;
+import org.aopalliance.intercept.MethodInterceptor;
 
 import com.interface21.beans.IOther;
 import com.interface21.beans.TestBean;
@@ -21,7 +21,7 @@ import junit.framework.TestCase;
  * 
  * @author Rod Johnson
  * @since 14-Mar-2003
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class InvokerInterceptorTests extends TestCase {
 

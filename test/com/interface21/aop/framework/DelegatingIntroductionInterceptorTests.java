@@ -7,7 +7,7 @@ package com.interface21.aop.framework;
 
 import junit.framework.TestCase;
 
-import org.aopalliance.MethodInterceptor;
+import org.aopalliance.intercept.MethodInterceptor;
 import org.easymock.EasyMock;
 import org.easymock.MockControl;
 
@@ -19,7 +19,7 @@ import com.interface21.core.TimeStamped;
  * 
  * @author Rod Johnson
  * @since 13-May-2003
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class DelegatingIntroductionInterceptorTests extends TestCase {
 

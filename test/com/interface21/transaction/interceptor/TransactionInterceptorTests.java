@@ -8,8 +8,8 @@ package com.interface21.transaction.interceptor;
 import java.lang.reflect.Method;
 
 import junit.framework.TestCase;
-import org.aopalliance.AttributeRegistry;
-import org.aopalliance.Invocation;
+import org.aopalliance.intercept.AttributeRegistry;
+import org.aopalliance.intercept.Invocation;
 import org.easymock.EasyMock;
 import org.easymock.MockControl;
 
@@ -30,7 +30,7 @@ import com.interface21.transaction.UnexpectedRollbackException;
  * testing the helper implementation.
  * @author Rod Johnson
  * @since 16-Mar-2003
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class TransactionInterceptorTests extends TestCase {
 
@@ -155,7 +155,7 @@ public class TransactionInterceptorTests extends TestCase {
 			public String getName() {
 				//TransactionControl.getTransactionStatus().setRollbackOnly();
 				Invocation inv = AopContext.currentInvocation();
-				TransactionStatus txStatus = (TransactionStatus) inv.getResource(TransactionInterceptor.TRANSACTION_STATUS_ATTACHMENT_NAME);
+				TransactionStatus txStatus = (TransactionStatus) inv.getAttachment(TransactionInterceptor.TRANSACTION_STATUS_ATTACHMENT_NAME);
 				txStatus.setRollbackOnly();
 				return name;
 			}
