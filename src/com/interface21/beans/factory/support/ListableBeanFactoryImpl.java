@@ -33,7 +33,7 @@ import com.interface21.util.StringUtils;
  *
  * @author Rod Johnson
  * @since 16 April 2001
- * @version $Id: ListableBeanFactoryImpl.java,v 1.9 2003/07/06 23:19:53 jhoeller Exp $
+ * @version $Id: ListableBeanFactoryImpl.java,v 1.10 2003/07/15 22:32:28 johnsonr Exp $
  */
 public class ListableBeanFactoryImpl extends AbstractBeanFactory implements ListableBeanFactory {
 	
@@ -151,7 +151,7 @@ public class ListableBeanFactoryImpl extends AbstractBeanFactory implements List
 		Iterator itr = keys.iterator();
 		while (itr.hasNext()) {
 			String name = (String) itr.next();
-			Class clazz = getBeanClass((AbstractBeanDefinition) beanDefinitionMap.get(name));
+			Class clazz = getMergedBeanDefinition(name).getBeanClass();
 			if (type.isAssignableFrom(clazz)) {
 				matches.add(name);
 			}

@@ -21,7 +21,7 @@ import com.interface21.beans.PropertyValues;
  * BeanDefinitions.
  *
  * @author Rod Johnson
- * @version $Id: AbstractBeanDefinition.java,v 1.7 2003/07/06 15:45:21 johnsonr Exp $
+ * @version $Id: AbstractBeanDefinition.java,v 1.8 2003/07/15 22:32:28 johnsonr Exp $
  */
 public abstract class AbstractBeanDefinition {
 
@@ -62,6 +62,10 @@ public abstract class AbstractBeanDefinition {
 	 */
 	public PropertyValues getPropertyValues() {
 		return pvs;
+	}
+	
+	public void setPropertyValues(PropertyValues pvs) {
+		this.pvs = pvs;
 	}
 
 	/**
