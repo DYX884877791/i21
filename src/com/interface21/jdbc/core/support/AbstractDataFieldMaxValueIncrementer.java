@@ -10,7 +10,7 @@ import com.interface21.jdbc.core.DataFieldMaxValueIncrementer;
  * @author <a href="mailto:dkopylenko@acs.rutgers.edu>Dmitriy Kopylenko</a>
  * @author <a href="mailto:isabelle@meta-logix.com">Isabelle Muszynski</a>
  * @author <a href="mailto:jp.pawlak@tiscali.fr">Jean-Pierre Pawlak</a>
- * @version $Id: AbstractDataFieldMaxValueIncrementer.java,v 1.5 2003/05/09 22:52:49 pawlakjp Exp $
+ * @version $Id: AbstractDataFieldMaxValueIncrementer.java,v 1.6 2003/05/09 22:56:58 pawlakjp Exp $
  *
  * History 
  * 17/04/2003 : donated to Spring by Dmitriy Kopylenko
@@ -46,7 +46,7 @@ public abstract class AbstractDataFieldMaxValueIncrementer
 	
     /**
      * Template method
-     * @see com.interface21.jdbc.core.DataFieldMaxValueIncrementer#nextStringValue(java.lang.Class)
+     * @see com.interface21.jdbc.core.DataFieldMaxValueIncrementer#nextStringValue()
      */
     public final String nextStringValue() throws DataAccessException {
 	return incrementStringValue();
@@ -54,7 +54,7 @@ public abstract class AbstractDataFieldMaxValueIncrementer
 
     /**
      * Template method
-     * @see com.interface21.jdbc.core.DataFieldMaxValueIncrementer#nextValue()
+     * @see com.interface21.jdbc.core.DataFieldMaxValueIncrementer#nextValue(java.lang.Class)
      */
     public final Object nextValue(Class keyClass) throws DataAccessException {
 	if (int.class.getName().equals(keyClass.getName()) || 
