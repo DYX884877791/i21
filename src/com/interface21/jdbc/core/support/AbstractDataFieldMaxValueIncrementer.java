@@ -5,7 +5,6 @@ import javax.sql.DataSource;
 import com.interface21.beans.factory.InitializingBean;
 import com.interface21.dao.DataAccessException;
 import com.interface21.jdbc.core.DataFieldMaxValueIncrementer;
-import com.interface21.jdbc.datasource.DataSourceUtils;
 
 /**
  * Implementation of {@link com.interface21.jdbc.core.DataFieldMaxValueIncrementer}
@@ -16,12 +15,11 @@ import com.interface21.jdbc.datasource.DataSourceUtils;
  * <li>19/04/2003 : modified by Isabelle Muszynski, added nextDoubleValue
  * <li>09/05/2003 : modified by JPP, added nextLongValue
  * <li>17/06/2003 : modified by Ken Krebs, added common functionality form subclasses
- * <li>20/06/2003 : modified by Dmitriy Kopylenko, added dsName property
  * @author Dmitriy Kopylenko
  * @author Isabelle Muszynski
  * @author Jean-Pierre Pawlak
  * @author Ken Krebs
- * @version $Id: AbstractDataFieldMaxValueIncrementer.java,v 1.13 2003/06/20 14:04:46 dkopylenko Exp $
+ * @version $Id: AbstractDataFieldMaxValueIncrementer.java,v 1.14 2003/06/20 15:47:26 dkopylenko Exp $
  *
  */
 public abstract class AbstractDataFieldMaxValueIncrementer implements DataFieldMaxValueIncrementer, InitializingBean {
@@ -30,8 +28,6 @@ public abstract class AbstractDataFieldMaxValueIncrementer implements DataFieldM
 	// Instance data
 	//-----------------------------------------------------------------
 	private DataSource dataSource;
-
-	private String dsName;
 
 	/** The name of the sequence/table containing the sequence */
 	private String incrementerName;
@@ -124,23 +120,6 @@ public abstract class AbstractDataFieldMaxValueIncrementer implements DataFieldM
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 		this.dirty = true;
-	}
-
-	/**
-	 * Gets the data source name
-	 * @return the data source name
-	 */
-	public String getDsName() {
-		return dsName;
-	}
-
-	/**
-	 * Sets dsName
-	 * @param dsName
-	 */
-	public void setDsName(String dsName) {
-		this.dsName = dsName;
-		this.dataSource = DataSourceUtils.getDataSourceFromJndi(this.dsName);
 	}
 
 	/**
