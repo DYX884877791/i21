@@ -50,7 +50,7 @@ import com.interface21.util.StringUtils;
  * call refresh, i think
  * @author  Rod Johnson
  * @since January 21, 2001
- * @version $Revision: 1.16 $
+ * @version $Revision: 1.17 $
  */
 public abstract class AbstractApplicationContext implements ApplicationContext {
 
@@ -311,7 +311,7 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 			// no URL -> try (file) path
 			InputStream in = getResourceByPath(location);
 			if (in == null) {
-				throw new FileNotFoundException("Location isn't a URL and cannot be interpreted as (file) path");
+				throw new FileNotFoundException("Location '" + location + "' isn't a URL and cannot be interpreted as (file) path");
 			}
 			return in;
 		}
