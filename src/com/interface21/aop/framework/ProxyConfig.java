@@ -16,7 +16,7 @@ import org.aopalliance.Interceptor;
  * the interceptors and pointcuts, and the proxied interfaces.
  * @author Rod Johnson
  * @since 13-Mar-2003
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public interface ProxyConfig {
 	
@@ -52,6 +52,12 @@ public interface ProxyConfig {
 	 * @param pc
 	 */
 	void addMethodPointcut(MethodPointcut pc);
+	
+	/**
+	 * Add a pointcut
+	 * @param pc
+	 */
+	void addMethodPointcut(int pos, MethodPointcut pc);
 	
 	/**
 	 * Remove the interceptor
