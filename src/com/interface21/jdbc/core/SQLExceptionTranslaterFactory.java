@@ -22,7 +22,7 @@ import org.apache.commons.logging.LogFactory;
 
 import com.interface21.beans.factory.BeanDefinitionStoreException;
 import com.interface21.beans.factory.ListableBeanFactory;
-import com.interface21.beans.factory.support.XmlBeanFactory;
+import com.interface21.beans.factory.xml.XmlBeanFactory;
 import com.interface21.jdbc.datasource.DataSourceUtils;
 
 /**
@@ -31,7 +31,7 @@ import com.interface21.jdbc.datasource.DataSourceUtils;
  * Returns a SQLExceptionTranslator populated with vendor 
  * codes defined in a configuration file named "sql-error-codes.xml".
  * @author Thomas Risberg
-   @version $Id: SQLExceptionTranslaterFactory.java,v 1.5 2003/05/28 16:39:13 jhoeller Exp $
+   @version $Id: SQLExceptionTranslaterFactory.java,v 1.6 2003/06/06 16:13:22 jhoeller Exp $
  */
 public class SQLExceptionTranslaterFactory {
 	
