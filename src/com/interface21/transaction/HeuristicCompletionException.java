@@ -9,7 +9,7 @@ package com.interface21.transaction;
  * Exception that represents a transaction failure caused by heuristics.
  * @author Rod, Johnson, Juergen Hoeller
  * @since 17-Mar-2003
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class HeuristicCompletionException extends TransactionException {
 
@@ -37,7 +37,8 @@ public class HeuristicCompletionException extends TransactionException {
 	}
 
 	public HeuristicCompletionException(int outcomeState, Throwable ex) {
-		super("heuristic completion: outcome state is " + getStateString(outcomeState), ex);
+		super("Heuristic completion: outcome state is " + getStateString(outcomeState), ex);
+		this.outcomeState = outcomeState;
 	}
 
 	public int getOutcomeState() {
