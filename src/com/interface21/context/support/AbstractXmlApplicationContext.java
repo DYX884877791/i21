@@ -25,7 +25,7 @@ import com.interface21.context.ApplicationContextException;
  * understood by an XMLBeanFactory
  * @see com.interface21.beans.factory.support.XmlBeanFactory
  * @author  Rod Johnson
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public abstract class AbstractXmlApplicationContext extends AbstractApplicationContext  {
 
@@ -50,7 +50,7 @@ public abstract class AbstractXmlApplicationContext extends AbstractApplicationC
 	// Implementation of WebApplicationConfig
 	//---------------------------------------------------------------------
 	protected void refreshBeanFactory() throws ApplicationContextException {
-		String identifier = "application context with display name [" + getDisplayName() + "'";
+		String identifier = "application context with display name [" + getDisplayName() + "]";
 		InputStream is = null;
 		try {
 			// Supports remote as well as local URLs
