@@ -22,7 +22,7 @@ import com.interface21.beans.PropertyValues;
  * BeanDefinitions.
  * <br>This abstract base class defines the BeanFactory type.
  * @author Rod Johnson
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public abstract class AbstractBeanDefinition {
 
@@ -72,7 +72,7 @@ public abstract class AbstractBeanDefinition {
 	/**
 	 * Return the PropertyValues to be applied to a new instance
 	 * of this bean.
-	 * @eturn the PropertyValues to be applied to a new instance
+	 * @return the PropertyValues to be applied to a new instance
 	 * of this bean
 	 */
 	public PropertyValues getPropertyValues() {

@@ -39,7 +39,7 @@ import com.interface21.beans.factory.NoSuchBeanDefinitionException;
  * method.
  * @author  Rod Johnson
  * @since 15 April 2001
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public abstract class AbstractBeanFactory implements BeanFactory {
 	
@@ -80,7 +80,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	/**
 	 * Creates a new AbstractBeanFactory, with the given parent.
 	 * @param parentBeanFactory  the parent bean factory, or null if none
-	 * @see this.getBean 
+	 * @see #getBean 
 	 */
 	public AbstractBeanFactory(BeanFactory parentBeanFactory) {
 		this.parentBeanFactory = parentBeanFactory;

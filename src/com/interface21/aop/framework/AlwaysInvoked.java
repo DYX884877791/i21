@@ -15,7 +15,7 @@ import org.aopalliance.MethodInterceptor;
  * Interceptor that should always run.
  * @author Rod Johnson
  * @since 04-Apr-2003
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class AlwaysInvoked implements MethodPointcut {
 
@@ -32,7 +32,7 @@ public class AlwaysInvoked implements MethodPointcut {
 	}
 
 	/**
-	 * @see com.interface21.aop.framework.MethodPointcut#applies(java.lang.reflect.Method, java.lang.Object[])
+	 * @see com.interface21.aop.framework.MethodPointcut#applies(java.lang.reflect.Method, java.lang.Object[], AttributeRegistry)
 	 */
 	public boolean applies(Method m, Object[] args, AttributeRegistry ar) {
 		return true;

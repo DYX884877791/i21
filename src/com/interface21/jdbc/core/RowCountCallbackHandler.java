@@ -23,7 +23,7 @@ import java.sql.SQLException;
  * Can only be used once
  * @author  Rod Johnson
  * @since May 3, 2001
- * @version $Id: RowCountCallbackHandler.java,v 1.1 2003/02/11 08:10:23 johnsonr Exp $
+ * @version $Id: RowCountCallbackHandler.java,v 1.2 2003/04/08 11:23:52 isabellem Exp $
  */
 public class RowCountCallbackHandler implements RowCallbackHandler {
 
@@ -93,9 +93,9 @@ public class RowCountCallbackHandler implements RowCallbackHandler {
 	}
 	
 	/** 
-	 * Return the types of the columns as java.sql.Types constants
+	 * Return the names of the columns.
 	 * Valid after processRow is invoked the first time.
-	 * @return the types of the columns as java.sql.Types constants.
+	 * @return the names of the columns.
 	 * <b>Indexed from 0 to n-1.</b>
 	 */
 	public final String[] getColumnNames() {
