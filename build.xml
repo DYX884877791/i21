@@ -7,7 +7,7 @@
 
     Rod Johnson, 2002-3.
 
-    $Revision: 1.5 $
+    $Revision: 1.6 $
 
     See page 594 of "Expert One-on-One J2EE" for a description of
     the JAR files produced by this build script, and how
@@ -207,6 +207,21 @@
 				<include name="com/interface21/ejb/support/*"/>
 				<include name="com/interface21/jndi/JndiBeanFactory.class"/>
 				<include name="com/interface21/jndi/JndiPropertyValues.class"/>
+			</fileset>
+		</jar>
+
+	</target>
+
+	<!--
+	    Create the XML Bean implementation JAR file.
+	-->
+	<target name="xmlbean" depends="build">
+
+		<!-- We inherit this property from calling ant script -->
+		<jar jarfile="${spring-xmlbean.jar}">
+			<fileset dir="${build.dir}">
+				<!-- The bean factory classes excluded from the spring-core.jar -->
+				<include name="com/interface21/beans/factory/support/X*"/>
 			</fileset>
 		</jar>
 
