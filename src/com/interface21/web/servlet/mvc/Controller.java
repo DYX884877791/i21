@@ -30,13 +30,13 @@ import com.interface21.web.servlet.ModelAndView;
  * <p>This is the core interface of the default MVC workflow.
  * 
  * @author Rod Johnson
- * @version $Id: Controller.java,v 1.3 2003/05/22 17:57:54 jhoeller Exp $
+ * @version $Id: Controller.java,v 1.4 2003/06/06 16:15:08 jhoeller Exp $
  */
 public interface Controller {	
 
 	/**
 	 * Process the request and return a ModelAndView object which the
-	 * ControllerServlet will render. A null return is not an error.
+	 * DispatcherServlet will render. A null return is not an error.
 	 * It indicates that this object completed request processing itself,
 	 * thus there is no ModelAndView to render.
 	 * @param request current HTTP request
