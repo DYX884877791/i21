@@ -24,7 +24,7 @@ import com.interface21.beans.factory.support.XmlBeanFactory;
 /**
  *
  * @author Rod Johnson
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public class XmlBeanFactoryTestSuite extends AbstractListableBeanFactoryTests { 
 
@@ -192,6 +192,23 @@ public class XmlBeanFactoryTestSuite extends AbstractListableBeanFactoryTests {
 		assertTrue(hasMap.getMap().get("foo").equals("bar"));
 		TestBean jenny = (TestBean) xbf.getBean("jenny");
 		assertTrue(hasMap.getMap().get("jenny").equals(jenny));
+	}
+	
+	public void testEmptyProps() throws Exception {
+		InputStream is = getClass().getResourceAsStream("collections.xml");
+		XmlBeanFactory xbf = new XmlBeanFactory(is);
+		HasMap hasMap = (HasMap) xbf.getBean("emptyProps");
+		assertTrue(hasMap.getProps().size() == 0);
+		assertTrue(hasMap.getProps().size() == 0);
+	}
+	
+	public void testPopulatedProps() throws Exception {
+		InputStream is = getClass().getResourceAsStream("collections.xml");
+		XmlBeanFactory xbf = new XmlBeanFactory(is);
+		HasMap hasMap = (HasMap) xbf.getBean("props");
+		assertTrue(hasMap.getProps().size() == 2);
+		assertTrue(hasMap.getProps().getProperty("foo").equals("bar"));
+		assertTrue(hasMap.getProps().getProperty("2").equals("TWO"));
 	}
 	
 	public void testNoSuchXmlFile() throws Exception {
