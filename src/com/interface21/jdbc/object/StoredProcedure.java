@@ -37,7 +37,7 @@ import com.interface21.jdbc.datasource.DataSourceUtils;
  * by this class are still necessary in JDBC 3.0.
  *
  * @author Rod Johnson
- * @version $Id: StoredProcedure.java,v 1.10 2003/08/08 18:16:44 trisberg Exp $
+ * @version $Id: StoredProcedure.java,v 1.11 2003/08/08 19:52:29 trisberg Exp $
  */
 public abstract class StoredProcedure extends RdbmsOperation {
 
@@ -278,10 +278,7 @@ public abstract class StoredProcedure extends RdbmsOperation {
 			SqlParameter p = (SqlParameter) parameters.get(i);
 			if (p instanceof OutputParameter) {
 				Object out = null;
-				if (p.getSqlType() == Types.ARRAY)
-					out = call.getArray(i + 1);
-				else
-					out = call.getObject(i + 1);
+				out = call.getObject(i + 1);
 				outParams.put(p.getName(), out);
 			}
 		}
