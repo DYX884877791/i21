@@ -46,7 +46,7 @@ import com.interface21.beans.factory.NoSuchBeanDefinitionException;
  * implementing the HierarchicalBeanFactory method.
  * @author Rod Johnson
  * @since 15 April 2001
- * @version $Id: AbstractBeanFactory.java,v 1.24 2003/07/15 12:33:20 johnsonr Exp $
+ * @version $Id: AbstractBeanFactory.java,v 1.25 2003/07/15 20:02:14 johnsonr Exp $
  */
 public abstract class AbstractBeanFactory implements HierarchicalBeanFactory {
 
@@ -303,7 +303,24 @@ public abstract class AbstractBeanFactory implements HierarchicalBeanFactory {
 		}
 		else if (bd instanceof ChildBeanDefinition) {
 			ChildBeanDefinition ibd = (ChildBeanDefinition) bd;
-			instanceWrapper = getBeanWrapperForNewInstance(ibd.getParentName(), newlyCreatedBeans);
+			try {
+				instanceWrapper = getBeanWrapperForNewInstance(ibd.getParentName(), newlyCreatedBeans);
+			}
+			catch (NoSuchBeanDefinitionException ex) {
+				// Look in parent for the bean we're descended from
+				
+				if (getParentBeanFactory() != null) {
+					// Let this throw NoSuchBeanDefinitionException
+					Object parentsObject = getParentBeanFactory().getBean(ibd.getParentName());
+					// Check for invalid usage:
+					// a parent singleton cannot be the parent of a subfactory prototype
+					if (!ibd.isSingleton() && getParentBeanFactory().isSingleton(ibd.getParentName())) {
+						throw new BeanDefinitionStoreException("Prototype bean '" + name + "' cannot inherit from singleton bean '" + 
+								ibd.getParentName() + "' in parent factory", null);
+					}
+					instanceWrapper = new BeanWrapperImpl(parentsObject);
+				}
+			}
 		}
 		// Set our property values
 		if (instanceWrapper == null)
