@@ -1,7 +1,7 @@
 /**
  * Utility class for JDBC functionality
  * @author <a href="isabelle@meta-logix.com">Isabelle Muszynski</a>
- * @version $Id: JdbcUtils.java,v 1.1 2003/04/21 19:10:06 isabellem Exp $
+ * @version $Id: JdbcUtils.java,v 1.2 2003/04/23 23:56:16 trisberg Exp $
  */
 
 package com.interface21.jdbc.util;
@@ -88,7 +88,7 @@ public class JdbcUtils {
 		break;
 	    case stateMarker:
 		++count;
-		if (index < len - 1 && !Character.isWhitespace(lookahead))
+		if (index < len - 1 && !Character.isWhitespace(lookahead) && lookahead != ',' && lookahead != ')')
 		    state = stateError;
 		else
 		    state = stateNormalChar;
