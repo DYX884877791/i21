@@ -31,7 +31,7 @@ import com.interface21.jdbc.core.ResultReader;
  * custom execution methods, with meaningful names and typed parameters. Each
  * custom query method will invoke one of this class's untype query methods.
  * @author Rod Johnson
-   @version $Id: SqlQuery.java,v 1.2 2003/04/08 11:24:41 isabellem Exp $
+   @version $Id: SqlQuery.java,v 1.3 2003/07/02 07:11:06 johnsonr Exp $
  */
 public abstract class SqlQuery extends SqlOperation {
 	
@@ -187,6 +187,14 @@ public abstract class SqlQuery extends SqlOperation {
 	public final Object findObject(String p1) throws DataAccessException {
 		return findObject(new Object[] { p1 });
 	}	
+	
+	
+	/** 
+	 * Convenience method to find a single object given a single long parameter
+	 */
+	public final Object findObject(long p1) throws DataAccessException {
+		return findObject(new Object[] { new Long(p1) });
+	}
 
 	
 	/**
