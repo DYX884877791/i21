@@ -24,7 +24,7 @@ import com.interface21.util.StringUtils;
  * <br>Configures a PreparedStatementCreatorFactory based on the declared
  * parameters.
  * @author Rod Johnson
- * @version $Id: SqlOperation.java,v 1.2 2003/04/06 12:23:40 isabellem Exp $
+ * @version $Id: SqlOperation.java,v 1.3 2003/04/17 13:19:03 isabellem Exp $
  */
 public abstract class SqlOperation extends RdbmsOperation { 
 	
@@ -78,8 +78,14 @@ public abstract class SqlOperation extends RdbmsOperation {
 	protected final void compileInternal() {
 		this.jdbcTemplate = new JdbcTemplate(getDataSource());
 		// Validate parameter count
-		//int bindVarCount = StringUtils.countOccurrencesOf(getSql(), "?");
-		int bindVarCount = StringUtils.countParameterPlaceholders(getSql(), '?', '\'');
+		int bindVarCount = 0;
+		try {
+		    bindVarCount = StringUtils.countParameterPlaceholders(getSql(), '?', '\'');
+		}
+		catch(IllegalArgumentException e) {
+		    // Transform jdbc-agnostic error to data-access error
+		    throw new InvalidDataAccessApiUsageException(e.getMessage());
+		}
 		if (bindVarCount != getDeclaredParameters().size())
 			throw new InvalidDataAccessApiUsageException("SQL '" + getSql() + "' requires " + bindVarCount + 
 				" bind variables, but " + getDeclaredParameters().size() + " variables were declared for this object");
