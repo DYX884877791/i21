@@ -21,7 +21,7 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import com.interface21.dao.InvalidDataAccessApiUsageException;
-import com.interface21.jdbc.core.DataSourceUtils;
+import com.interface21.jdbc.datasource.DataSourceUtils;
 import com.interface21.jdbc.core.SQLExceptionTranslater;
 import com.interface21.jdbc.core.SQLExceptionTranslaterFactory;
 import com.interface21.jdbc.core.SQLStateSQLExceptionTranslater;
@@ -35,7 +35,7 @@ import com.interface21.jdbc.core.SqlParameter;
  * Note that JDBC 3.0 introduces named parameters, although the other features provided
  * by this class are still necessary in JDBC 3.0.
  * @author Rod Johnson
- * @version $Id: StoredProcedure.java,v 1.4 2003/04/06 12:23:40 isabellem Exp $
+ * @version $Id: StoredProcedure.java,v 1.5 2003/05/06 12:24:05 jhoeller Exp $
  */
 public abstract class StoredProcedure extends RdbmsOperation {
 
@@ -210,7 +210,7 @@ public abstract class StoredProcedure extends RdbmsOperation {
 			throw this.exceptionTranslater.translate("Call to stored procedure '" + getSql() + "'", this.callString, ex);
 		}
 		finally {
-			DataSourceUtils.closeConnectionIfNecessary(ds, con);
+			DataSourceUtils.closeConnectionIfNecessary(con, ds);
 		}
 	} 	// execute
 	
