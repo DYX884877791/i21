@@ -11,7 +11,7 @@ import com.interface21.beans.PropertyValues;
 /** 
 * Root bean definitions have a class and properties.
 * @author Rod Johnson
-* @version $Id: RootBeanDefinition.java,v 1.5 2003/07/15 22:49:11 johnsonr Exp $
+* @version $Id: RootBeanDefinition.java,v 1.6 2003/07/19 19:09:55 johnsonr Exp $
 */
 public class RootBeanDefinition extends AbstractBeanDefinition {
 
@@ -19,11 +19,18 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 	 * Class of the wrapped object
 	 */
 	private Class clazz;
+	
+	private String initMethodName;
 
 	/** Creates new AbstractRootBeanDefinition */
-	public RootBeanDefinition(Class clazz, PropertyValues pvs, boolean singleton) {
+	public RootBeanDefinition(Class clazz, PropertyValues pvs, boolean singleton, String initMethodName) {
 		super(pvs, singleton);
 		this.clazz = clazz;
+		this.initMethodName = initMethodName;
+	}
+	
+	public RootBeanDefinition(Class clazz, PropertyValues pvs, boolean singleton) {
+		this(clazz, pvs, singleton, null); 
 	}
 	
 	/**
@@ -33,6 +40,16 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 	public RootBeanDefinition(RootBeanDefinition other) {
 		super(new MutablePropertyValues(other.getPropertyValues()), other.isSingleton());
 		this.clazz = other.clazz;
+		this.initMethodName = other.initMethodName;
+	}
+	
+	/**
+	 * Return the name of the initializer method. The default is null in which case there
+	 * is no initializer method.
+	 * @return
+	 */
+	public String getInitMethodName() {
+		return this.initMethodName;
 	}
 
 
