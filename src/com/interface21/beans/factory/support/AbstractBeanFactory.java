@@ -43,7 +43,7 @@ import com.interface21.beans.factory.NoSuchBeanDefinitionException;
  * FactoryBean dereferencing, and management of collection properties.
  * @author  Rod Johnson
  * @since 15 April 2001
- * @version $Id: AbstractBeanFactory.java,v 1.19 2003/06/07 15:58:34 johnsonr Exp $
+ * @version $Id: AbstractBeanFactory.java,v 1.20 2003/07/05 21:23:49 johnsonr Exp $
  */
 public abstract class AbstractBeanFactory implements BeanFactory {
 
@@ -229,7 +229,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	 */
 	private Object getBeanInternal(String name, Map newlyCreatedBeans) {
 		if (name == null)
-			throw new NoSuchBeanDefinitionException(null);
+			throw new NoSuchBeanDefinitionException(null, "Cannot get bean with null name");
 		if (newlyCreatedBeans != null && newlyCreatedBeans.containsKey(name)) {
 			return newlyCreatedBeans.get(name);
 		}
