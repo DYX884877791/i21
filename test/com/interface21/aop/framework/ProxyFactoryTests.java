@@ -23,7 +23,7 @@ import junit.framework.TestCase;
  * Also tests DefaultProxyConfig superclass
  * @author Rod Johnson
  * @since 14-Mar-2003
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class ProxyFactoryTests extends TestCase {
 
@@ -38,7 +38,8 @@ public class ProxyFactoryTests extends TestCase {
 	public void testNullTarget() {
 
 		try {
-			new ProxyFactory(null);
+			// Use the constructor taking Object
+			new ProxyFactory((Object) null);
 			fail("Should't allow proxy with null target");
 		} catch (AopConfigException ex) {
 		}
