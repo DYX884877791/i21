@@ -49,7 +49,7 @@ import com.interface21.beans.factory.NoSuchBeanDefinitionException;
  *
  * @author Rod Johnson
  * @since 15 April 2001
- * @version $Id: AbstractBeanFactory.java,v 1.29 2003/07/28 09:10:19 jhoeller Exp $
+ * @version $Id: AbstractBeanFactory.java,v 1.30 2003/07/28 17:19:37 jhoeller Exp $
  */
 public abstract class AbstractBeanFactory implements HierarchicalBeanFactory {
 
@@ -215,13 +215,13 @@ public abstract class AbstractBeanFactory implements HierarchicalBeanFactory {
 
 		Object beanInstance = this.sharedInstanceCache.get(name);
 		if (beanInstance == null) {
+			logger.info("Creating shared instance of singleton bean '" + name + "'");
 			beanInstance = createBean(name, newlyCreatedBeans);
 			this.sharedInstanceCache.put(name, beanInstance);
-			logger.info("Cached shared instance of Singleton bean '" + name + "'");
 		}
 		else {
 			if (logger.isDebugEnabled())
-				logger.debug("Returning cached instance of Singleton bean '" + name + "'");
+				logger.debug("Returning cached instance of singleton bean '" + name + "'");
 		}
 
 		// Don't let calling code try to dereference the
@@ -272,9 +272,8 @@ public abstract class AbstractBeanFactory implements HierarchicalBeanFactory {
 	 * @return a new instance of this bean
 	 */
 	private Object createBean(String name, Map newlyCreatedBeans) throws BeansException {
-		logger.debug("createBean (" + name + ")");
 		RootBeanDefinition mergedBeanDefinition = getMergedBeanDefinition(name);
-		logger.debug("Merged definition is: " + mergedBeanDefinition);
+		logger.debug("Creating instance of bean '" + name + "' with merged definition [" + mergedBeanDefinition + "]");
 		BeanWrapper instanceWrapper = new BeanWrapperImpl(mergedBeanDefinition.getBeanClass());
 		Object bean = instanceWrapper.getWrappedInstance();
 

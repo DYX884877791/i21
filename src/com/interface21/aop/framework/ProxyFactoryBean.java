@@ -47,7 +47,7 @@ import com.interface21.core.OrderComparator;
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
- * @version $Id: ProxyFactoryBean.java,v 1.13 2003/07/23 18:44:23 johnsonr Exp $
+ * @version $Id: ProxyFactoryBean.java,v 1.14 2003/07/28 17:19:37 jhoeller Exp $
  * @see #setInterceptorNames
  * @see #setProxyInterfaces
  */
@@ -115,7 +115,7 @@ public class ProxyFactoryBean extends DefaultProxyConfig implements FactoryBean,
 	public void setBeanFactory(BeanFactory beanFactory) {	
 		this.beanFactory = beanFactory;
 			
-		logger.info("Set BeanFactory. Will configure interceptor beans...");
+		logger.debug("Set BeanFactory. Will configure interceptor beans...");
 		createInterceptorChain();
 		
 		// Eagerly create singleton proxy instance if necessary

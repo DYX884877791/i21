@@ -11,7 +11,7 @@ import com.interface21.beans.PropertyValues;
 /** 
 * Root bean definitions have a class and properties.
 * @author Rod Johnson
-* @version $Id: RootBeanDefinition.java,v 1.7 2003/07/24 15:20:52 jhoeller Exp $
+* @version $Id: RootBeanDefinition.java,v 1.8 2003/07/28 17:19:37 jhoeller Exp $
 */
 public class RootBeanDefinition extends AbstractBeanDefinition {
 
@@ -61,7 +61,7 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 	}
 
 	public String toString() {
-		return "RootBeanDefinition: class is " + getBeanClass();
+		return "RootBeanDefinition for class '" + getBeanClass().getName() + "'";
 	}
 
 }

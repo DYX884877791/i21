@@ -34,7 +34,7 @@ import com.interface21.beans.factory.InitializingBean;
  * and pointcuts, but doesn't actually create AOP proxies.
  *
  * @author Rod Johnson
- * @version $Id: DefaultProxyConfig.java,v 1.13 2003/07/24 08:07:25 jhoeller Exp $
+ * @version $Id: DefaultProxyConfig.java,v 1.14 2003/07/28 17:19:37 jhoeller Exp $
  */
 public class DefaultProxyConfig implements ProxyConfig, InitializingBean {
 
@@ -141,7 +141,7 @@ public class DefaultProxyConfig implements ProxyConfig, InitializingBean {
 				else {
 					// Interceptor is at end of list
 					this.target = ((ProxyInterceptor) pc.getInterceptor()).getTarget();
-					logger.info("Detected target when adding ProxyInterceptor to end of interceptor array");
+					logger.debug("Detected target when adding ProxyInterceptor to end of interceptor array");
 				}
 			}
 		}

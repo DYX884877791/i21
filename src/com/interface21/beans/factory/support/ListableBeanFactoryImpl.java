@@ -33,7 +33,7 @@ import com.interface21.util.StringUtils;
  *
  * @author Rod Johnson
  * @since 16 April 2001
- * @version $Id: ListableBeanFactoryImpl.java,v 1.11 2003/07/28 09:10:19 jhoeller Exp $
+ * @version $Id: ListableBeanFactoryImpl.java,v 1.12 2003/07/28 17:19:37 jhoeller Exp $
  */
 public class ListableBeanFactoryImpl extends AbstractBeanFactory implements ListableBeanFactory {
 	
@@ -187,12 +187,12 @@ public class ListableBeanFactoryImpl extends AbstractBeanFactory implements List
 	 */
 	public void preInstantiateSingletons() {
 		// Ensure that unreferenced singletons are instantiated
+		logger.info("Instantiating singletons in factory [" + this + "]");
 		String[] beanNames = getBeanDefinitionNames();
 		for (int i = 0; i < beanNames.length; i++) {
 			AbstractBeanDefinition bd = getBeanDefinition(beanNames[i]);
 			if (bd.isSingleton()) {
-				Object singleton = getBean(beanNames[i]);
-	 			logger.debug("Instantiated singleton: " + singleton);
+				getBean(beanNames[i]);
 			}
 		}
 	}
