@@ -22,7 +22,7 @@ import com.interface21.beans.ITestBean;
 import com.interface21.beans.TestBean;
 import com.interface21.beans.factory.BeanFactory;
 import com.interface21.beans.factory.NoSuchBeanDefinitionException;
-import com.interface21.beans.factory.support.XmlBeanFactory;
+import com.interface21.beans.factory.xml.XmlBeanFactory;
 import com.interface21.context.ApplicationListener;
 import com.interface21.core.TimeStamped;
 
@@ -32,10 +32,9 @@ import com.interface21.core.TimeStamped;
  * implementation.
  * @author Rod Johnson
  * @since 13-Mar-2003
- * @version $Id: ProxyFactoryBeanTests.java,v 1.6 2003/05/22 18:12:36 jhoeller Exp $
+ * @version $Id: ProxyFactoryBeanTests.java,v 1.7 2003/06/06 16:22:02 jhoeller Exp $
  */
 public class ProxyFactoryBeanTests extends TestCase {
-	
 	
 	private BeanFactory factory;
 

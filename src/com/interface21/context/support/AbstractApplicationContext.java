@@ -58,7 +58,7 @@ import com.interface21.util.StringUtils;
  *
  * @author Rod Johnson
  * @since January 21, 2001
- * @version $Revision: 1.20 $
+ * @version $Revision: 1.21 $
  * @see #refreshBeanFactory
  * @see #getBeanFactory
  * @see #OPTIONS_BEAN_NAME
@@ -322,7 +322,7 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 	 * or a standard framework event.
 	 */
 	public final void publishEvent(ApplicationEvent event) {
-		logger.debug("Publishing event: " + event.toString());
+		logger.debug("Publishing event in context [" + getDisplayName() + "]: " + event.toString());
 		this.eventMulticaster.onApplicationEvent(event);
 		if (this.parent != null)
 			parent.publishEvent(event);
@@ -476,6 +476,10 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 
 	public boolean isSingleton(String name) throws NoSuchBeanDefinitionException {
 		return getBeanFactory().isSingleton(name);
+	}
+
+	public String[] getAliases(String name) {
+		return getBeanFactory().getAliases(name);
 	}
 
 
