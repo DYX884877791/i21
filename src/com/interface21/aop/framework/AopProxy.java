@@ -23,7 +23,7 @@ import org.apache.commons.logging.LogFactory;
  * <br/>Proxies created using this class can be threadsafe if the
  * underlying (target) class is threadsafe.
  * @author Rod Johnson
- * @version $Revision: 1.4 $
+ * @version $Id: AopProxy.java,v 1.5 2003/06/18 19:09:48 johnsonr Exp $
  */
 public class AopProxy implements InvocationHandler {
 	
@@ -120,9 +120,9 @@ public class AopProxy implements InvocationHandler {
 				AopContext.setCurrentInvocation(null);
 			}
 		
-			if (logger.isDebugEnabled()) {
-				logger.debug("Processed invocation [" + invocation + "]");
-			}
+			//if (logger.isDebugEnabled()) {
+			//	logger.debug("Processed invocation [" + invocation + "]");
+			//}
 		}
 	}
 
