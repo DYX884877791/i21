@@ -7,7 +7,7 @@
 
     Rod Johnson, 2002-3.
 
-    $Revision: 1.16 $
+    $Revision: 1.17 $
 
     See page 594 of "Expert One-on-One J2EE" for a description of
     the JAR files produced by this build script, and how
@@ -72,6 +72,7 @@
 			<classpath refid="master-classpath"/>
 
 		</javac>
+		<copy file="${src.dir}/com/interface21/jdbc/core/sql-error-codes.xml" todir="${build.dir}/"/>
 
 	</target>
 
@@ -89,6 +90,7 @@
 
 			<fileset dir="${build.dir}">
 				<include name="com/interface21/**"/>
+				<include name="*.xml"/>
 			</fileset>
 
 		</jar>
@@ -155,6 +157,7 @@
 			<fileset dir="${build.dir}">
 				<include name="com/interface21/dao/**"/>
 				<include name="com/interface21/jdbc/**"/>
+				<include name="*.xml"/>
 			</fileset>
 
 		</jar>
