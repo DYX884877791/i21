@@ -1,10 +1,12 @@
 /*
- *	$Id: TestBean.java,v 1.5 2003/05/26 18:22:42 jhoeller Exp $
+ *	$Id: TestBean.java,v 1.6 2003/05/28 07:14:42 johnsonr Exp $
  */
 
 package com.interface21.beans;
 
+import java.util.Collection;
 import java.util.Date;
+import java.util.LinkedList;
 
 
 /**
@@ -25,6 +27,8 @@ public class TestBean implements ITestBean, IOther {
 	
 	private String touchy;
 
+	private Collection friends = new LinkedList();
+	
 	private Date date = new Date();
 
 	public String getTouchy() {
@@ -133,6 +137,21 @@ public class TestBean implements ITestBean, IOther {
 	 */
 	public void absquatulate() {
 		//System.out.println("IOther.absquatulate");
+	}
+
+	/**
+	 * @return Collection
+	 */
+	public Collection getFriends() {
+		return friends;
+	}
+
+	/**
+	 * Sets the friends.
+	 * @param friends The friends to set
+	 */
+	public void setFriends(Collection friends) {
+		this.friends = friends;
 	}
 
 }	// class Test
