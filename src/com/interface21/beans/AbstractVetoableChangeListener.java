@@ -35,7 +35,7 @@ import java.util.HashMap;
  * throw another PropertyVetoException, which will be ignored by the caller.<br/>
  * Subclasses should be threadsafe: nothing in this superclass will cause a problem.
  * @author  Rod Johnson
- * @version $Id: AbstractVetoableChangeListener.java,v 1.1 2003/02/11 08:10:08 johnsonr Exp $
+ * @version $Id: AbstractVetoableChangeListener.java,v 1.2 2003/02/27 10:09:31 jhoeller Exp $
  */
 public abstract class AbstractVetoableChangeListener implements VetoableChangeListener {
 	
@@ -74,7 +74,7 @@ public abstract class AbstractVetoableChangeListener implements VetoableChangeLi
 					methods[i].setAccessible(true);
 					String propertyName = Introspector.decapitalize(methods[i].getName().substring(VALIDATE_METHOD_PREFIX.length()));
 					validationMethodHash.put(propertyName, methods[i]);
-					System.out.println(methods[i] + " is validator for property " + propertyName);
+					//System.out.println(methods[i] + " is validator for property " + propertyName);
 				}
 				else {
 					//System.out.println("invalid validator");

@@ -16,7 +16,7 @@ import com.interface21.util.StringUtils;
  * and construction from a Map.
  * @author  Rod Johnson
  * @since 13 May 2001
- * @version $Id: MutablePropertyValues.java,v 1.1 2003/02/11 08:10:11 johnsonr Exp $
+ * @version $Id: MutablePropertyValues.java,v 1.2 2003/02/27 10:10:39 jhoeller Exp $
  */
 public class MutablePropertyValues implements PropertyValues {
 	
@@ -133,12 +133,12 @@ public class MutablePropertyValues implements PropertyValues {
 			// If there wasn't an old one, add it
 			PropertyValue pvOld = old.getPropertyValue(newPv.getName());
 			if (pvOld == null) {
-				System.out.println("No old pv for " + newPv.getName());
+				//System.out.println("No old pv for " + newPv.getName());
 				changes.addPropertyValue(newPv);
 			}
 			else if (!pvOld.equals(newPv)) {
 				// It's changed
-				System.out.println("pv changed for " + newPv.getName());
+				//System.out.println("pv changed for " + newPv.getName());
 				changes.addPropertyValue(newPv);
 			}
 		}
