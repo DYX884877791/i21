@@ -30,7 +30,7 @@ import com.interface21.web.context.WebApplicationContext;
  * lookup. By default, the lookup occurs in the web app's WEB-INF
  * directory, looking for "WEB-INF/applicationContext.xml" for a root
  * context, and "WEB-INF/test-servlet.xml" for a namespaced context
- * with the name "test-servlet" (like for a ControllerServlet instance
+ * with the name "test-servlet" (like for a DispatcherServlet instance
  * with the web.xml servlet name "test").
  *
  * <p>Interprets (file) paths as servlet context resources, i.e. as
@@ -39,7 +39,7 @@ import com.interface21.web.context.WebApplicationContext;
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public class XmlWebApplicationContext extends AbstractXmlApplicationContext	implements WebApplicationContext {
 
