@@ -33,7 +33,7 @@ import com.interface21.util.StringUtils;
  *
  * @author Rod Johnson
  * @since 16 April 2001
- * @version $Id: ListableBeanFactoryImpl.java,v 1.10 2003/07/15 22:32:28 johnsonr Exp $
+ * @version $Id: ListableBeanFactoryImpl.java,v 1.11 2003/07/28 09:10:19 jhoeller Exp $
  */
 public class ListableBeanFactoryImpl extends AbstractBeanFactory implements ListableBeanFactory {
 	
@@ -82,22 +82,27 @@ public class ListableBeanFactoryImpl extends AbstractBeanFactory implements List
 	// Instance data
 	//---------------------------------------------------------------------
 
-	/**
-	 * Map of BeanDefinition objects, keyed by prototype name
-	 */
+	/** Map of BeanDefinition objects, keyed by prototype name */
 	private Map beanDefinitionMap = new HashMap();
+
+	/** Name of default parent bean */
+	private String defaultParentBean;
 
 
 	//---------------------------------------------------------------------
 	// Constructors
 	//---------------------------------------------------------------------
 
-	/** Creates a new ListableBeanFactoryImpl */
+	/**
+	 * Create a new ListableBeanFactoryImpl.
+	 */
 	public ListableBeanFactoryImpl() {
 		super();
 	}
 	
-	/** Creates a new ListableBeanFactoryImpl with the given parent */
+	/**
+	 * Create a new ListableBeanFactoryImpl with the given parent.
+	 */
 	public ListableBeanFactoryImpl(BeanFactory parentBeanFactory) {
 		super(parentBeanFactory);
 	}
