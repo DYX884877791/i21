@@ -10,16 +10,16 @@ package com.interface21.transaction;
  * underlying transaction API such as JTA.
  * @author Rod Johnson
  * @since 17-Mar-2003
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class CannotCreateTransactionException extends TransactionException {
 
-	public CannotCreateTransactionException(String s) {
-		super(s);
+	public CannotCreateTransactionException(String msg) {
+		super(msg);
 	}
 
-	public CannotCreateTransactionException(String s, Throwable ex) {
-		super(s, ex);
+	public CannotCreateTransactionException(String msg, Throwable ex) {
+		super(msg, ex);
 	}
 
 }

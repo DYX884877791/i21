@@ -10,17 +10,12 @@ package com.interface21.transaction;
  * in an unexpected rollback
  * @author Rod Johnson
  * @since 17-Mar-2003
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class UnexpectedRollbackException extends TransactionException {
 
-
-	/**
-	 * @param s
-	 * @param ex
-	 */
-	public UnexpectedRollbackException(String s, Throwable ex) {
-		super(s, ex);
+	public UnexpectedRollbackException(String msg, Throwable ex) {
+		super(msg, ex);
 	}
 
 }
