@@ -6,16 +6,12 @@ import java.beans.PropertyChangeEvent;
 /**
  * Exception thrown on a type mismatch when trying to set a property
  * @author  Rod Johnson
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class TypeMismatchException extends PropertyAccessException {
 
-	public TypeMismatchException(PropertyChangeEvent propertyChangeEvent, Class requiredType) {
-		super("Failed to convert property value of type [" + propertyChangeEvent.getNewValue().getClass().getName() + "] to required type [" + requiredType.getName() + "]", propertyChangeEvent);
-	}
-
 	public TypeMismatchException(PropertyChangeEvent propertyChangeEvent, Class requiredType, Throwable t) {
-		super("Failed to convert property value of type [" + propertyChangeEvent.getNewValue().getClass().getName() + "] to required type [" + requiredType.getName() + "]", t, propertyChangeEvent);
+		super("Failed to convert property value of type [" + propertyChangeEvent.getNewValue().getClass().getName() + "] to required type [" + requiredType.getName() + "]", propertyChangeEvent, t);
 	}
 
 }
