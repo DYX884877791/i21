@@ -23,7 +23,7 @@ import com.interface21.context.ApplicationContextException;
  * specified resource using a RequestDispatcher.
  *
  * @author Rod Johnson
- * @version $Id: InternalResourceView.java,v 1.5 2003/05/22 17:57:54 jhoeller Exp $
+ * @version $Id: InternalResourceView.java,v 1.6 2003/06/20 20:28:44 jhoeller Exp $
  */
 public class InternalResourceView extends AbstractView {
 
@@ -98,7 +98,7 @@ public class InternalResourceView extends AbstractView {
 	 * @param model Map of models to expose
 	 * @param request HttpServletRequest to preprocess.
 	 */
-	protected void exposeModelsAsRequestAttributes(Map model, HttpServletRequest request) {
+	protected void exposeModelsAsRequestAttributes(Map model, HttpServletRequest request) throws ServletException {
 		if (model != null) {
 			Set keys = model.keySet();
 			Iterator itr = keys.iterator();
