@@ -19,7 +19,7 @@ import com.interface21.web.servlet.ModelAndView;
  * class, not used directly by application code.
  * @author Rod Johnson
  * @see com.interface21.web.servlet.ControllerServlet
- * @version $Id: SimpleControllerHandlerAdapter.java,v 1.1 2003/02/11 08:10:34 johnsonr Exp $
+ * @version $Id: SimpleControllerHandlerAdapter.java,v 1.1.1.1 2003/02/11 08:10:34 johnsonr Exp $
  */
 public class SimpleControllerHandlerAdapter implements HandlerAdapter {
 	

@@ -16,7 +16,7 @@ import com.interface21.util.StringUtils;
  * and construction from a Map.
  * @author  Rod Johnson
  * @since 13 May 2001
- * @version $Id: MutablePropertyValues.java,v 1.1 2003/02/11 08:10:11 johnsonr Exp $
+ * @version $Id: MutablePropertyValues.java,v 1.1.1.1 2003/02/11 08:10:11 johnsonr Exp $
  */
 public class MutablePropertyValues implements PropertyValues {
 	

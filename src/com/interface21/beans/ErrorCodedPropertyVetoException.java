@@ -11,7 +11,7 @@ import com.interface21.core.HasRootCause;
  * Exception used by PropertyVetosException to wrap failures.
  * Clients can throw these.
  * @author  Rod Johnson
- * @version $Id: ErrorCodedPropertyVetoException.java,v 1.1 2003/02/11 08:10:10 johnsonr Exp $
+ * @version $Id: ErrorCodedPropertyVetoException.java,v 1.1.1.1 2003/02/11 08:10:10 johnsonr Exp $
  */
 public class ErrorCodedPropertyVetoException extends PropertyVetoException implements ErrorCoded, HasRootCause {
 	

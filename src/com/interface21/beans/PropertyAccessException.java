@@ -7,7 +7,7 @@ import java.beans.PropertyChangeEvent;
  * Superclass for exceptions related to a property access,
  * such as type mismatch or invocation target exception.
  * @author  Rod Johnson
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 public abstract class PropertyAccessException extends BeansException {
 	

@@ -25,7 +25,7 @@ import com.interface21.dao.DataIntegrityViolationException;
  * Can't diagnose all problems, but is portable between
  * databases.
  * @author Rod Johnson
- * @version $Id: SQLStateSQLExceptionTranslater.java,v 1.1 2003/02/11 08:10:23 johnsonr Exp $
+ * @version $Id: SQLStateSQLExceptionTranslater.java,v 1.1.1.1 2003/02/11 08:10:23 johnsonr Exp $
  */
 public class SQLStateSQLExceptionTranslater implements SQLExceptionTranslater {
 	

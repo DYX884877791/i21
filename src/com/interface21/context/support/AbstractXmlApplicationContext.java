@@ -25,7 +25,7 @@ import com.interface21.context.ApplicationContextException;
  * understood by an XMLBeanFactory
  * @see com.interface21.beans.factory.xml.XMLBeanFactory
  * @author  Rod Johnson
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 public abstract class AbstractXmlApplicationContext extends AbstractApplicationContext  {
 

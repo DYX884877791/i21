@@ -45,7 +45,7 @@ import com.interface21.beans.propertyeditors.StringArrayPropertyEditor;
  * the EJB programming restrictions.
  * @author  Rod Johnson
  * @since 15 April 2001
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 public class BeanWrapperImpl implements BeanWrapper {
 

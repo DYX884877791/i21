@@ -21,7 +21,7 @@ import com.interface21.web.util.WebUtils;
  * and prefix separator.
  * <br/>This class is immutable once initialized.
  * @author Rod Johnson
- * @version $Id: ServletRequestParameterPropertyValues.java,v 1.1 2003/02/11 08:10:28 johnsonr Exp $
+ * @version $Id: ServletRequestParameterPropertyValues.java,v 1.1.1.1 2003/02/11 08:10:28 johnsonr Exp $
  */
 public class ServletRequestParameterPropertyValues implements PropertyValues {
 

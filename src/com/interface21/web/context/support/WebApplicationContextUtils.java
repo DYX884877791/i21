@@ -27,7 +27,7 @@ import com.interface21.web.servlet.ControllerServlet;
 /**
  * Utilities common to all WebApplicationContext implementations
  * @author Rod Johnson
- * @version $Id: WebApplicationContextUtils.java,v 1.1 2003/02/11 08:10:29 johnsonr Exp $
+ * @version $Id: WebApplicationContextUtils.java,v 1.1.1.1 2003/02/11 08:10:29 johnsonr Exp $
  */
 public abstract class WebApplicationContextUtils {
 

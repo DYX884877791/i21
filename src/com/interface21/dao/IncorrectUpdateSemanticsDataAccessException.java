@@ -16,7 +16,7 @@ package com.interface21.dao;
  * Thrown, for example, when we wanted to update 1 row in an RDBMS
  * but actually updated 3
  * @author Rod Johnson
- * @version $Id: IncorrectUpdateSemanticsDataAccessException.java,v 1.1 2003/02/11 08:10:19 johnsonr Exp $
+ * @version $Id: IncorrectUpdateSemanticsDataAccessException.java,v 1.1.1.1 2003/02/11 08:10:19 johnsonr Exp $
  */
 public abstract class IncorrectUpdateSemanticsDataAccessException extends InvalidDataAccessResourceUsageException {
 

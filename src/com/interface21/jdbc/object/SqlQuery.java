@@ -31,7 +31,7 @@ import com.interface21.jdbc.core.ResultReader;
  * custom execution methods, with meaningful names and typed parameters. Each
  * custom query method will invoke one of this class's untype query methods.
  * @author Rod Johnson
-   @version $Id: SqlQuery.java,v 1.1 2003/02/11 08:10:24 johnsonr Exp $
+   @version $Id: SqlQuery.java,v 1.1.1.1 2003/02/11 08:10:24 johnsonr Exp $
  */
 public abstract class SqlQuery extends SqlOperation {
 	

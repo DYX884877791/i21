@@ -31,7 +31,7 @@ import com.interface21.web.servlet.ModelAndView;
  * <br>This is the core interface of the default
  * Interface21 MVC workflow.
  * @author Rod Johnson
- * @version $Id: Controller.java,v 1.1 2003/02/11 08:10:33 johnsonr Exp $
+ * @version $Id: Controller.java,v 1.1.1.1 2003/02/11 08:10:33 johnsonr Exp $
  */
 public interface Controller {	
 

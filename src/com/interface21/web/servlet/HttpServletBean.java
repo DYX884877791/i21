@@ -34,7 +34,7 @@ import com.interface21.beans.PropertyValues;
  * However, it does use Java 1.4 logging emulation, which must have been
  * configured by another component.
  * @author Rod Johnson
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 public class HttpServletBean extends HttpServlet {
 	

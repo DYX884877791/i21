@@ -6,7 +6,7 @@ import java.beans.PropertyChangeEvent;
 /**
  * Exception thrown on a type mismatch when trying to set a property
  * @author  Rod Johnson
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 public class TypeMismatchException extends PropertyAccessException {
 	

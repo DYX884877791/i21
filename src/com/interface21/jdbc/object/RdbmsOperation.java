@@ -40,7 +40,7 @@ import com.interface21.jdbc.core.SqlParameter;
  * @see com.interface21.dao
  * @see com.interface21.jdbc.core
  * @author Rod Johnson
- * @version $Id: RdbmsOperation.java,v 1.1 2003/02/11 08:10:24 johnsonr Exp $
+ * @version $Id: RdbmsOperation.java,v 1.1.1.1 2003/02/11 08:10:24 johnsonr Exp $
  */
 public abstract class RdbmsOperation implements InitializingBean {
 	

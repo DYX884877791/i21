@@ -29,7 +29,7 @@ import com.interface21.web.util.WebUtils;
  * Used in the sample application included in 
  * <a href="http://www.amazon.com/exec/obidos/tg/detail/-/1861007841/">Expert One-On-One J2EE Design and Development</a>.
  * @author  Rod Johnson
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 public class XmlWebApplicationContext 
 					extends AbstractXmlApplicationContext 

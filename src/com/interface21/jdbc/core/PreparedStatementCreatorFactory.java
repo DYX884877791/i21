@@ -15,7 +15,7 @@ import com.interface21.dao.InvalidDataAccessApiUsageException;
  * PreparedStatementCreator objects with different
  * parameters based on a SQL statement and a single set of parameter declarations.
  * @author Rod Johnson
- * @version $Id: PreparedStatementCreatorFactory.java,v 1.1 2003/02/11 08:10:22 johnsonr Exp $
+ * @version $Id: PreparedStatementCreatorFactory.java,v 1.1.1.1 2003/02/11 08:10:22 johnsonr Exp $
  */
 public class PreparedStatementCreatorFactory { 
 

@@ -9,7 +9,7 @@ package com.interface21.core;
  * This will no longer be necessary in Java 1.4,
  * although it won't be incompatible.
  * @author  Rod Johnson
- * @version $Id: HasRootCause.java,v 1.1 2003/02/11 08:10:18 johnsonr Exp $
+ * @version $Id: HasRootCause.java,v 1.1.1.1 2003/02/11 08:10:18 johnsonr Exp $
  */
 public interface HasRootCause {
 	

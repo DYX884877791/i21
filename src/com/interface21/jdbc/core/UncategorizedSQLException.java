@@ -18,7 +18,7 @@ import com.interface21.dao.UncategorizedDataAccessException;
  * one of our generic data access exceptions
  * @see com.interface21.dao
  * @author Rod Johnson
- * @version $Id: UncategorizedSQLException.java,v 1.1 2003/02/11 08:10:23 johnsonr Exp $
+ * @version $Id: UncategorizedSQLException.java,v 1.1.1.1 2003/02/11 08:10:23 johnsonr Exp $
  */
 public class UncategorizedSQLException extends UncategorizedDataAccessException {
 	

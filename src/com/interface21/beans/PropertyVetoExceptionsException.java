@@ -20,7 +20,7 @@ import com.interface21.util.StringUtils;
  * rejected changes in an object of this class.
  * @author  Rod Johnson
  * @since 18 April 2001
- * @version $Id: PropertyVetoExceptionsException.java,v 1.1 2003/02/11 08:10:11 johnsonr Exp $
+ * @version $Id: PropertyVetoExceptionsException.java,v 1.1.1.1 2003/02/11 08:10:11 johnsonr Exp $
  */
 public class PropertyVetoExceptionsException extends BeansException {
 

@@ -19,7 +19,7 @@ import com.interface21.dao.InvalidDataAccessResourceUsageException;
  * <br>It would be possible to have subclasses for no such table, no such column etc.
  * A custom SQLExceptionTranslater could create such
  * more specific exceptions, without affecting code using this class.
- * @version $Id: BadSqlGrammarException.java,v 1.1 2003/02/11 08:10:21 johnsonr Exp $
+ * @version $Id: BadSqlGrammarException.java,v 1.1.1.1 2003/02/11 08:10:21 johnsonr Exp $
  */
 public class BadSqlGrammarException extends InvalidDataAccessResourceUsageException {
 	

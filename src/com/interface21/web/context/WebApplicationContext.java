@@ -29,7 +29,7 @@ import com.interface21.context.ApplicationContext;
  * (including controller servlets in our MVC framework) has its own child context.
  * @author Rod Johnson
  * @since January 19, 2001
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 public interface WebApplicationContext extends ApplicationContext {
 

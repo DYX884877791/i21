@@ -6,7 +6,7 @@ package com.interface21.beans;
  * one update.
  * @author  Rod Johnson
  * @since 13 May 2001
- * @version $Id: PropertyValues.java,v 1.1 2003/02/11 08:10:11 johnsonr Exp $
+ * @version $Id: PropertyValues.java,v 1.1.1.1 2003/02/11 08:10:11 johnsonr Exp $
  */
 public interface PropertyValues {
    

@@ -47,7 +47,7 @@ import com.interface21.dao.DataAccessException;
  * SQLExceptionTranslater interface, it isn't necessary to subclass it.
  * @author  Rod Johnson
  * @see com.interface21.dao
- * @version $Id: JdbcTemplate.java,v 1.1 2003/02/11 08:10:22 johnsonr Exp $
+ * @version $Id: JdbcTemplate.java,v 1.1.1.1 2003/02/11 08:10:22 johnsonr Exp $
  * @since May 3, 2001
  */
 public class JdbcTemplate {

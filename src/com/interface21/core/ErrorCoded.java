@@ -11,7 +11,7 @@ package com.interface21.core;
  * exceptions are useful, and they cannot share a common,
  * framework-specific, superclass.
  * @author  Rod Johnson
- * @version $Id: ErrorCoded.java,v 1.1 2003/02/11 08:10:18 johnsonr Exp $
+ * @version $Id: ErrorCoded.java,v 1.1.1.1 2003/02/11 08:10:18 johnsonr Exp $
  */
 public interface ErrorCoded {
 	

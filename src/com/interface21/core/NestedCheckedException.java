@@ -27,7 +27,7 @@ import java.io.PrintWriter;
  * as Java forces these two classes to have different superclasses. (Ah, the inflexibility
  * of concrete inheritance!)
  * @author Rod Johnson
- * @version $Id: NestedCheckedException.java,v 1.1 2003/02/11 08:10:18 johnsonr Exp $
+ * @version $Id: NestedCheckedException.java,v 1.1.1.1 2003/02/11 08:10:18 johnsonr Exp $
  */
 public abstract class NestedCheckedException extends Exception implements HasRootCause {
 

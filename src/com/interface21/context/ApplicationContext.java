@@ -33,7 +33,7 @@ import com.interface21.beans.factory.ListableBeanFactory;
  * <li>
  * </ul>
  * @author Rod Johnson
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 public interface ApplicationContext extends MessageSource, ListableBeanFactory {
 	

@@ -14,7 +14,7 @@ package com.interface21.dao;
  * completely: for example, if we can't connect to a database
  * using JDBC.
  * @author Rod Johnson
- * @version $Id: DataAccessResourceFailureException.java,v 1.1 2003/02/11 08:10:18 johnsonr Exp $
+ * @version $Id: DataAccessResourceFailureException.java,v 1.1.1.1 2003/02/11 08:10:18 johnsonr Exp $
  */
 public class DataAccessResourceFailureException extends DataAccessException {
 

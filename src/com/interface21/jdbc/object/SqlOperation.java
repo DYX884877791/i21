@@ -24,7 +24,7 @@ import com.interface21.util.StringUtils;
  * <br>Configures a PreparedStatementCreatorFactory based on the declared
  * parameters.
  * @author Rod Johnson
- * @version $Id: SqlOperation.java,v 1.1 2003/02/11 08:10:24 johnsonr Exp $
+ * @version $Id: SqlOperation.java,v 1.1.1.1 2003/02/11 08:10:24 johnsonr Exp $
  */
 public abstract class SqlOperation extends RdbmsOperation { 
 	

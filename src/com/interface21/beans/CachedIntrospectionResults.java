@@ -23,7 +23,7 @@ import org.apache.log4j.Logger;
  * and a public static forClass() method to obtain instances.
  * @author  Rod Johnson
  * @since 05 May 2001
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 final class CachedIntrospectionResults {
     

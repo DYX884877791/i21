@@ -7,7 +7,7 @@ package com.interface21.beans;
  * interface is supplied, it will be invoked by a BeanWrapper implementation's
  * setPropertyValues() method.
  * @author  Rod Johnson
- * @version $Revision: 1.1 $ 
+ * @version $Revision: 1.1.1.1 $ 
  */
 public interface PropertyValuesValidator {
 	

@@ -30,7 +30,7 @@ import java.io.PrintWriter;
  * runtime exceptions are often a better alternative to checked exceptions. However, all exceptions
  * should preserve their stack trace, if caused by a lower-level exception.
  * @author Rod Johnson
- * @version $Id: NestedRuntimeException.java,v 1.1 2003/02/11 08:10:18 johnsonr Exp $
+ * @version $Id: NestedRuntimeException.java,v 1.1.1.1 2003/02/11 08:10:18 johnsonr Exp $
  */
 public abstract class NestedRuntimeException extends RuntimeException implements HasRootCause {
 

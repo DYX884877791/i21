@@ -40,7 +40,7 @@ import com.interface21.util.StringUtils;
  * call refresh, i think
  * @author  Rod Johnson
  * @since January 21, 2001
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 public abstract class AbstractApplicationContext implements ApplicationContext {
 	

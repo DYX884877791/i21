@@ -7,7 +7,7 @@ import java.beans.PropertyChangeEvent;
  * Thrown when a method getter or setter throws an exception
  * (analogous to an InvocationTargetException)
  * @author  Rod Johnson
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 public class MethodInvocationException extends PropertyAccessException {
 

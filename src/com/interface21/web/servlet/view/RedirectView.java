@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * This class is not fully implemented: it needs to expose
  * model attributes as GET parameters to external view.
  * @author  Rod Johnson
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 public class RedirectView extends AbstractView {
 	

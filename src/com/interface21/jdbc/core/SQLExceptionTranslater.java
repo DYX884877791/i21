@@ -22,7 +22,7 @@ import com.interface21.dao.DataAccessException;
  * using Oracle error codes) for greater precision.
  * @author Rod Johnson
  * @see com.interface21.dao.DataAccessException
- * @version $Id: SQLExceptionTranslater.java,v 1.1 2003/02/11 08:10:23 johnsonr Exp $
+ * @version $Id: SQLExceptionTranslater.java,v 1.1.1.1 2003/02/11 08:10:23 johnsonr Exp $
  */
 public interface SQLExceptionTranslater {
 

@@ -15,7 +15,7 @@ package com.interface21.dao;
  * is not purely a relational concept; unique primary keys are
  * required by most database types.
  * @author Rod Johnson
- * @version $Id: DataIntegrityViolationException.java,v 1.1 2003/02/11 08:10:18 johnsonr Exp $
+ * @version $Id: DataIntegrityViolationException.java,v 1.1.1.1 2003/02/11 08:10:18 johnsonr Exp $
  */
 public class DataIntegrityViolationException extends DataAccessException {
 

@@ -23,7 +23,7 @@ import com.interface21.context.ApplicationContextAware;
  * so implementations are free to cache views.
  * <br>Implementations are encouraged to support internationalization.
  * @author  Rod Johnson
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 public interface ViewResolver extends ApplicationContextAware {
 		

@@ -1,5 +1,5 @@
 /*
- *	$Id: TestBean.java,v 1.1 2003/02/11 08:10:39 johnsonr Exp $
+ *	$Id: TestBean.java,v 1.1.1.1 2003/02/11 08:10:39 johnsonr Exp $
  */
 
 package com.interface21.beans;

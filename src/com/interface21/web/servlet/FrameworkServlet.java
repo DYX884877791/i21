@@ -42,7 +42,7 @@ import com.interface21.web.context.support.XmlWebApplicationContext;
  * initFrameworkServlet(), and doService(), which handles requests
  * to the servlet.
  * @author Rod Johnson
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 public abstract class FrameworkServlet extends HttpServletBean {
 	

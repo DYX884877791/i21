@@ -16,7 +16,7 @@ package com.interface21.dao;
  * underlying resource": for example, a SQLException from JDBC we
  * can't pinpoint more precisely.
  * @author Rod Johnson
- * @version $Id: UncategorizedDataAccessException.java,v 1.1 2003/02/11 08:10:19 johnsonr Exp $
+ * @version $Id: UncategorizedDataAccessException.java,v 1.1.1.1 2003/02/11 08:10:19 johnsonr Exp $
  */
 public abstract class UncategorizedDataAccessException extends DataAccessException {
 
