@@ -12,7 +12,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import junit.framework.TestCase;
-
 import org.aopalliance.AspectException;
 import org.aopalliance.AttributeRegistry;
 import org.aopalliance.MethodInterceptor;
@@ -30,7 +29,7 @@ import com.interface21.beans.TestBean;
  * 
  * @author Rod Johnson
  * @since 13-Mar-2003
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class AopProxyTests extends TestCase {
 
