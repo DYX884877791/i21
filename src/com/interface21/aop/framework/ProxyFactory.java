@@ -16,7 +16,7 @@ import java.util.Set;
  * AOP proxies in code.
  * @since 14-Mar-2003
  * @author Rod Johnson
- * @version $Id: ProxyFactory.java,v 1.4 2003/05/15 17:16:55 johnsonr Exp $
+ * @version $Id: ProxyFactory.java,v 1.5 2003/07/03 10:54:10 jhoeller Exp $
  */
 public class ProxyFactory extends DefaultProxyConfig {
 	
@@ -62,7 +62,7 @@ public class ProxyFactory extends DefaultProxyConfig {
 	 */
 	public Object getProxy() {
 		AopProxy proxy = new AopProxy(this);
-		return AopProxy.getProxy(proxy);
+		return proxy.getProxy();
 	}
 
 }
