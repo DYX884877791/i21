@@ -28,7 +28,7 @@ import com.interface21.jdbc.datasource.DataSourceUtils;
  * Returns a SQLExceptionTranslator populated with vendor 
  * codes defined in a configuration file named "sql-error-codes.xml".
  * @author Thomas Risberg
-   @version $Id: SQLExceptionTranslaterFactory.java,v 1.3 2003/05/06 12:24:01 jhoeller Exp $
+   @version $Id: SQLExceptionTranslaterFactory.java,v 1.4 2003/05/12 02:29:05 trisberg Exp $
  */
 public class SQLExceptionTranslaterFactory {
 	
@@ -36,7 +36,8 @@ public class SQLExceptionTranslaterFactory {
 	 * Name of SQL error code file, loading on the classpath. Will look
 	 * in current directory (no leading /).
 	 */
-	public static final String SQL_ERROR_CODE_PATH = "sql-error-codes.xml";
+	public static final String SQL_ERROR_CODE_OVERRIDE_PATH = "/sql-error-codes.xml";
+	public static final String SQL_ERROR_CODE_DEFAULT_PATH = "sql-error-codes.xml";
 	
 	/**
 	* Keep track of this instance so we can return it to classes that request
@@ -59,11 +60,12 @@ public class SQLExceptionTranslaterFactory {
 	 * Not public to enforce Singleton design pattern
 	 */
 	SQLExceptionTranslaterFactory() {
-		String errorCodeXml = SQL_ERROR_CODE_PATH;
 		try {
-			java.io.InputStream is = SQLExceptionTranslaterFactory.class.getResourceAsStream(errorCodeXml);
+			java.io.InputStream is = SQLExceptionTranslaterFactory.class.getResourceAsStream(SQL_ERROR_CODE_OVERRIDE_PATH);
 			if (is == null) {
-				throw new BeanDefinitionStoreException("Unable to locate file [" + errorCodeXml +"]",null);
+				is = SQLExceptionTranslaterFactory.class.getResourceAsStream(SQL_ERROR_CODE_DEFAULT_PATH);
+				if (is == null) 
+					throw new BeanDefinitionStoreException("Unable to locate file [" + SQL_ERROR_CODE_DEFAULT_PATH +"]",null);
 			}
 			ListableBeanFactory bf = new XmlBeanFactory(is);
 			String[] rdbmsNames = bf.getBeanDefinitionNames(com.interface21.jdbc.core.SQLErrorCodes.class);			
