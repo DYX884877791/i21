@@ -16,7 +16,6 @@ import java.sql.SQLException;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import org.aopalliance.Invocation;
 import org.aopalliance.MethodInterceptor;
 import org.aopalliance.MethodInvocation;
 
@@ -29,7 +28,7 @@ import com.interface21.util.ThreadObjectManager;
  * connections if necessary. Has support for thread-bound connections,
  * for example for using DataSourceTransactionManager.
  * 
- * @version $Id: DataSourceUtils.java,v 1.6 2003/05/12 17:46:40 jhoeller Exp $
+ * @version $Id: DataSourceUtils.java,v 1.7 2003/05/16 17:55:12 johnsonr Exp $
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @see com.interface21.transaction.datasource.DataSourceTransactionManager
@@ -161,9 +160,8 @@ public abstract class DataSourceUtils {
 		// Create AOP interceptor wrapping source
 		ProxyFactory pf = new ProxyFactory(source);
 		pf.addInterceptor(0, new MethodInterceptor() {
-			public Object invoke(Invocation invocation) throws Throwable {
-				Method m = ((MethodInvocation) invocation).getMethod();
-				if (m.getName().equals("close")) {
+			public Object invoke(MethodInvocation invocation) throws Throwable {
+				if (invocation.getMethod().getName().equals("close")) {
 					// Don't pass the call on
 					return null;
 				}
