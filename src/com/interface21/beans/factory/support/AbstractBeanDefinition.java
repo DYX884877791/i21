@@ -22,9 +22,9 @@ import com.interface21.beans.PropertyValues;
  * BeanDefinitions.
  * <br>This abstract base class defines the BeanFactory type.
  * @author Rod Johnson
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
-public abstract class AbstractBeanDefinition {
+abstract class AbstractBeanDefinition {
 
 	/**
 	* Create a logging category that is available
