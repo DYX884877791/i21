@@ -9,9 +9,11 @@
 
 package com.interface21.jdbc.core;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +33,7 @@ import com.interface21.jdbc.datasource.DataSourceUtils;
  * Returns a SQLExceptionTranslator populated with vendor 
  * codes defined in a configuration file named "sql-error-codes.xml".
  * @author Thomas Risberg
-   @version $Id: SQLExceptionTranslaterFactory.java,v 1.6 2003/06/06 16:13:22 jhoeller Exp $
+   @version $Id: SQLExceptionTranslaterFactory.java,v 1.7 2003/07/16 16:23:04 jhoeller Exp $
  */
 public class SQLExceptionTranslaterFactory {
 	
@@ -49,18 +51,29 @@ public class SQLExceptionTranslaterFactory {
 	*/
 	private static final SQLExceptionTranslaterFactory instance;
 	
+	static {
+		instance = new SQLExceptionTranslaterFactory();
+	}
+
 	/**
-	* Create a HashMap to hold error codes for all databases defined in the
-	* config file.
+	 * Factory method
+	 */
+	public static SQLExceptionTranslaterFactory getInstance() {
+		return instance;
+	}
+
+
+	/**
+	* Create a Map to hold error codes for all databases defined in the config file.
 	*/
 	private Map rdbmsErrorCodes;
 	
 	/**
-	 * Not public to enforce Singleton design pattern
+	 * Not public to enforce Singleton design pattern.
 	 */
-	SQLExceptionTranslaterFactory() {
+	private SQLExceptionTranslaterFactory() {
 		try {
-			java.io.InputStream is = SQLExceptionTranslaterFactory.class.getResourceAsStream(SQL_ERROR_CODE_OVERRIDE_PATH);
+			InputStream is = SQLExceptionTranslaterFactory.class.getResourceAsStream(SQL_ERROR_CODE_OVERRIDE_PATH);
 			if (is == null) {
 				is = SQLExceptionTranslaterFactory.class.getResourceAsStream(SQL_ERROR_CODE_DEFAULT_PATH);
 				if (is == null) 
@@ -74,11 +87,11 @@ public class SQLExceptionTranslaterFactory {
 				if (ec.getBadSqlGrammarCodes() == null)
 					ec.setBadSqlGrammarCodes(new String[0]);
 				else
-					java.util.Arrays.sort(ec.getBadSqlGrammarCodes());
+					Arrays.sort(ec.getBadSqlGrammarCodes());
 				if (ec.getDataIntegrityViolationCodes() == null)
 					ec.setDataIntegrityViolationCodes(new String[0]);
 				else
-					java.util.Arrays.sort(ec.getDataIntegrityViolationCodes());
+					Arrays.sort(ec.getDataIntegrityViolationCodes());
 				rdbmsErrorCodes.put(rdbmsNames[i], ec);
 			}
 		}
@@ -87,20 +100,10 @@ public class SQLExceptionTranslaterFactory {
 			rdbmsErrorCodes = new HashMap(0);
 		}
 	}
-		
-	static {
-		instance = new SQLExceptionTranslaterFactory();
-	}
 
 	/**
-	 * Factory method
-	 */
-	public static SQLExceptionTranslaterFactory getInstance() {
-		return instance;
-	}
-
-	/**
-	 * 
+	 * Return SQLExceptionTranslater for the given DataSource,
+	 * evaluating DatabaseProductName from DatabaseMetaData.
 	 */
 	public SQLExceptionTranslater getDefaultTranslater(DataSource ds) {
 		String dbName = null;
@@ -135,10 +138,9 @@ public class SQLExceptionTranslaterFactory {
 	}
 
 	/**
-	 * 
+	 * Return plain SQLErrorCodes for the given database.
 	 */
 	public SQLErrorCodes getErrorCodes(String dbName) {
-		
 		SQLErrorCodes sec = (SQLErrorCodes) rdbmsErrorCodes.get(dbName);
 		
 		// could not find the database among the defined ones
@@ -147,4 +149,5 @@ public class SQLExceptionTranslaterFactory {
 
 		return sec;
 	}
+
 }
