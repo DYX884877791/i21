@@ -6,6 +6,7 @@
 package com.interface21.beans.factory.support;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.commons.logging.Log;
@@ -38,7 +39,7 @@ import com.interface21.beans.factory.NoSuchBeanDefinitionException;
  * FactoryBean dereferencing, and management of collection properties.
  * @author  Rod Johnson
  * @since 15 April 2001
- * @version $Id: AbstractBeanFactory.java,v 1.16 2003/06/04 19:50:59 johnsonr Exp $
+ * @version $Id: AbstractBeanFactory.java,v 1.17 2003/06/06 06:58:03 johnsonr Exp $
  */
 public abstract class AbstractBeanFactory implements BeanFactory {
 
@@ -346,6 +347,8 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	 * <li>A RuntimeBeanReference, which must be resolved
 	 * <li>A ManagedList. This is a special collection that may contain
 	 * RuntimeBeanReferences that will need to be resolved.
+	 * <li>A ManagedMap. In this case the value may be a reference that
+	 * must be resolved.
 	 * If the value is a simple object, but the property takes a Collection type,
 	 * the value must be placed in a list.
 	 */
@@ -371,6 +374,21 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 				}
 			}
 			val = l;
+		}
+		else if (pv.getValue() != null && (pv.getValue() instanceof ManagedMap)) {
+			// Convert from managed map. This is a special container that
+			// may contain runtime bean references as values.
+			// May need to resolve references
+			ManagedMap mm = (ManagedMap) pv.getValue();
+			Iterator keys = mm.keySet().iterator();
+			while (keys.hasNext()) {
+				Object key = keys.next();
+				Object value = mm.get(key);
+				if (value instanceof RuntimeBeanReference) {
+					mm.put(key, resolveReference(pv.getName(), (RuntimeBeanReference) value, newlyCreatedBeans));
+				}
+			}	// for each key in the managed map
+			val = mm;
 		}
 		else {
 			// It's an ordinary property. Just copy it.
