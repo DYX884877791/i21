@@ -15,6 +15,7 @@ import com.interface21.jdbc.object.SqlFunction;
  * @author <a href="mailto:dkopylenko@acs.rutgers.edu>Dmitriy Kopylenko</a>
  * @author <a href="mailto:isabelle@meta-logix.com">Isabelle Muszynski</a>
  * @author <a href="mailto:jp.pawlak@tiscali.fr">Jean-Pierre Pawlak</a>
+ * @version $Id: OracleSequenceMaxValueIncrementer.java,v 1.6 2003/05/10 10:34:14 pawlakjp Exp $
  */
 public class OracleSequenceMaxValueIncrementer
 	extends AbstractDataFieldMaxValueIncrementer

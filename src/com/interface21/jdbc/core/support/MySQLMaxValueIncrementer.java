@@ -43,6 +43,7 @@ import com.interface21.jdbc.object.SqlUpdate;
  * </p>
  * @author <a href="mailto:isabelle@meta-logix.com">Isabelle Muszynski</a>
  * @author <a href="mailto:jp.pawlak@tiscali.fr">Jean-Pierre Pawlak</a>
+ * @version $Id: MySQLMaxValueIncrementer.java,v 1.7 2003/05/10 10:34:13 pawlakjp Exp $
  */
 
 public class MySQLMaxValueIncrementer
