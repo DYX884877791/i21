@@ -19,19 +19,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.interface21.web.servlet.ModelAndView;
 
-
 /**
- * Simple MVC controller interface. Most similar to a Struts
- * Action.
- * <br>An implementation of the Controller interface is a reusable,
+ * Simple MVC controller interface. Most similar to a Struts Action.
+ *
+ * <p>An implementation of the Controller interface is a reusable,
  * threadsafe object that handles multiple HTTP requests throughout
- * the lifecycle of an application. Controllers are normally
- * JavaBeans, allowing for easy and consistent configuration 
- * on application startup.
- * <br>This is the core interface of the default
- * Interface21 MVC workflow.
+ * the lifecycle of an application. Controllers are normally JavaBeans,
+ * allowing for easy and consistent configuration on application startup.
+ *
+ * <p>This is the core interface of the default MVC workflow.
+ * 
  * @author Rod Johnson
- * @version $Id: Controller.java,v 1.2 2003/04/23 15:54:32 jhoeller Exp $
+ * @version $Id: Controller.java,v 1.3 2003/05/22 17:57:54 jhoeller Exp $
  */
 public interface Controller {	
 
@@ -42,8 +41,9 @@ public interface Controller {
 	 * thus there is no ModelAndView to render.
 	 * @param request current HTTP request
 	 * @param response current HTTP response
-	 * @return a ModelAndView to render, or null
+	 * @return a ModelAndView to render, or null if handled directly
 	 */
-	ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
+	    throws ServletException, IOException;
 	
 }
