@@ -11,6 +11,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.interface21.core.InternalErrorException;
+import com.interface21.dao.DataAccessException;
 import com.interface21.dao.DataAccessResourceFailureException;
 import com.interface21.jdbc.datasource.DataSourceUtils;
 
@@ -37,7 +38,7 @@ import com.interface21.jdbc.datasource.DataSourceUtils;
  * @author <a href="mailto:isabelle@meta-logix.com">Isabelle Muszynski</a>
  * @author <a href="mailto:jp.pawlak@tiscali.fr">Jean-Pierre Pawlak</a>
  * @author Thomas Risberg
- * @version $Id: MySQLMaxValueIncrementer.java,v 1.15 2003/06/19 03:42:01 trisberg Exp $
+ * @version $Id: MySQLMaxValueIncrementer.java,v 1.16 2003/06/19 05:06:25 trisberg Exp $
  */
 
 public class MySQLMaxValueIncrementer
@@ -158,7 +159,7 @@ public class MySQLMaxValueIncrementer
 		/** The max id to serve */
 		private long maxId = 0;
 
-		synchronized protected long getNextKey(int type) {
+		synchronized protected long getNextKey(int type) throws DataAccessException {
 			if (isDirty()) {
 				initPrepare();
 			}
@@ -216,7 +217,12 @@ public class MySQLMaxValueIncrementer
 			return nextId;
 		}
 
-		private void initPrepare() {
+		private void initPrepare() throws InvalidMaxValueIncrementerApiUsageException {
+			afterPropertiesSet();
+			if (getIncrementerName() == null)
+				throw new InvalidMaxValueIncrementerApiUsageException("IncrementerName property must be set on " + getClass().getDeclaringClass().getName());
+			if (getColumnName() == null)
+				throw new InvalidMaxValueIncrementerApiUsageException("ColumnName property must be set on " + getClass().getDeclaringClass().getName());
 			StringBuffer buf = new StringBuffer();
 			buf.append("update ");
 			buf.append(getIncrementerName());
