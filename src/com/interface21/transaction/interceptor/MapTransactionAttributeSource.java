@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.aopalliance.MethodInvocation;
+import org.aopalliance.intercept.MethodInvocation;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -18,7 +18,7 @@ import org.apache.commons.logging.LogFactory;
  * Simple implementation of TransactionAttributeSource that
  * allows attributes to be stored in a map.
  * @since 24-Apr-2003
- * @version $Id: MapTransactionAttributeSource.java,v 1.1 2003/06/13 13:40:38 jhoeller Exp $
+ * @version $Id: MapTransactionAttributeSource.java,v 1.2 2003/07/23 18:45:29 johnsonr Exp $
  * @author Rod Johnson
  */
 public class MapTransactionAttributeSource implements TransactionAttributeSource {

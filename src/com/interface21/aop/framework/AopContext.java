@@ -5,8 +5,8 @@
  
 package com.interface21.aop.framework;
 
-import org.aopalliance.AspectException;
-import org.aopalliance.MethodInvocation;
+import org.aopalliance.intercept.AspectException;
+import org.aopalliance.intercept.MethodInvocation;
 
 /**
  * Class containing static methods used to obtain
@@ -23,7 +23,7 @@ import org.aopalliance.MethodInvocation;
  * usage under AOP and--specifically--the Spring AOP framework.
  * @author Rod Johnson
  * @since 13-Mar-2003
- * @version $Id: AopContext.java,v 1.2 2003/04/08 20:30:14 johnsonr Exp $
+ * @version $Id: AopContext.java,v 1.3 2003/07/23 18:44:23 johnsonr Exp $
  */
 public abstract class AopContext {
 	

@@ -1,7 +1,7 @@
 package com.interface21.aop.interceptor;
 
-import org.aopalliance.MethodInterceptor;
-import org.aopalliance.MethodInvocation;
+import org.aopalliance.intercept.MethodInterceptor;
+import org.aopalliance.intercept.MethodInvocation;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -9,7 +9,7 @@ import com.interface21.util.ClassLoaderAnalyzer;
 
 /**
  * Trivial classloader analyzer interceptor
- * @version $Id: ClassLoaderAnalyzerInterceptor.java,v 1.1 2003/06/13 13:40:11 jhoeller Exp $
+ * @version $Id: ClassLoaderAnalyzerInterceptor.java,v 1.2 2003/07/23 18:44:24 johnsonr Exp $
  * @author Rod Johnson
  * @author Dmitriy Kopylenko
  */
@@ -21,11 +21,11 @@ public class ClassLoaderAnalyzerInterceptor implements MethodInterceptor {
 		logger.info("Begin...");
 
 		logger.info(ClassLoaderAnalyzer.showClassLoaderHierarchy(
-			pInvocation.getInvokedObject(),
-			pInvocation.getInvokedObject().getClass().getName(),
+			pInvocation.getThis(),
+			pInvocation.getThis().getClass().getName(),
 			"\n",
 			"-"));
-		Object rval = pInvocation.invokeNext();
+		Object rval = pInvocation.proceed();
 
 		logger.info("End.");
 

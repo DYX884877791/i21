@@ -5,7 +5,7 @@
 
 package com.interface21.aop.framework;
 
-import org.aopalliance.MethodInterceptor;
+import org.aopalliance.intercept.MethodInterceptor;
 
 /**
  * Subinterface of MethodInterceptor that allows additional 
@@ -17,7 +17,7 @@ import org.aopalliance.MethodInterceptor;
  * introduce.
  * @see DefaultProxyConfig
  * @author Rod Johnson
- * @version $Id: IntroductionInterceptor.java,v 1.1 2003/05/15 17:16:00 johnsonr Exp $
+ * @version $Id: IntroductionInterceptor.java,v 1.2 2003/07/23 18:44:23 johnsonr Exp $
  */
 public interface IntroductionInterceptor extends MethodInterceptor {
 	

@@ -5,7 +5,7 @@
  
 package com.interface21.aop.framework;
 
-import org.aopalliance.MethodInterceptor;
+import org.aopalliance.intercept.MethodInterceptor;
 
 /**
  * Interface to be implemented by objects that can cause
@@ -13,7 +13,7 @@ import org.aopalliance.MethodInterceptor;
  * the method, arguments and attributes passed.
  * @author Rod Johnson
  * @since 03-Apr-2003
- * @version $Id: MethodPointcut.java,v 1.3 2003/07/20 08:48:41 johnsonr Exp $
+ * @version $Id: MethodPointcut.java,v 1.4 2003/07/23 18:44:23 johnsonr Exp $
  */
 public interface MethodPointcut {
 

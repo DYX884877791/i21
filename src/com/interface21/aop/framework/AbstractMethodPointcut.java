@@ -5,7 +5,7 @@
  
 package com.interface21.aop.framework;
 
-import org.aopalliance.MethodInterceptor;
+import org.aopalliance.intercept.MethodInterceptor;
 
 /**
  * Abstract convenience superclass for implementations of
@@ -13,11 +13,14 @@ import org.aopalliance.MethodInterceptor;
  * interceptor.
  * @author Rod Johnson
  * @since July 22, 2003
- * @version $Id: AbstractMethodPointcut.java,v 1.1 2003/07/22 12:39:18 johnsonr Exp $
+ * @version $Id: AbstractMethodPointcut.java,v 1.2 2003/07/23 18:44:24 johnsonr Exp $
  */
 public abstract class AbstractMethodPointcut implements MethodPointcut {
 
-	private final MethodInterceptor interceptor;
+	private MethodInterceptor interceptor;
+	
+	protected AbstractMethodPointcut() {
+	}
 	
 	protected AbstractMethodPointcut(MethodInterceptor interceptor) {
 		this.interceptor = interceptor;
@@ -27,6 +30,10 @@ public abstract class AbstractMethodPointcut implements MethodPointcut {
 	 */
 	public MethodInterceptor getInterceptor() {
 		return this.interceptor;
+	}
+	
+	public void setInterceptor(MethodInterceptor interceptor) {
+		this.interceptor = interceptor;
 	}
 
 }

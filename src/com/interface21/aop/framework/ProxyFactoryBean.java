@@ -13,8 +13,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.aopalliance.AspectException;
-import org.aopalliance.Interceptor;
+import org.aopalliance.intercept.AspectException;
+import org.aopalliance.intercept.Interceptor;
 
 import com.interface21.beans.BeansException;
 import com.interface21.beans.PropertyValues;
@@ -47,7 +47,7 @@ import com.interface21.core.OrderComparator;
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
- * @version $Id: ProxyFactoryBean.java,v 1.12 2003/07/23 12:21:16 jhoeller Exp $
+ * @version $Id: ProxyFactoryBean.java,v 1.13 2003/07/23 18:44:23 johnsonr Exp $
  * @see #setInterceptorNames
  * @see #setProxyInterfaces
  */

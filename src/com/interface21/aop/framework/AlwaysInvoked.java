@@ -7,15 +7,15 @@ package com.interface21.aop.framework;
 
 import java.lang.reflect.Method;
 
-import org.aopalliance.AttributeRegistry;
-import org.aopalliance.MethodInterceptor;
+import org.aopalliance.intercept.AttributeRegistry;
+import org.aopalliance.intercept.MethodInterceptor;
 
 /**
  * MethodPointcut implementation wrapping an
  * Interceptor that should always run.
  * @author Rod Johnson
  * @since 04-Apr-2003
- * @version $Id: AlwaysInvoked.java,v 1.4 2003/07/22 12:39:18 johnsonr Exp $
+ * @version $Id: AlwaysInvoked.java,v 1.5 2003/07/23 18:44:23 johnsonr Exp $
  */
 public class AlwaysInvoked extends AbstractMethodPointcut implements StaticMethodPointcut {
 	

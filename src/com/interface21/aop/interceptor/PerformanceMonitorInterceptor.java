@@ -1,7 +1,7 @@
 package com.interface21.aop.interceptor;
 
-import org.aopalliance.MethodInterceptor;
-import org.aopalliance.MethodInvocation;
+import org.aopalliance.intercept.MethodInterceptor;
+import org.aopalliance.intercept.MethodInvocation;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -14,7 +14,7 @@ import com.interface21.util.StopWatch;
  * has no effect on the intercepted method call.
  * @author Rod Johnson
  * @author Dmitriy Kopylenko
- * @version $Id: PerformanceMonitorInterceptor.java,v 1.1 2003/06/13 13:40:11 jhoeller Exp $
+ * @version $Id: PerformanceMonitorInterceptor.java,v 1.2 2003/07/23 18:44:24 johnsonr Exp $
  */
 public class PerformanceMonitorInterceptor implements MethodInterceptor {
 
@@ -25,7 +25,7 @@ public class PerformanceMonitorInterceptor implements MethodInterceptor {
 
 		StopWatch sw = new StopWatch();
 		sw.start(invocation.getMethod().getName());
-		Object rval = invocation.invokeNext();
+		Object rval = invocation.proceed();
 		sw.stop();
 
 		logger.info(sw.prettyPrint());

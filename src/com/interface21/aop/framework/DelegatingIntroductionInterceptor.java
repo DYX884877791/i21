@@ -8,7 +8,7 @@ package com.interface21.aop.framework;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.aopalliance.MethodInvocation;
+import org.aopalliance.intercept.MethodInvocation;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -26,7 +26,7 @@ import org.apache.commons.logging.LogFactory;
  * by the delegate but which should not be introduced to the owning
  * AOP proxy.
  * @author Rod Johnson
- * @version $Id: DelegatingIntroductionInterceptor.java,v 1.4 2003/07/10 16:59:38 johnsonr Exp $
+ * @version $Id: DelegatingIntroductionInterceptor.java,v 1.5 2003/07/23 18:44:23 johnsonr Exp $
  */
 public class DelegatingIntroductionInterceptor implements IntroductionInterceptor {
 
@@ -112,7 +112,7 @@ public class DelegatingIntroductionInterceptor implements IntroductionIntercepto
 		}
 		
 		// If we get here, just pass the invocation on
-		return invocation.invokeNext();
+		return invocation.proceed();
 	}
 
 }

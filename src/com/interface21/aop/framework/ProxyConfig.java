@@ -7,8 +7,8 @@ package com.interface21.aop.framework;
 
 import java.util.List;
 
-import org.aopalliance.AttributeRegistry;
-import org.aopalliance.Interceptor;
+import org.aopalliance.intercept.AttributeRegistry;
+import org.aopalliance.intercept.Interceptor;
 
 /**
  * Interface to be implemented by classes that hold the configuration
@@ -16,7 +16,7 @@ import org.aopalliance.Interceptor;
  * the interceptors and pointcuts, and the proxied interfaces.
  * @author Rod Johnson
  * @since 13-Mar-2003
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public interface ProxyConfig {
 	

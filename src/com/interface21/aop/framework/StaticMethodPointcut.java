@@ -7,7 +7,7 @@ package com.interface21.aop.framework;
 
 import java.lang.reflect.Method;
 
-import org.aopalliance.AttributeRegistry;
+import org.aopalliance.intercept.AttributeRegistry;
 
 /**
  * Interface to be implemented by objects that can cause
@@ -21,7 +21,7 @@ import org.aopalliance.AttributeRegistry;
  * a regular expression or the like may need to be evaluated only once.
  * @author Rod Johnson
  * @since 03-Apr-2003
- * @version $Id: StaticMethodPointcut.java,v 1.1 2003/07/20 08:48:41 johnsonr Exp $
+ * @version $Id: StaticMethodPointcut.java,v 1.2 2003/07/23 18:44:23 johnsonr Exp $
  */
 public interface StaticMethodPointcut extends MethodPointcut {
 

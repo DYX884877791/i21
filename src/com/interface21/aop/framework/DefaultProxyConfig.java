@@ -11,10 +11,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import org.aopalliance.AttributeRegistry;
-import org.aopalliance.Interceptor;
-import org.aopalliance.MethodInterceptor;
-import org.aopalliance.ProxyInterceptor;
+import org.aopalliance.intercept.AttributeRegistry;
+import org.aopalliance.intercept.Interceptor;
+import org.aopalliance.intercept.MethodInterceptor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -35,7 +34,7 @@ import com.interface21.beans.factory.InitializingBean;
  * and pointcuts, but doesn't actually create AOP proxies.
  *
  * @author Rod Johnson
- * @version $Id: DefaultProxyConfig.java,v 1.11 2003/07/23 12:21:16 jhoeller Exp $
+ * @version $Id: DefaultProxyConfig.java,v 1.12 2003/07/23 18:44:23 johnsonr Exp $
  */
 public class DefaultProxyConfig implements ProxyConfig, InitializingBean {
 

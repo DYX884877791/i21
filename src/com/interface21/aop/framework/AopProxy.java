@@ -34,7 +34,7 @@ import org.apache.commons.logging.LogFactory;
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
- * @version $Id: AopProxy.java,v 1.9 2003/07/23 12:21:16 jhoeller Exp $
+ * @version $Id: AopProxy.java,v 1.10 2003/07/23 18:44:23 johnsonr Exp $
  * @see java.lang.reflect.Proxy
  * @see net.sf.cglib.Enhancer
  */
@@ -98,8 +98,8 @@ public class AopProxy implements InvocationHandler {
 				return invocation.getMethod().invoke(this, invocation.getArguments());
 			}
 			
-			Object retVal = invocation.invokeNext();
-			if (retVal != null && retVal == invocation.getInvokedObject()) {
+			Object retVal = invocation.proceed();
+			if (retVal != null && retVal == invocation.getThis()) {
 				// Special case: it returned this
 				// Note that we can't help if the target sets
 				// a reference to itself in another returned object

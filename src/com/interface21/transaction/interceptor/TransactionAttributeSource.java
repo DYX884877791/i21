@@ -5,7 +5,7 @@
  
 package com.interface21.transaction.interceptor;
 
-import org.aopalliance.MethodInvocation;
+import org.aopalliance.intercept.MethodInvocation;
 
 import com.interface21.transaction.interceptor.TransactionAttribute;
 
@@ -15,7 +15,7 @@ import com.interface21.transaction.interceptor.TransactionAttribute;
  * metadata attributes at source level (the default) or anywhere else.
  * @author Rod Johnson
  * @since 15-Apr-2003
- * @version $Id: TransactionAttributeSource.java,v 1.1 2003/06/13 13:40:39 jhoeller Exp $
+ * @version $Id: TransactionAttributeSource.java,v 1.2 2003/07/23 18:45:47 johnsonr Exp $
  */
 public interface TransactionAttributeSource {
 

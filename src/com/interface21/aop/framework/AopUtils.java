@@ -4,22 +4,12 @@ package com.interface21.aop.framework;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.aopalliance.Invocation;
-
 /**
  * Utility methods used by the AOP framework.
  * @author Rod Johnson
- * @version $Id: AopUtils.java,v 1.3 2003/05/15 17:16:55 johnsonr Exp $
+ * @version $Id: AopUtils.java,v 1.4 2003/07/23 18:44:23 johnsonr Exp $
  */
 public class AopUtils {
-	
-	/**
-	 * Return arguments
-	 */
-	public static Object[] getArguments(Invocation invocation) {
-		// TODO make portable
-		return ((MethodInvocationImpl) invocation).getArguments();
-	}
 
 	/**
 	 * Get all implemented interfaces, even those implemented by superclasses.
