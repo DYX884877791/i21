@@ -24,7 +24,7 @@ import org.apache.log4j.Logger;
  * Example
  * <code>
  * create table tab (id int unsigned not null primary key, text varchar(100));
- * create table tab_sequence (seq int unsigned not null primary key);
+ * create table tab_sequence (seq int unsigned not null auto_increment primary key);
  * insert into tab_sequence values(0);
  * </code>
  * </p>
@@ -34,7 +34,7 @@ import org.apache.log4j.Logger;
  * </p>
  * @author <a href="mailto:isabelle@meta-logix.com">Isabelle Muszynski</a>
  * @author <a href="mailto:jp.pawlak@tiscali.fr">Jean-Pierre Pawlak</a>
- * @version $Id: MySQLMaxValueIncrementer.java,v 1.10 2003/05/25 16:16:33 isabellem Exp $
+ * @version $Id: MySQLMaxValueIncrementer.java,v 1.11 2003/05/25 16:23:49 isabellem Exp $
  */
 
 public class MySQLMaxValueIncrementer
