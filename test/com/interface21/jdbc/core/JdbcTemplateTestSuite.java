@@ -27,7 +27,7 @@ import com.mockobjects.sql.MockConnection;
 /** 
  * Mock object based tests for JdbcTemplate
  * @author Rod Johnson
- * @version $Id: JdbcTemplateTestSuite.java,v 1.9 2003/04/14 04:52:26 beanie42 Exp $
+ * @version $Id: JdbcTemplateTestSuite.java,v 1.10 2003/04/21 19:03:11 isabellem Exp $
  */
 public class JdbcTemplateTestSuite extends TestCase {
 
