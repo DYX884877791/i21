@@ -12,7 +12,7 @@ import java.util.Properties;
  * Bean exposing a map. Used for bean factory tests.
  * @author Rod Johnson
  * @since 05-Jun-2003
- * @version $Id: HasMap.java,v 1.3 2003/06/07 12:25:30 johnsonr Exp $
+ * @version $Id: HasMap.java,v 1.4 2003/06/07 15:58:29 johnsonr Exp $
  */
 public class HasMap {
 	
@@ -23,6 +23,8 @@ public class HasMap {
 	private Object[] objectArray;
 	
 	private Class[] classArray;
+	
+	private Integer[] intArray;
 
 	/**
 	 * @return Map
@@ -82,6 +84,20 @@ public class HasMap {
 	 */
 	public void setClassArray(Class[] classArray) {
 		this.classArray = classArray;
+	}
+
+	/**
+	 * @return
+	 */
+	public Integer[] getIntegerArray() {
+		return intArray;
+	}
+
+	/**
+	 * @param is
+	 */
+	public void setIntegerArray(Integer[] is) {
+		intArray = is;
 	}
 
 }
