@@ -24,7 +24,7 @@ import com.lowagie.text.pdf.PdfWriter;
  * <br>NB: Internet Explorer requires a .pdf extension, as
  * it doesn't always respect the declared content type.
  * <br>Exposes page width and height as bean properties.
- * @version $Id: AbstractPdfView.java,v 1.1 2003/06/25 16:26:50 jhoeller Exp $
+ * @version $Id: AbstractPdfView.java,v 1.2 2003/07/04 20:56:53 pawlakjp Exp $
  * @author Rod Johnson
  */
 public abstract class AbstractPdfView extends AbstractView {
@@ -87,7 +87,7 @@ public abstract class AbstractPdfView extends AbstractView {
 			// **TODO: could expose these preferences as bean properties also
 			writer.setViewerPreferences(PdfWriter.AllowPrinting | PdfWriter.PageLayoutSinglePage);
 			document.open();
-			buildPdfDocument(model, document, request, response);
+			buildPdfDocument(model, document, writer, request, response);
 			document.close();
 
 			response.setContentLength(baos.size());
@@ -107,6 +107,6 @@ public abstract class AbstractPdfView extends AbstractView {
 	 * @param request in case we need locale etc. Shouldn't look at attributes
 	 * @param response in case we need to set cookies. Shouldn't write to it.
 	 */
-	protected abstract void buildPdfDocument(Map model, Document pdfDoc, HttpServletRequest request, HttpServletResponse response) throws DocumentException;
+	protected abstract void buildPdfDocument(Map model, Document pdfDoc, PdfWriter writer, HttpServletRequest request, HttpServletResponse response) throws DocumentException;
 
 }
