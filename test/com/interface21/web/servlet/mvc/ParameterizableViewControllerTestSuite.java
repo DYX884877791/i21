@@ -11,7 +11,7 @@ import com.interface21.web.servlet.mvc.ParameterizableViewController;
 import junit.framework.TestCase;
 
 /**
- * @version $Id: ParameterizableViewControllerTestSuite.java,v 1.2 2003/03/21 14:43:12 jhoeller Exp $
+ * @version $Id: ParameterizableViewControllerTestSuite.java,v 1.3 2003/04/29 16:57:42 jhoeller Exp $
  * @author Rod Johnson
  * @since March 2, 2003
  * 
@@ -46,7 +46,7 @@ public class ParameterizableViewControllerTestSuite extends TestCase {
 		// We don't care about the params
 		ModelAndView mv = pvc.handleRequest(new MockHttpRequest(null, "GET", "foo.html"), null);
 		assertTrue("model has no data", mv.getModel().size() == 0);
-		assertTrue("model has correct viewname", mv.getViewname().equals(viewName));
+		assertTrue("model has correct viewname", mv.getViewName().equals(viewName));
 		
 		assertTrue("getViewName matches", pvc.getViewName().equals(viewName));
 	}
