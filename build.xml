@@ -7,7 +7,7 @@
 
     Rod Johnson, 2002-3.
 
-    $Revision: 1.13 $
+    $Revision: 1.14 $
 
     See page 594 of "Expert One-on-One J2EE" for a description of
     the JAR files produced by this build script, and how
@@ -272,7 +272,6 @@
 			>
 			<src path="${test.dir}"/>
 
-			<exclude name="com/interface21/jdbc/object/**"/>
 			<exclude name="**/jta/**"/>
 
 			<!-- Will pull in dependencies as required  -->
