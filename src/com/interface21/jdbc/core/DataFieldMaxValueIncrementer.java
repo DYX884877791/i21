@@ -11,10 +11,10 @@ import com.interface21.dao.DataAccessException;
  * <li>17/04/2003 : donated to Spring by Dmitriy Kopylenko
  * <li>19/04/2003 : modified by Isabelle Muszynski, added nextDoubleValue
  * <li>09/05/2003 : modified by JPP, added nextLongValue
- * @author <a href="mailto:dkopylenko@acs.rutgers.edu>Dmitriy Kopylenko</a>
- * @author <a href="mailto:isabelle@meta-logix.com">Isabelle Muszynski</a>
- * @author <a href="mailto:jp.pawlak@tiscali.fr">Jean-Pierre Pawlak</a>
- * @version $Id: DataFieldMaxValueIncrementer.java,v 1.5 2003/05/10 10:34:17 pawlakjp Exp $
+ * @author Dmitriy Kopylenko
+ * @author Isabelle Muszynski
+ * @author Jean-Pierre Pawlak
+ * @version $Id: DataFieldMaxValueIncrementer.java,v 1.6 2003/06/10 17:50:26 dkopylenko Exp $
  */
 public interface DataFieldMaxValueIncrementer {
 	

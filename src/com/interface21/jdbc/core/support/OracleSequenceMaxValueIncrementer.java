@@ -12,11 +12,11 @@ import com.interface21.jdbc.object.SqlFunction;
  * Class to retrieve the next value of a given Oracle SEQUENCE 
  * If the cacheSize is set then we will retrive that number of values from sequence and
 *  then serve the intermediate values without querying the database
- * @author <a href="mailto:dkopylenko@acs.rutgers.edu>Dmitriy Kopylenko</a>
- * @author <a href="mailto:isabelle@meta-logix.com">Isabelle Muszynski</a>
- * @author <a href="mailto:jp.pawlak@tiscali.fr">Jean-Pierre Pawlak</a>
+ * @author Dmitriy Kopylenko
+ * @author Isabelle Muszynski
+ * @author Jean-Pierre Pawlak
  * @author Thomas Risberg
- * @version $Id: OracleSequenceMaxValueIncrementer.java,v 1.9 2003/05/31 21:24:50 trisberg Exp $
+ * @version $Id: OracleSequenceMaxValueIncrementer.java,v 1.10 2003/06/10 17:51:03 dkopylenko Exp $
  */
 public class OracleSequenceMaxValueIncrementer
 	extends AbstractDataFieldMaxValueIncrementer

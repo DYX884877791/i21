@@ -11,10 +11,10 @@ import com.interface21.jdbc.core.DataFieldMaxValueIncrementer;
  * <li>17/04/2003 : donated to Spring by Dmitriy Kopylenko
  * <li>19/04/2003 : modified by Isabelle Muszynski, added nextDoubleValue
  * <li>09/05/2003 : modified by JPP, added nextLongValue
- * @author <a href="mailto:dkopylenko@acs.rutgers.edu>Dmitriy Kopylenko</a>
- * @author <a href="mailto:isabelle@meta-logix.com">Isabelle Muszynski</a>
- * @author <a href="mailto:jp.pawlak@tiscali.fr">Jean-Pierre Pawlak</a>
- * @version $Id: AbstractDataFieldMaxValueIncrementer.java,v 1.8 2003/05/10 10:28:30 pawlakjp Exp $
+ * @author Dmitriy Kopylenko
+ * @author Isabelle Muszynski
+ * @author Jean-Pierre Pawlak
+ * @version $Id: AbstractDataFieldMaxValueIncrementer.java,v 1.9 2003/06/10 17:51:03 dkopylenko Exp $
  *
  */
 public abstract class AbstractDataFieldMaxValueIncrementer 
