@@ -27,7 +27,7 @@ import com.interface21.transaction.interceptor.RollbackRuleAttribute;
  * The TransactionAttributeEditor property editor creates objects
  * of this class.
  * @since 09-Apr-2003
- * @version $Id: RuleBasedTransactionAttribute.java,v 1.1 2003/06/13 13:40:38 jhoeller Exp $
+ * @version $Id: RuleBasedTransactionAttribute.java,v 1.2 2003/07/24 08:07:49 jhoeller Exp $
  * @author Rod Johnson
  */
 public class RuleBasedTransactionAttribute extends DefaultTransactionAttribute {
@@ -70,7 +70,6 @@ public class RuleBasedTransactionAttribute extends DefaultTransactionAttribute {
 			if (next instanceof RollbackRuleAttribute) {
 				RollbackRuleAttribute rule = (RollbackRuleAttribute) next;
 				int depth = rule.getDepth(t);
-				//System.out.println("Depth=" + depth + "; deepest=" + deepest + ": checking rule" + rule);
 				if (depth >= 0 && depth < deepest) {
 					deepest = depth;
 					winner = rule;

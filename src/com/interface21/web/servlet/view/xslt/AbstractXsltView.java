@@ -51,7 +51,7 @@ import com.interface21.web.servlet.view.AbstractView;
  * production and isn't threadsafe.
  * root: name of the root element
  * @author  Rod Johnson
- * @version $Id: AbstractXsltView.java,v 1.2 2003/05/11 07:04:04 johnsonr Exp $
+ * @version $Id: AbstractXsltView.java,v 1.3 2003/07/24 08:07:50 jhoeller Exp $
  */
 public abstract class AbstractXsltView extends AbstractView implements ApplicationContextAware {
 
@@ -242,7 +242,6 @@ public abstract class AbstractXsltView extends AbstractView implements Applicati
 		Node dom = null;
 		String docRoot = null;
 
-		//System.out.println("INitializing XML: view with hc=" + hashCode());
 		// Value of a single element in the map, if there is one
 		Object singleModel = null;
 

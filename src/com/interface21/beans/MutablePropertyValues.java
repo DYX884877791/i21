@@ -15,7 +15,7 @@ import com.interface21.util.StringUtils;
  * to support deep copy and construction from a Map.
  * @author Rod Johnson
  * @since 13 May 2001
- * @version $Id: MutablePropertyValues.java,v 1.5 2003/07/15 22:45:57 johnsonr Exp $
+ * @version $Id: MutablePropertyValues.java,v 1.6 2003/07/24 08:07:36 jhoeller Exp $
  */
 public class MutablePropertyValues implements PropertyValues {
 	
@@ -152,12 +152,10 @@ public class MutablePropertyValues implements PropertyValues {
 			// If there wasn't an old one, add it
 			PropertyValue pvOld = old.getPropertyValue(newPv.getName());
 			if (pvOld == null) {
-				//System.out.println("No old pv for " + newPv.getName());
 				changes.addPropertyValue(newPv);
 			}
 			else if (!pvOld.equals(newPv)) {
 				// It's changed
-				//System.out.println("pv changed for " + newPv.getName());
 				changes.addPropertyValue(newPv);
 			}
 		}
