@@ -23,6 +23,7 @@ import javax.sql.DataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.interface21.beans.factory.InitializingBean;
 import com.interface21.dao.DataAccessException;
 import com.interface21.dao.InvalidDataAccessApiUsageException;
 import com.interface21.jdbc.datasource.DataSourceUtils;
@@ -63,12 +64,11 @@ import com.interface21.jdbc.datasource.DataSourceUtils;
  * @author Thomas Risberg
  * @author Isabelle Muszynski
  * @see com.interface21.dao
- * @version $Id: JdbcTemplate.java,v 1.19 2003/05/28 16:39:13 jhoeller Exp $
+ * @version $Id: JdbcTemplate.java,v 1.20 2003/06/06 14:34:43 jhoeller Exp $
  * @since May 3, 2001
  * @see com.interface21.jndi.JndiObjectFactoryBean
- * @see com.interface21.jndi.JndiObjectEditor
  */
-public class JdbcTemplate {
+public class JdbcTemplate implements InitializingBean {
 
 	/**
 	 * Constant for use as a parameter to query methods to force use of a PreparedStatement
@@ -182,6 +182,12 @@ public class JdbcTemplate {
 			this.exceptionTranslater = SQLExceptionTranslaterFactory.getInstance().getDefaultTranslater(this.dataSource);
 		}
 		return this.exceptionTranslater;
+	}
+
+	public void afterPropertiesSet() {
+		if (this.dataSource == null) {
+			throw new IllegalArgumentException("dataSource is required");
+		}
 	}
 
 
