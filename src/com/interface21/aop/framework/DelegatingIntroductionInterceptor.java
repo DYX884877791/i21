@@ -8,7 +8,7 @@ package com.interface21.aop.framework;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.aopalliance.Invocation;
+import org.aopalliance.MethodInvocation;
 import org.apache.log4j.Logger;
 
 /**
@@ -24,7 +24,7 @@ import org.apache.log4j.Logger;
  * by the delegate but which should not be introduced to the owning
  * AOP proxy.
  * @author Rod Johnson
- * @version $Id: DelegatingIntroductionInterceptor.java,v 1.1 2003/05/15 17:16:00 johnsonr Exp $
+ * @version $Id: DelegatingIntroductionInterceptor.java,v 1.2 2003/05/16 17:50:30 johnsonr Exp $
  */
 public class DelegatingIntroductionInterceptor implements IntroductionInterceptor {
 	
@@ -93,7 +93,7 @@ public class DelegatingIntroductionInterceptor implements IntroductionIntercepto
 	/**
 	 * @see com.interface21.aop.Interceptor#invoke(Invocation)
 	 */
-	public final Object invoke(Invocation invocation) throws Throwable {
+	public final Object invoke(MethodInvocation invocation) throws Throwable {
 		
 		// We want this for getArguments() method
 		// This class is not portable outside Spring AOP framework
