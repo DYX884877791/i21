@@ -25,7 +25,7 @@ import com.mockobjects.sql.MockConnection;
 /** 
  * Mock object based tests for JdbcTemplate
  * @author Rod Johnson
- * @version $Id: JdbcTemplateTestSuite.java,v 1.4 2003/03/08 20:44:59 trisberg Exp $
+ * @version $Id: JdbcTemplateTestSuite.java,v 1.5 2003/03/12 01:19:53 trisberg Exp $
  */
 public class JdbcTemplateTestSuite extends TestCase {
 
@@ -822,6 +822,56 @@ public class JdbcTemplateTestSuite extends TestCase {
 		});
 		
 		dsControl.verify();
+	}
+	
+	/**
+	 * Test that we see an SQLException translated using Error Code
+	 */
+	public void testSQLErrorCodeTranslation() throws Exception {
+		
+		final SQLException sex = new SQLException("I have a known problem", "99999", 1054);
+		final String sql = "SELECT ID FROM CUSTOMER";
+		
+		MockControl dsControl = EasyMock.controlFor(DataSource.class);
+		DataSource ds = (DataSource) dsControl.getMock();
+		
+		Object[][] results = new Object[][] {
+			{ new Integer(1) },
+			{ new Integer(2) }
+		};
+		MockControl conControl = EasyMock.controlFor(Connection.class);
+		Connection con = MockConnectionFactory.preparedStatement(sql, null, results, true);
+		MockControl dbmdControl = EasyMock.controlFor(DatabaseMetaData.class);
+		DatabaseMetaData dbmd = (DatabaseMetaData) dbmdControl.getMock();
+
+		dbmd.getDatabaseProductName();
+		dbmdControl.setReturnValue("MySQL");
+		dbmdControl.activate();
+
+		((MockConnection) con).setupMetaData(dbmd);
+
+		ds.getConnection();
+		dsControl.setReturnValue(con);
+		dsControl.activate();
+		
+		JdbcTemplate template = new JdbcTemplate(ds);
+		try {
+			template.query(sql, new RowCallbackHandler() {
+				public void processRow(java.sql.ResultSet rs) throws SQLException {
+					throw sex;
+				}
+			});
+			fail("Should have thrown exception");
+		}
+		catch (BadSqlGrammarException ex) {
+			System.out.println(ex);
+			assertTrue("Wanted same exception back, not " + ex, sex == ex.getRootCause());
+		}	
+		catch (Exception ex) {
+			System.out.println(ex);
+			fail("Should have thrown BadSqlGrammarException exception, not " + ex);
+		}	
+
 	}
 	
 }
