@@ -27,7 +27,7 @@ import com.mockobjects.sql.MockConnection;
 /** 
  * Mock object based tests for JdbcTemplate
  * @author Rod Johnson
- * @version $Id: JdbcTemplateTestSuite.java,v 1.6 2003/03/21 14:43:43 jhoeller Exp $
+ * @version $Id: JdbcTemplateTestSuite.java,v 1.7 2003/03/28 18:28:27 jhoeller Exp $
  */
 public class JdbcTemplateTestSuite extends TestCase {
 
@@ -270,7 +270,7 @@ public class JdbcTemplateTestSuite extends TestCase {
 		dsControl.setReturnValue(con);
 		dsControl.activate();
 		
-		SingleConnectionDataSource scf = new SingleConnectionDataSource(ds.getConnection());
+		SingleConnectionDataSource scf = new SingleConnectionDataSource(ds.getConnection(), false);
 		JdbcTemplate template2 = new JdbcTemplate(scf);
 		RowCountCallbackHandler rcch = new RowCountCallbackHandler();
 		template2.query(sql, rcch);
