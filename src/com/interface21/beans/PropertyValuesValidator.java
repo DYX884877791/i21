@@ -7,12 +7,13 @@ package com.interface21.beans;
  * interface is supplied, it will be invoked by a BeanWrapper implementation's
  * setPropertyValues() method.
  * @author  Rod Johnson
- * @version $Revision: 1.1 $ 
+ * @version $Revision: 1.2 $ 
  */
 public interface PropertyValuesValidator {
 	
 	/** 
-	 * Are these PropertyValues invalid? For example,
+	 * Are these PropertyValues invalid?
+	 * For example,
 	 * are required properties missing? Does the presence of a particular
 	 * property require others to be present? Implementations can
 	 * rely on the contains() method of the PropertyValues interface, but cannot
