@@ -53,7 +53,7 @@ import com.interface21.jdbc.datasource.DataSourceUtils;
  * @author Thomas Risberg
  * @author Isabelle Muszynski
  * @see com.interface21.dao
- * @version $Id: JdbcTemplate.java,v 1.13 2003/05/07 07:21:13 jhoeller Exp $
+ * @version $Id: JdbcTemplate.java,v 1.14 2003/05/12 16:13:50 jhoeller Exp $
  * @since May 3, 2001
  */
 public class JdbcTemplate {
@@ -103,19 +103,8 @@ public class JdbcTemplate {
 	 * This constructor can be used to prepare a JdbcTemplate via a BeanFactory,
 	 * typically setting the DataSource via setDataSourceName.
 	 * @see #setDataSource
-	 * @see #setDataSourceName
 	 */
 	public JdbcTemplate() {
-	}
-
-	/**
-	 * Construct a new JdbcTemplate, given a the name of a DataSource to obtain
-	 * connections from.
-	 * @param dataSourceName name of J2EE DataSource to obtain connections from
-	 * @throws InvalidParameterException when dataSource is null
-	 */
-	public JdbcTemplate(String dataSourceName) throws InvalidParameterException {
-		setDataSourceName(dataSourceName);
 	}
 
 	/**
@@ -131,14 +120,6 @@ public class JdbcTemplate {
 	//-------------------------------------------------------------------------
 	// Configuration properties
 	//-------------------------------------------------------------------------
-
-	/**
-	 * Set the name of the J2EE DataSource to obtain connections from.
-	 * @param dataSourceName name of J2EE DataSource to obtain connections from
-	 */
-	public void setDataSourceName(String dataSourceName) throws InvalidParameterException {
-		setDataSource(DataSourceUtils.getDataSourceFromJndi(dataSourceName));
-	}
 
 	/**
 	 * Set the J2EE DataSource to obtain connections from.
