@@ -3,7 +3,7 @@ package com.interface21.web.servlet.mvc;
 
 import javax.servlet.ServletException;
 
-import servletapi.TestHttpRequest;
+import com.interface21.web.mock.MockHttpRequest;
 
 import com.interface21.web.servlet.ModelAndView;
 import com.interface21.web.servlet.mvc.ParameterizableViewController;
@@ -11,7 +11,7 @@ import com.interface21.web.servlet.mvc.ParameterizableViewController;
 import junit.framework.TestCase;
 
 /**
- * @version $Id: ParameterizableViewControllerTestSuite.java,v 1.1 2003/03/03 22:50:56 johnsonr Exp $
+ * @version $Id: ParameterizableViewControllerTestSuite.java,v 1.2 2003/03/21 14:43:12 jhoeller Exp $
  * @author Rod Johnson
  * @since March 2, 2003
  * 
@@ -44,7 +44,7 @@ public class ParameterizableViewControllerTestSuite extends TestCase {
 		pvc.setViewName(viewName);
 		pvc.afterPropertiesSet();
 		// We don't care about the params
-		ModelAndView mv = pvc.handleRequest(new TestHttpRequest(null, "GET", "foo.html"), null);
+		ModelAndView mv = pvc.handleRequest(new MockHttpRequest(null, "GET", "foo.html"), null);
 		assertTrue("model has no data", mv.getModel().size() == 0);
 		assertTrue("model has correct viewname", mv.getViewname().equals(viewName));
 		

@@ -20,12 +20,14 @@ import com.interface21.dao.CleanupFailureDataAccessException;
 import com.interface21.dao.DataAccessException;
 import com.interface21.dao.DataAccessResourceFailureException;
 import com.interface21.dao.UncategorizedDataAccessException;
+import com.interface21.jdbc.mock.SingleConnectionDataSource;
+
 import com.mockobjects.sql.MockConnection;
 
 /** 
  * Mock object based tests for JdbcTemplate
  * @author Rod Johnson
- * @version $Id: JdbcTemplateTestSuite.java,v 1.5 2003/03/12 01:19:53 trisberg Exp $
+ * @version $Id: JdbcTemplateTestSuite.java,v 1.6 2003/03/21 14:43:43 jhoeller Exp $
  */
 public class JdbcTemplateTestSuite extends TestCase {
 
