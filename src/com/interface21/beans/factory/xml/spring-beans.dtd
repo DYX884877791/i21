@@ -24,7 +24,7 @@
 	As the format is simple, a DTD is sufficient, and there's
 	no need for a schema at this point.
 	
-	$Id: spring-beans.dtd,v 1.4 2003/08/11 19:44:37 johnsonr Exp $
+	$Id: spring-beans.dtd,v 1.5 2003/08/12 18:33:13 jhoeller Exp $
 -->
 
 <!-- 
@@ -35,7 +35,6 @@
 <!ELEMENT beans (
         bean+
 )>
-
 
 <!--
 	Defines a single named bean.
@@ -66,7 +65,14 @@
 -->
 <!ATTLIST bean init-method CDATA #IMPLIED>
 
-<!-- 
+<!--
+	Optional attribute for the name of the custom destroy method to invoke
+	on bean factory shutdown. The method must have no arguments,
+	but may throw any exception. Note: Only invoked on singleton beans!
+-->
+<!ATTLIST bean destroy-method CDATA #IMPLIED>
+
+<!--
 	Is this bean a "singleton" (one shared instance, which will
 	be returned by all calls to getBean() with the id),
 	or a "prototype" (independent instance resulting from each call to
@@ -121,7 +127,6 @@
 	properties to references to other beans.
 -->
 <!ELEMENT value (#PCDATA)>
-
 
 <!-- 
 	References must specify the id of the target bean.

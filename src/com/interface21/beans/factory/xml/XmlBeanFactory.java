@@ -60,7 +60,7 @@ import com.interface21.beans.factory.support.RuntimeBeanReference;
  *
  * @author Rod Johnson
  * @since 15 April 2001
- * @version $Id: XmlBeanFactory.java,v 1.7 2003/07/31 18:43:55 jhoeller Exp $
+ * @version $Id: XmlBeanFactory.java,v 1.8 2003/08/12 18:33:13 jhoeller Exp $
  */
 public class XmlBeanFactory extends ListableBeanFactoryImpl {
 
@@ -99,6 +99,8 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 	private static final String ENTRY_ELEMENT = "entry";
 	
 	private static final String INIT_METHOD_ATTRIBUTE = "init-method";
+
+	private static final String DESTROY_METHOD_ATTRIBUTE = "destroy-method";
 
 	private static final String BEAN_REF_ATTRIBUTE = "bean";
 
@@ -291,7 +293,7 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 	 * Parse a standard bean definition.
 	 */
 	private AbstractBeanDefinition parseBeanDefinition(Element el, String beanName, PropertyValues pvs) {
-		String classname = null;
+		String className = null;
 		boolean singleton = true;
 		if (el.hasAttribute(SINGLETON_ATTRIBUTE)) {
 			// Default is singleton
@@ -300,28 +302,31 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 		}
 		try {
 			if (el.hasAttribute(CLASS_ATTRIBUTE))
-				classname = el.getAttribute(CLASS_ATTRIBUTE);
+				className = el.getAttribute(CLASS_ATTRIBUTE);
 			String parent = null;
 			if (el.hasAttribute(PARENT_ATTRIBUTE))
 				parent = el.getAttribute(PARENT_ATTRIBUTE);
-			if (classname == null && parent == null)
-				throw new FatalBeanException("No classname or parent in bean definition [" + beanName + "]", null);
-			if (classname != null) {
+			if (className == null && parent == null)
+				throw new FatalBeanException("No className or parent in bean definition [" + beanName + "]", null);
+			if (className != null) {
 				ClassLoader cl = Thread.currentThread().getContextClassLoader();
 				String initMethodName = el.getAttribute(INIT_METHOD_ATTRIBUTE);
 				if (initMethodName.equals(""))
 					initMethodName = null;
-				return new RootBeanDefinition(Class.forName(classname, true, cl), pvs, singleton, initMethodName);
+				String destroyMethodName = el.getAttribute(DESTROY_METHOD_ATTRIBUTE);
+				if (destroyMethodName.equals(""))
+					destroyMethodName = null;
+				return new RootBeanDefinition(Class.forName(className, true, cl),
+				                              pvs, singleton, initMethodName, destroyMethodName);
 			}
 			else {
 				return new ChildBeanDefinition(parent, pvs, singleton);
 			}
 		}
 		catch (ClassNotFoundException ex) {
-			throw new FatalBeanException("Error creating bean with name [" + beanName + "]: class '" + classname + "' not found", ex);
+			throw new FatalBeanException("Error creating bean with name [" + beanName + "]: class '" + className + "' not found", ex);
 		}
 	}
-
 
 	/**
 	 * Parse property value subelements of this bean element.
@@ -347,7 +352,6 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 		Object val = getPropertyValue(e);
 		pvs.addPropertyValue(new PropertyValue(propertyName, val));
 	}
-
 
 	/**
 	 * Get the value of a property element. May be a list.
@@ -401,7 +405,6 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 		}
 		throw new BeanDefinitionStoreException("Unknown subelement of <property>: <" + ele.getTagName() + ">", null);
 	}
-
 
 	/**
 	 * Return list of collection.
