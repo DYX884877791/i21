@@ -3,7 +3,7 @@
 <!--
     Build file for the Spring Framework core.
 
-    $Id: build.xml,v 1.20 2003/05/11 15:54:39 johnsonr Exp $
+    $Id: build.xml,v 1.21 2003/05/16 15:17:59 jhoeller Exp $
 
     See page 594 of "Expert One-on-One J2EE" for a description of
     the JAR files produced by this build script, and how
@@ -14,7 +14,7 @@
 
     See build.properties for definition of the properties used in this file.
 
-	Note: Does not need a J2EE RI anymore, due to the libraries in lib/j2ee.
+    Note: Does not need a J2EE RI anymore, due to the libraries in lib/j2ee.
 -->
 
 <project name="spring-core" default="usage" basedir=".">
@@ -69,7 +69,9 @@
 
 		</javac>
 
-		<copy file="${src.dir}/com/interface21/jdbc/core/sql-error-codes.xml" 
+		<rmic base="${build.dir}" classname="com.interface21.remoting.rmi.RemoteInvocationWrapper"/> 
+
+		<copy file="${src.dir}/com/interface21/jdbc/core/sql-error-codes.xml"
 			todir="${build.dir}/com/interface21/jdbc/core" />
 
 	</target>
