@@ -16,7 +16,7 @@ import com.interface21.context.ApplicationContextException;
  * drawing their configuration from XML documents containing bean definitions
  * understood by an XMLBeanFactory.
  * @author Rod Johnson
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  * @see com.interface21.beans.factory.xml.XmlBeanFactory
  */
 public abstract class AbstractXmlApplicationContext extends AbstractApplicationContext  {
@@ -44,9 +44,11 @@ public abstract class AbstractXmlApplicationContext extends AbstractApplicationC
 		try {
 			// Supports remote as well as local URLs
 			is = getInputStreamForBeanFactory();
-			xmlBeanFactory = new XmlBeanFactory(is, getParent());
+			this.xmlBeanFactory = new XmlBeanFactory(getParent());
+			this.xmlBeanFactory.setEntityResolver(new ResourceBaseEntityResolver(this));
+			this.xmlBeanFactory.loadBeanDefinitions(is);
 			if (logger.isInfoEnabled()) {
-				logger.info("BeanFactory for application context: " + xmlBeanFactory);
+				logger.info("BeanFactory for application context: " + this.xmlBeanFactory);
 			}
 		}
 		catch (IOException ex) {
