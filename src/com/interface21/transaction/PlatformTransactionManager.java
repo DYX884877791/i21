@@ -18,7 +18,7 @@ package com.interface21.transaction;
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @since 16-Mar-2003
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  * @see com.interface21.transaction.support.TransactionTemplate
  * @see com.interface21.aop.interceptor.transaction.TransactionInterceptor
  * @see com.interface21.transaction.support.AbstractPlatformTransactionManager
@@ -29,6 +29,11 @@ public interface PlatformTransactionManager {
 
 	/**
 	 * Return a currently active transaction or create a new one.
+	 * Note that parameters like isolation level or timeout will only be applied
+	 * to new transactions, and thus be ignored when participating in active ones.
+	 * Furthermore, they aren't supported by every transaction manager:
+	 * A proper implementation should thrown an exception when custom values
+	 * that it doesn't support are specified.
 	 * @param definition TransactionDefinition instance (can be null for defaults),
 	 * describing propagation behavior, isolation level, timeout etc.
 	 * @return transaction status object representing the new or current transaction
