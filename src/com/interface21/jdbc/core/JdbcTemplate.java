@@ -62,7 +62,7 @@ import com.interface21.jdbc.datasource.DataSourceUtils;
  * @author Thomas Risberg
  * @author Isabelle Muszynski
  * @see com.interface21.dao
- * @version $Id: JdbcTemplate.java,v 1.15 2003/05/22 17:57:24 jhoeller Exp $
+ * @version $Id: JdbcTemplate.java,v 1.16 2003/05/24 20:05:58 dkopylenko Exp $
  * @since May 3, 2001
  * @see com.interface21.jndi.JndiObjectFactoryBean
  * @see com.interface21.jndi.JndiObjectEditor
@@ -472,6 +472,8 @@ public class JdbcTemplate {
 			int[] retvals = new int[pscs.length];
 			for (index = 0; index < retvals.length; index++) {
 				PreparedStatement ps = pscs[index].createPreparedStatement(con);
+				if(logger.isInfoEnabled())
+					logger.info("Executing SQL update using PreparedStatement: [" + pscs[index] + "]");
 				retvals[index] = ps.executeUpdate();
 				if (logger.isInfoEnabled())
 					logger.info("JDBCTemplate: update affected " + retvals[index] + " rows");
