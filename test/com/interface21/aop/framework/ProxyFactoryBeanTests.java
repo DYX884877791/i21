@@ -33,7 +33,7 @@ import junit.framework.TestCase;
  * implementation.
  * @author Rod Johnson
  * @since 13-Mar-2003
- * @version $Id: ProxyFactoryBeanTests.java,v 1.3 2003/04/08 20:28:27 johnsonr Exp $
+ * @version $Id: ProxyFactoryBeanTests.java,v 1.4 2003/05/15 17:14:02 johnsonr Exp $
  */
 public class ProxyFactoryBeanTests extends TestCase {
 	
@@ -131,7 +131,7 @@ public class ProxyFactoryBeanTests extends TestCase {
 		
 		ProxyFactoryBean config = (ProxyFactoryBean) factory.getBean("&test2");
 		long time = 666L;
-		TimestampAspectInterceptor ti = new TimestampAspectInterceptor();
+		TimestampIntroductionInterceptor ti = new TimestampIntroductionInterceptor();
 		ti.setTime(time);
 		// add to front of queue
 		int oldCount = config.getMethodPointcuts().size();
@@ -294,8 +294,8 @@ public class ProxyFactoryBeanTests extends TestCase {
 	 * global interceptors can add aspect interfaces.
 	 * NB: Add only via global interceptors in XML file.
 	 */
-	public static class GlobalAspectInterfaceInterceptor implements AspectInterfaceInterceptor {
-		public Class[] getAspectInterfaces() {
+	public static class GlobalAspectInterfaceInterceptor implements IntroductionInterceptor {
+		public Class[] getIntroducedInterfaces() {
 			return new Class[] { AddedGlobalInterface.class};
 		}
 		public Object invoke(Invocation invocation) throws Throwable {
