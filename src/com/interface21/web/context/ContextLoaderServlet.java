@@ -42,8 +42,8 @@ import com.interface21.context.ApplicationContextException;
  * - or you can stick to the implicit context initialization provided by FrameworkServlet.
  * (Obviously, the latter is not applicable if you do not use any FrameworkServlets.)
  *
- * @author Rod Johnson, Juergen Hoeller
- * @version $Id: ContextLoaderServlet.java,v 1.4 2003/04/18 15:17:14 jhoeller Exp $
+ * @author Juergen Hoeller
+ * @version $Id: ContextLoaderServlet.java,v 1.5 2003/05/06 16:50:10 jhoeller Exp $
  */
 public class ContextLoaderServlet extends HttpServlet {
 
