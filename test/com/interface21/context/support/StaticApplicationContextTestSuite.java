@@ -18,7 +18,7 @@ import com.interface21.context.BeanThatListens;
  * Classname doesn't match XXXXTestSuite pattern, so as to avoid
  * being invoked by Ant JUnit run, as it's abstract
  * @author Rod Johnson
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class StaticApplicationContextTestSuite extends AbstractApplicationContextTests {
 
@@ -60,7 +60,7 @@ public class StaticApplicationContextTestSuite extends AbstractApplicationContex
 
 	/** Overridden */
 	public void testCount() throws Exception {
-		assertCount(14);
+		assertCount(16);
 	}
 
 	protected void tearDown() {
