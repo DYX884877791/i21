@@ -33,7 +33,7 @@ import com.interface21.jdbc.core.ResultReader;
  *
  * @author Rod Johnson
  * @author Jean-Pierre Pawlak
- * @version $Id: SqlQuery.java,v 1.6 2003/07/24 15:29:39 jhoeller Exp $
+ * @version $Id: SqlQuery.java,v 1.7 2003/07/26 14:26:58 pawlakjp Exp $
  */
 public abstract class SqlQuery extends SqlOperation {
 
@@ -154,7 +154,7 @@ public abstract class SqlQuery extends SqlOperation {
 	 * @param context The contextual information for object creation
 	 */
 	public final List execute(int p1, Map context) throws DataAccessException {
-		return execute(new Object[]{new Integer(p1), context});
+		return execute(new Object[]{new Integer(p1)}, context);
 	}
 
 	/**
