@@ -1,5 +1,5 @@
 /*
- *	$Id: TestBean.java,v 1.2 2003/04/08 20:25:10 johnsonr Exp $
+ *	$Id: TestBean.java,v 1.3 2003/04/29 16:57:09 jhoeller Exp $
  */
 
 package com.interface21.beans;
@@ -13,12 +13,12 @@ package com.interface21.beans;
  */
 public class TestBean implements ITestBean, IOther {
     
-    /** Holds value of property age. */
-    private int age;
-    
-    /** Holds value of property name. */
-    private String name;
-	
+	/** Holds value of property age. */
+	private int age;
+
+	/** Holds value of property name. */
+	private String name;
+
 	private ITestBean spouse;
 	
 	private String touchy;
