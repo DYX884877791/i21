@@ -25,7 +25,7 @@ import com.interface21.web.context.WebApplicationContext;
 /**
  * Utilities common to all WebApplicationContext implementations
  * @author Rod Johnson
- * @version $Id: WebApplicationContextUtils.java,v 1.3 2003/03/07 16:08:10 jhoeller Exp $
+ * @version $Id: WebApplicationContextUtils.java,v 1.4 2003/03/14 18:20:39 jhoeller Exp $
  */
 public abstract class WebApplicationContextUtils {
 
@@ -38,28 +38,13 @@ public abstract class WebApplicationContextUtils {
 
 
 	/**
-	 * Returns if the given ServletContext has a WebApplicationContext attribute.
-	 */
-	public static boolean hasWebApplicationContext(ServletContext servletContext) {
-		return (servletContext.getAttribute(WebApplicationContext.WEB_APPLICATION_CONTEXT_ATTRIBUTE_NAME) != null);
-	}
-
-
-	/**
 	 * Find the root WebApplicationContext for this web app
 	 * @param sc ServletContext of web application to find application ontext for
 	 * @return the WebApplicationContext for this web app
 	 * @throws ServletException if the context object can't be found
 	 */
 	public static WebApplicationContext getWebApplicationContext(ServletContext sc) throws ServletException {
-		WebApplicationContext waca =
-			(WebApplicationContext) sc.getAttribute(WebApplicationContext.WEB_APPLICATION_CONTEXT_ATTRIBUTE_NAME);
-		if (waca == null) {
-			String msg = "No WebApplicationContext found: has ContextLoaderServlet/Listener been set to run on startup?";
-			logger.error(msg);
-			throw new ServletException(msg);
-		}
-		return waca;
+		return (WebApplicationContext) sc.getAttribute(WebApplicationContext.WEB_APPLICATION_CONTEXT_ATTRIBUTE_NAME);
 	}
 	
 
