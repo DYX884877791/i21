@@ -18,11 +18,11 @@ package com.interface21.transaction;
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @since 16-Mar-2003
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  * @see com.interface21.transaction.support.TransactionTemplate
- * @see com.interface21.aop.interceptor.transaction.TransactionInterceptor
+ * @see com.interface21.transaction.interceptor.TransactionInterceptor
  * @see com.interface21.transaction.support.AbstractPlatformTransactionManager
- * @see com.interface21.transaction.datasource.DataSourceTransactionManager
+ * @see com.interface21.jdbc.datasource.DataSourceTransactionManager
  * @see com.interface21.transaction.jta.JtaTransactionManager
  */
 public interface PlatformTransactionManager {
