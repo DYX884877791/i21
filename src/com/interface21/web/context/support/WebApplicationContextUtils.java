@@ -14,7 +14,8 @@ package com.interface21.web.context.support;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import com.interface21.beans.BeansException;
 import com.interface21.context.ApplicationContextException;
@@ -28,14 +29,14 @@ import com.interface21.web.context.WebApplicationContext;
  * context from within Struts actions.
  *
  * @author Rod Johnson
- * @version $Id: WebApplicationContextUtils.java,v 1.5 2003/05/06 16:50:10 jhoeller Exp $
+ * @version $Id: WebApplicationContextUtils.java,v 1.6 2003/05/28 16:39:15 jhoeller Exp $
  */
 public abstract class WebApplicationContextUtils {
 
 	/** Config object prefix in bean names */
 	public static final String CONFIG_OBJECT_PREFIX = "config.";
 
-	private static Logger logger = Logger.getLogger(WebApplicationContextUtils.class);
+	private static Log logger = LogFactory.getLog(WebApplicationContextUtils.class);
 
 	/**
 	 * Find the root WebApplicationContext for this web app.

@@ -20,7 +20,8 @@ import java.sql.Statement;
 
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import com.interface21.dao.DataAccessException;
 import com.interface21.dao.InvalidDataAccessApiUsageException;
@@ -62,7 +63,7 @@ import com.interface21.jdbc.datasource.DataSourceUtils;
  * @author Thomas Risberg
  * @author Isabelle Muszynski
  * @see com.interface21.dao
- * @version $Id: JdbcTemplate.java,v 1.18 2003/05/27 18:04:26 jhoeller Exp $
+ * @version $Id: JdbcTemplate.java,v 1.19 2003/05/28 16:39:13 jhoeller Exp $
  * @since May 3, 2001
  * @see com.interface21.jndi.JndiObjectFactoryBean
  * @see com.interface21.jndi.JndiObjectEditor
@@ -86,7 +87,7 @@ public class JdbcTemplate {
 	// Instance data
 	//-------------------------------------------------------------------------
 
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Log logger = LogFactory.getLog(getClass());
 
 	/**
 	 * Used to obtain connections throughout the lifecycle of this object.

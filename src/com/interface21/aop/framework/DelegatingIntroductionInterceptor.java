@@ -9,7 +9,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.aopalliance.MethodInvocation;
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * All subclasses need to do is extend this and
@@ -24,11 +25,11 @@ import org.apache.log4j.Logger;
  * by the delegate but which should not be introduced to the owning
  * AOP proxy.
  * @author Rod Johnson
- * @version $Id: DelegatingIntroductionInterceptor.java,v 1.2 2003/05/16 17:50:30 johnsonr Exp $
+ * @version $Id: DelegatingIntroductionInterceptor.java,v 1.3 2003/05/28 16:39:11 jhoeller Exp $
  */
 public class DelegatingIntroductionInterceptor implements IntroductionInterceptor {
-	
-	protected final Logger logger = Logger.getLogger(getClass().getName());
+
+	protected final Log logger = LogFactory.getLog(getClass());
 		
 	/** Set of Class */
 	private Set publishedInterfaces = new HashSet();

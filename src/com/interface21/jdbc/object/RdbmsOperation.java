@@ -16,7 +16,8 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import com.interface21.beans.factory.InitializingBean;
 import com.interface21.dao.InvalidDataAccessApiUsageException;
@@ -40,18 +41,15 @@ import com.interface21.jdbc.core.SqlParameter;
  * @see com.interface21.dao
  * @see com.interface21.jdbc.core
  * @author Rod Johnson
- * @version $Id: RdbmsOperation.java,v 1.1 2003/02/11 08:10:24 johnsonr Exp $
+ * @version $Id: RdbmsOperation.java,v 1.2 2003/05/28 16:39:14 jhoeller Exp $
  */
 public abstract class RdbmsOperation implements InitializingBean {
 	
 	//---------------------------------------------------------------------
 	// Instance data
 	//---------------------------------------------------------------------
-	/**
-	* Create a logging category that is available
-	* to subclasses. 
-	*/
-	protected final Logger logger = Logger.getLogger(getClass().getName());
+
+	protected final Log logger = LogFactory.getLog(getClass());
 
 	/**
 	 * DataSource to use to obtain connections.
@@ -79,6 +77,7 @@ public abstract class RdbmsOperation implements InitializingBean {
 	//---------------------------------------------------------------------
 	// Constructors
 	//---------------------------------------------------------------------
+
 	/**
 	 *  Construct a new RdbmsOperation
 	 */
@@ -89,6 +88,7 @@ public abstract class RdbmsOperation implements InitializingBean {
 	//---------------------------------------------------------------------
 	//  Configuration methods
 	//---------------------------------------------------------------------
+
 	/**
 	 * Add anonymous parameters, specifying only their SQL types as defined in the
 	 * java.sql.Types class.
@@ -169,6 +169,7 @@ public abstract class RdbmsOperation implements InitializingBean {
 	//---------------------------------------------------------------------
 	// Implementation of InitializingBean
 	//---------------------------------------------------------------------
+
 	/**
 	 * Ensures compilation if used in a bean factory
 	 * @see InitializingBean#afterPropertiesSet()
@@ -181,6 +182,7 @@ public abstract class RdbmsOperation implements InitializingBean {
 	//---------------------------------------------------------------------
 	// Other methods
 	//---------------------------------------------------------------------
+
 	/**
 	 * Is this operation "compiled"? Compilation, as in JDO,
 	 * means that the operation is fully configured, and ready to use.
@@ -209,7 +211,7 @@ public abstract class RdbmsOperation implements InitializingBean {
 			this.compiled = true;
 			logger.info("Compiled OK");
 		}
-	}	// compile
+	}
 	
 	
 	/**
@@ -229,7 +231,7 @@ public abstract class RdbmsOperation implements InitializingBean {
 	 * Subclasses should invoke this method before every execute() or update()
 	 * method.
 	 * @param parameters parameters supplied. May be null.
-	 * @throws RdbmsOperationException if the parameters are invalid
+	 * @throws InvalidDataAccessApiUsageException if the parameters are invalid
 	 */
 	protected final void validateParameters(Object[] parameters) throws InvalidDataAccessApiUsageException {
 		if (!compiled)
@@ -246,6 +248,6 @@ public abstract class RdbmsOperation implements InitializingBean {
 			if (!declaredParameters.isEmpty())
 				throw new InvalidDataAccessApiUsageException(declaredParameters.size() + " parameters must be supplied");
 		}
-	}	// validateParameters
+	}
 
-}	// RdbmsOperation
+}

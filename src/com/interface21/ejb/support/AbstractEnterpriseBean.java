@@ -7,7 +7,8 @@ package com.interface21.ejb.support;
 
 import javax.ejb.EnterpriseBean;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 /** 
@@ -22,18 +23,13 @@ import org.apache.log4j.Logger;
  * a bean factory) this class no longer creates a BeanFactory.
  * @see JndiEnvironmentBeanFactory
  * @author Rod Johnson
- * @version $Id: AbstractEnterpriseBean.java,v 1.2 2003/05/10 07:50:16 johnsonr Exp $
+ * @version $Id: AbstractEnterpriseBean.java,v 1.3 2003/05/28 16:39:13 jhoeller Exp $
  */
 public abstract class AbstractEnterpriseBean implements EnterpriseBean {
 	
-	
-	//-------------------------------------------------------------------------
-	// Instance data
-	//-------------------------------------------------------------------------
 	/**
 	 * Logger, available to subclasses
 	 */
-	protected final Logger logger = Logger.getLogger(getClass().getName());
-	
-	
-} 	// class AbstractEnterpriseBean
+	protected final Log logger = LogFactory.getLog(getClass());
+
+}

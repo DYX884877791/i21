@@ -10,7 +10,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import com.interface21.beans.BeanWrapper;
 import com.interface21.beans.BeanWrapperImpl;
@@ -39,7 +40,7 @@ import com.interface21.beans.factory.NoSuchBeanDefinitionException;
  * FactoryBean dereferencing, and management of collection properties.
  * @author  Rod Johnson
  * @since 15 April 2001
- * @version $Id: AbstractBeanFactory.java,v 1.14 2003/05/28 08:15:48 johnsonr Exp $
+ * @version $Id: AbstractBeanFactory.java,v 1.15 2003/05/28 16:39:12 jhoeller Exp $
  */
 public abstract class AbstractBeanFactory implements BeanFactory {
 
@@ -64,7 +65,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	private Map sharedInstanceCache = new HashMap();
 
 	/** Logger available to subclasses */
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Log logger = LogFactory.getLog(getClass());
 
 	/** name of default parent bean */
 	protected String defaultParentBean;

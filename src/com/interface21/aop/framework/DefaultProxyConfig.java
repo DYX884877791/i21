@@ -16,7 +16,8 @@ import org.aopalliance.AttributeRegistry;
 import org.aopalliance.Interceptor;
 import org.aopalliance.MethodInterceptor;
 import org.aopalliance.ProxyInterceptor;
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import com.interface21.beans.factory.InitializingBean;
 
@@ -33,13 +34,13 @@ import com.interface21.beans.factory.InitializingBean;
 * This class frees subclasses of the housekeeping of interceptors and pointcuts,
 * but doesn't actually create AOP proxies.
 * @author Rod Johnson
-* @version $Id: DefaultProxyConfig.java,v 1.6 2003/05/15 17:17:57 johnsonr Exp $
+* @version $Id: DefaultProxyConfig.java,v 1.7 2003/05/28 16:39:11 jhoeller Exp $
 */
 public class DefaultProxyConfig implements ProxyConfig, InitializingBean {
 
-	private AttributeRegistry attributeRegistry;
+	protected final Log logger = LogFactory.getLog(getClass());
 
-	protected final Logger logger = Logger.getLogger(getClass().getName());
+	private AttributeRegistry attributeRegistry;
 
 	/** List of MethodPointcut */
 	private List pointcuts = new LinkedList();

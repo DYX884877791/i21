@@ -6,7 +6,6 @@
 package com.interface21.aop.attributes;
 
 import java.lang.reflect.AccessibleObject;
-import java.lang.reflect.Method;
 
 import org.aopalliance.AttributeRegistry;
 
@@ -15,7 +14,7 @@ import org.aopalliance.AttributeRegistry;
 /**
  * @author Rod Johnson
  * @since 13-Mar-2003
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class Attrib4jAttributeRegistry implements AttributeRegistry {
 
