@@ -8,7 +8,8 @@ package com.interface21.aop.attributes;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 
-import org.aopalliance.AttributeRegistry;
+import org.aopalliance.intercept.AttributeRegistry;
+
 
 import junit.framework.TestCase;
 
@@ -19,7 +20,7 @@ import com.interface21.beans.factory.xml.XmlBeanFactory;
  * 
  * @author Rod Johnson
  * @since 15-Jul-2003
- * @version $Id: WildcardAttributeRegistryTests.java,v 1.1 2003/07/20 08:38:23 johnsonr Exp $
+ * @version $Id: WildcardAttributeRegistryTests.java,v 1.2 2003/07/23 21:32:06 johnsonr Exp $
  */
 public class WildcardAttributeRegistryTests extends TestCase {
 	

@@ -10,14 +10,14 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
 
-import org.aopalliance.AspectException;
-import org.aopalliance.AttributeRegistry;
+import org.aopalliance.intercept.AspectException;
+import org.aopalliance.intercept.AttributeRegistry;
 
 /**
  * 
  * @author Rod Johnson
  * @since 15-Jul-2003
- * @version $Id: WildcardAttributeRegistry.java,v 1.1 2003/07/20 08:38:23 johnsonr Exp $
+ * @version $Id: WildcardAttributeRegistry.java,v 1.2 2003/07/23 21:32:06 johnsonr Exp $
  */
 public class WildcardAttributeRegistry implements AttributeRegistry {
 

@@ -9,13 +9,13 @@ import java.lang.reflect.AccessibleObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.aopalliance.AttributeRegistry;
+import org.aopalliance.intercept.AttributeRegistry;
 
 /**
  * 
  * @author Rod Johnson
  * @since 19-May-2003
- * @version $Id: MapAttributeRegistry.java,v 1.1 2003/05/19 13:00:28 johnsonr Exp $
+ * @version $Id: MapAttributeRegistry.java,v 1.2 2003/07/23 21:32:06 johnsonr Exp $
  */
 public class MapAttributeRegistry implements AttributeRegistry {
 	
