@@ -15,9 +15,9 @@ import org.aopalliance.MethodInterceptor;
  * Interceptor that should always run.
  * @author Rod Johnson
  * @since 04-Apr-2003
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
-public class AlwaysInvoked implements MethodPointcut {
+public class AlwaysInvoked implements DynamicMethodPointcut {
 
 	private final MethodInterceptor interceptor;
 	

@@ -32,7 +32,7 @@ import com.interface21.core.TimeStamped;
  * implementation.
  * @author Rod Johnson
  * @since 13-Mar-2003
- * @version $Id: ProxyFactoryBeanTests.java,v 1.8 2003/06/13 13:41:01 jhoeller Exp $
+ * @version $Id: ProxyFactoryBeanTests.java,v 1.9 2003/07/20 08:41:44 johnsonr Exp $
  */
 public class ProxyFactoryBeanTests extends TestCase {
 	
@@ -255,7 +255,7 @@ public class ProxyFactoryBeanTests extends TestCase {
 	/**
 	 * Fires only on void methods. Saves list of methods intercepted.
 	 */
-	public static class PointcutForVoid implements MethodPointcut {
+	public static class PointcutForVoid implements DynamicMethodPointcut {
 		
 		public static List methodNames = new LinkedList();
 		

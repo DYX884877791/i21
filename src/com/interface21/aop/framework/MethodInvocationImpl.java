@@ -22,7 +22,7 @@ import org.aopalliance.MethodInvocation;
 /**
  * Spring implementation of AOP Alliance MethodInvocation interface 
  * @author Rod Johnson
- * @version $Id: MethodInvocationImpl.java,v 1.4 2003/06/18 19:10:39 johnsonr Exp $
+ * @version $Id: MethodInvocationImpl.java,v 1.5 2003/07/20 08:41:46 johnsonr Exp $
  */
 public class MethodInvocationImpl implements MethodInvocation {
 	
@@ -87,7 +87,7 @@ public class MethodInvocationImpl implements MethodInvocation {
 		// TODO make more efficient. Could just hold indices in an int array
 		this.interceptors = new LinkedList();
 		for (Iterator iter = pointcuts.iterator(); iter.hasNext();) {
-			MethodPointcut pc = (MethodPointcut) iter.next();
+			DynamicMethodPointcut pc = (DynamicMethodPointcut) iter.next();
 			if (pc.applies(m, arguments, attributeRegistry)) {
 				this.interceptors.add(pc.getInterceptor());
 			}
