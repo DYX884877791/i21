@@ -1,5 +1,5 @@
 /*
- *	$Id: TestBean.java,v 1.3 2003/04/29 16:57:09 jhoeller Exp $
+ *	$Id: TestBean.java,v 1.4 2003/05/21 16:35:14 jhoeller Exp $
  */
 
 package com.interface21.beans;
@@ -73,7 +73,7 @@ public class TestBean implements ITestBean, IOther {
     
     public String toString() {
         String s = "name=" + name + "; age=" + age + "; touchy=" + touchy;
-		s += "; spouse={" + (spouse != null ? spouse : null) + "}";
+		s += "; spouse={" + (spouse != null ? spouse.getName() : null) + "}";
 		return s;
     }
 	
