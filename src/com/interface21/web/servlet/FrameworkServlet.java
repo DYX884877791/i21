@@ -46,7 +46,7 @@ import com.interface21.web.context.support.XmlWebApplicationContext;
  * onto it. Subclasses can override initFrameworkServlet() for custom initialization.
   *
  * @author Rod Johnson
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  * @see #doService
  * @see #initFrameworkServlet
  */
@@ -144,15 +144,13 @@ public abstract class FrameworkServlet extends HttpServletBean {
 	}
 
 	/**
-	 * Set the a custom context class name
-	 * @param classname name of custom context class to use
-	 * This class be of type WebApplicationContext, and must
-	 * implement a constructor taking two arguments:
-	 * a parent WebApplicationContext (the root), and
-	 * the current namespace
+	 * Set a custom context class name. This class must be of type WebApplicationContext,
+	 * and must implement a constructor taking two arguments: a parent WebApplicationContext
+	 * (the root), and the current namespace as String.
+	 * @param className name of custom context class to use
 	 */
-	public final void setContextClass(String classname) {
-		this.contextClass = classname;
+	public final void setContextClass(String className) {
+		this.contextClass = className;
 	}
 
 	/**
