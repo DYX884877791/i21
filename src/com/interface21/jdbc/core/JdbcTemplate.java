@@ -52,7 +52,7 @@ import com.interface21.dao.InvalidDataAccessApiUsageException;
  * @author Thomas Risberg
  * @author Isabelle Muszynski
  * @see com.interface21.dao
- * @version $Id: JdbcTemplate.java,v 1.10 2003/04/24 14:09:57 johnsonr Exp $
+ * @version $Id: JdbcTemplate.java,v 1.11 2003/04/24 16:30:11 isabellem Exp $
  * @since May 3, 2001
  */
 public class JdbcTemplate {
@@ -485,7 +485,7 @@ public class JdbcTemplate {
 	    for (index = 0; index < retvals.length; index++) {
 		retvals[index] = new InsertRetval();
 		PreparedStatement ps = pscs[index].createPreparedStatement(con);
-		binder.Bind(ps, retvals[index].key = keygen.nextValue(keyClass));
+		binder.bind(ps, retvals[index].key = keygen.nextValue(keyClass));
 		retvals[index].rowsAffected = ps.executeUpdate();
 		if (logger.isInfoEnabled())
 		    logger.info("JDBCTemplate: update affected " + retvals[index] + " rows");
