@@ -44,7 +44,7 @@ import com.interface21.util.ThreadObjectManager;
  * You can even replace the definition of the FactoryBean with a non-JNDI
  * DriverManagerDataSource!
  *
- * @version $Id: DataSourceUtils.java,v 1.11 2003/05/28 11:21:36 jhoeller Exp $
+ * @version $Id: DataSourceUtils.java,v 1.12 2003/05/30 17:32:18 jhoeller Exp $
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @see com.interface21.transaction.datasource.DataSourceTransactionManager
@@ -72,6 +72,18 @@ public abstract class DataSourceUtils {
 	 */
 	public static ThreadObjectManager getThreadObjectManager() {
 		return threadObjectManager;
+	}
+
+	/**
+	 * Return if the given Connection is bound to the current thread,
+	 * for the given DataSource.
+	 * @param con JDBC Connection that should be checked
+	 * @param ds DataSource that the Connection was created with
+	 * @return if the Connection is bound for the DataSource
+	 */
+	public static boolean isConnectionBoundToThread(Connection con, DataSource ds) {
+		ConnectionHolder holder = (ConnectionHolder) getThreadObjectManager().getThreadObject(ds);
+		return (holder != null && con == holder.getConnection());
 	}
 
 	/**
@@ -149,9 +161,7 @@ public abstract class DataSourceUtils {
 	public static void closeConnectionIfNecessary(Connection con, DataSource ds) throws CannotCloseJdbcConnectionException {
 		if (con == null)
 			return;
-		// only close if it isn't thread-bound
-		ConnectionHolder holder = (ConnectionHolder) getThreadObjectManager().getThreadObject(ds);
-		if (holder == null || con != holder.getConnection()) {
+		if (!isConnectionBoundToThread(con, ds)) {
 			boolean shouldClose = true;
 			// leave the connection open only if the DataSource is our
 			// special data source, and it wants the connection left open
