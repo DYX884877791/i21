@@ -57,7 +57,7 @@ import com.interface21.beans.factory.support.RuntimeBeanReference;
  *
  * @author Rod Johnson
  * @since 15 April 2001
- * @version $Id: XmlBeanFactory.java,v 1.4 2003/07/19 19:09:57 johnsonr Exp $
+ * @version $Id: XmlBeanFactory.java,v 1.5 2003/07/26 14:04:35 johnsonr Exp $
  */
 public class XmlBeanFactory extends ListableBeanFactoryImpl {
 
@@ -235,10 +235,11 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 	}
 
 	/**
-	 * Parse an element definition: wW know this is a BEAN element.
+	 * Parse an element definition: We know this is a BEAN element.
 	 */
 	private void loadBeanDefinition(Element el) throws BeansException {
-		String id = getBeanId(el);
+		// The DTD guarantees an id attribute is present
+		String id = el.getAttribute(ID_ATTRIBUTE);
 		logger.debug("Parsing bean definition with id '" + id + "'");
 
 		// Create BeanDefinition now: we'll build up PropertyValues later
@@ -317,15 +318,6 @@ public class XmlBeanFactory extends ListableBeanFactoryImpl {
 		pvs.addPropertyValue(new PropertyValue(propertyName, val));
 	}
 
-	private String getBeanId(Element e) throws BeanDefinitionStoreException {
-		if (!e.getTagName().equals(BEAN_ELEMENT))
-			throw new FatalBeanException("Internal error: trying to treat element with tagname <"
-			                             + e.getTagName() + "> as a <bean> element");
-		String propertyName = e.getAttribute(ID_ATTRIBUTE);
-		if (propertyName == null || "".equals(propertyName))
-			throw new BeanDefinitionStoreException("Bean without id attribute", null);
-		return propertyName;
-	}
 
 	/**
 	 * Get the value of a property element. May be a list.
