@@ -18,7 +18,7 @@ import com.interface21.beans.factory.support.AbstractFactoryBean;
  * factories get this lifecycle callback if they want.
  * @author Rod Johnson
  * @since 10-Mar-2003
- * version $Id: DummyFactory.java,v 1.1 2003/03/10 07:45:40 johnsonr Exp $
+ * version $Id: DummyFactory.java,v 1.2 2003/07/21 14:58:33 jhoeller Exp $
  */
 public class DummyFactory extends AbstractFactoryBean implements InitializingBean {
 	
@@ -27,13 +27,16 @@ public class DummyFactory extends AbstractFactoryBean implements InitializingBea
 	private boolean isInitialized;
 	
 	private TestBean testBean;
-	
+
 	public DummyFactory() {
 		this.testBean = new TestBean();
 		this.testBean.setName(SINGLETON_NAME);
 		this.testBean.setAge(25);
 	}
-	
+
+	public void setOtherFactory(TestBean tb) {
+	}
+
 	public void afterPropertiesSet() {
 		if (isInitialized)
 			throw new RuntimeException("Cannot call afterPropertiesSet twice on the one bean");
